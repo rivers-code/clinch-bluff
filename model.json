@@ -23,7 +23,7 @@
     "key": "river",
     "name": "Riverfront",
     "count": 6,
-    "price": 1100000,
+    "price": 1200000,
     "acres": 2.5,
     "delay": 0
    },
@@ -196,6 +196,6 @@
   }
  },
  "active": "base",
- "edited": false,
- "savedAt": "2026-10-24T20:25:57.570Z"
+ "edited": true,
+ "savedAt": "2026-10-24T20:29:08.208Z"
 }
