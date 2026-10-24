@@ -1099,14 +1099,14 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
   let active = 'base', edited = false;
   let S = E.clone(D.scenarios.base);
   // live: the copy saved for everyone; liveAt: the saved copy this browser's edits started from.
-  let live = null, liveLoaded = false, liveAt = null, localMine = false, stash = null, liveNote = '', noteTimer = null;
+  let live = null, liveLoaded = false, liveAt = null, localMine = false, knownLive = null, stash = null, liveNote = '', noteTimer = null;
   try {
     const saved = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
-    if (saved && saved.state && saved.v === D.version) { S = saved.state; active = saved.active || 'base'; edited = !!saved.edited; liveAt = saved.liveAt || null; localMine = saved.mine !== false; }
+    if (saved && saved.state && saved.v === D.version) { S = saved.state; active = saved.active || 'base'; edited = !!saved.edited; liveAt = saved.liveAt || null; localMine = saved.mine !== false; knownLive = saved.live || null; }
   } catch (e) { /* storage unavailable */ }
   const persist = () => {
     const mine = !live || JSON.stringify(S) !== JSON.stringify(live.state);
-    try { localStorage.setItem(LS_KEY, JSON.stringify({ v: D.version, state: S, active, edited, liveAt, mine })); } catch (e) { }
+    try { localStorage.setItem(LS_KEY, JSON.stringify({ v: D.version, state: S, active, edited, liveAt, mine, live })); } catch (e) { }
     updateLiveBar();
   };
 
@@ -1309,8 +1309,10 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
   const headers = key => Object.assign({ Accept: 'application/vnd.github+json' }, key ? { Authorization: 'Bearer ' + key } : {});
 
   async function fetchLive(key) {
-    let r = await fetch(`${API}?ref=${BRANCH}`, { headers: headers(key), cache: 'no-store' });
-    if (r.status === 401 && key) r = await fetch(`${API}?ref=${BRANCH}`, { headers: headers(''), cache: 'no-store' });
+    // The time stamp skips GitHub's 60-second shared cache, so a save shows up on the next page load.
+    const url = () => `${API}?ref=${BRANCH}&t=${Date.now()}`;
+    let r = await fetch(url(), { headers: headers(key), cache: 'no-store' });
+    if (r.status === 401 && key) r = await fetch(url(), { headers: headers(''), cache: 'no-store' });
     if (r.status === 404) return { rec: null, sha: null };
     if (r.ok) { const j = await r.json(); return { rec: JSON.parse(unb64(j.content)), sha: j.sha }; }
     // GitHub's API limits anonymous reads per hour; the raw file is a few minutes behind but always readable.
@@ -1329,7 +1331,9 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
     try { got = await fetchLive(editorKey()); }
     catch (e) { liveLoaded = true; flash('The saved model could not be loaded, so this shows the numbers last used in this browser.'); return; }
     liveLoaded = true;
-    live = got.rec && got.rec.v === D.version && got.rec.state ? got.rec : null;
+    const fetched = got.rec && got.rec.v === D.version && got.rec.state ? got.rec : null;
+    // A copy older than one this browser already saw is a stale cache; keep the newer one.
+    live = knownLive && knownLive.state && (!fetched || knownLive.savedAt > fetched.savedAt) ? knownLive : fetched;
     if (!live) { updateLiveBar(); return; }
     const same = JSON.stringify(S) === JSON.stringify(live.state);
     if (!same && !(localMine && liveAt === live.savedAt)) {
@@ -1346,7 +1350,7 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
     if (!key) { $('#key-box').hidden = false; $('#key-in').focus(); return; }
     const btn = $('#live-save'); btn.disabled = true; flash('Saving…', true);
     try {
-      const cur = await fetch(`${API}?ref=${BRANCH}`, { headers: headers(key), cache: 'no-store' });
+      const cur = await fetch(`${API}?ref=${BRANCH}&t=${Date.now()}`, { headers: headers(key), cache: 'no-store' });
       if (cur.status === 401) throw new Error('key');
       let sha;
       if (cur.ok) {
