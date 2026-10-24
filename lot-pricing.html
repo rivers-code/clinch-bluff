@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Clinch Bluff Lot Pricing</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="What finished homesites at Clinch Bluff can sell for, by tier, with the comparable sales behind each price.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a prospectus column (68rem) with full-bleed bands; editorial sections above, the working model below.
+   Palette from the land itself: Clinch River slate-green, Copper Ridge copper, limestone mist. */
+:root {
+  --river: #123f3d;        /* primary, deep river slate-green (ui-ux-pro-max real-estate teal, deepened) */
+  --river-2: #1d5c58;
+  --copper: #9a5530;       /* accent, Copper Ridge */
+  --copper-2: #c07a4c;
+  --mist: #f1f4f2;         /* page ground, limestone mist with a green bias */
+  --paper: #ffffff;
+  --ink: #142624;
+  --ink-2: #445855;
+  --ink-3: #6b7d7a;
+  --line: #d9e1de;
+  --line-2: #c4d0cc;
+  --good: #2f7a4f;
+  --warn: #a8701d;
+  --bad: #b03a2e;
+  --tier-river: #2563b5;   /* Riverfront: water blue (dataviz validator: all six checks pass, light) */
+  --tier-view: #16967a;    /* Lake View: lake-teal green */
+  --tier-regular: #b9781f; /* Regular: field gold */
+  --chart-grid: rgba(20, 38, 36, .08);
+  --shadow: 0 1px 2px rgba(18, 63, 61, .06), 0 8px 24px rgba(18, 63, 61, .06);
+  --f-display: "Cinzel", "Trajan Pro", Georgia, serif;           /* wordmark, page title, eyebrows */
+  --f-head: "Cormorant Garamond", "Cormorant", Georgia, serif;   /* section headings */
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;  /* body, UI and every number (tabular) */
+  --f-data: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --r: 10px;
+  --w: 68rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --river: #7cc4bb; --river-2: #a5dad2; --copper: #e09a68; --copper-2: #f0b48a;
+    --mist: #0c1716; --paper: #12201f; --ink: #e6efec; --ink-2: #b2c3bf; --ink-3: #8a9d99;
+    --line: #22312f; --line-2: #2e4240; --good: #6cc392; --warn: #e3b25a; --bad: #ef8a7d;
+    --tier-river: #4f86d9; --tier-view: #1f9e80; --tier-regular: #c4852f;
+    --chart-grid: rgba(230, 239, 236, .08); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --river: #7cc4bb; --river-2: #a5dad2; --copper: #e09a68; --copper-2: #f0b48a;
+  --mist: #0c1716; --paper: #12201f; --ink: #e6efec; --ink-2: #b2c3bf; --ink-3: #8a9d99;
+  --line: #22312f; --line-2: #2e4240; --good: #6cc392; --warn: #e3b25a; --bad: #ef8a7d;
+  --tier-river: #4f86d9; --tier-view: #1f9e80; --tier-regular: #c4852f;
+  --chart-grid: rgba(230, 239, 236, .08); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { background: var(--mist); color: var(--ink); font-family: var(--f-body); font-size: 16.5px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+a { color: var(--river-2); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: var(--w); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.num, table, input, select, .kpi b { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+/* Top bar */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 18px; min-height: 56px; flex-wrap: wrap; padding-block: 6px; }
+.mark { font-family: var(--f-display); font-weight: 600; letter-spacing: .14em; font-size: 15px; color: var(--river); text-decoration: none; white-space: nowrap; }
+.mark small { display: block; font-family: var(--f-body); letter-spacing: .2em; font-size: 10px; color: var(--copper); font-weight: 600; text-transform: uppercase; }
+.top nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+.top nav a { font-size: 14px; color: var(--ink-2); text-decoration: none; padding: 10px 10px 8px; border-radius: 6px; letter-spacing: .04em; }
+.top nav a:hover { background: var(--mist); color: var(--ink); }
+.top nav a.out { color: var(--copper); font-weight: 600; }
+.theme-btn { border: 1px solid var(--line-2); background: var(--paper); color: var(--ink-2); border-radius: 8px; min-width: 44px; min-height: 40px; cursor: pointer; font: inherit; font-size: 13px; }
+
+/* Type */
+h1, h2, h3 { text-wrap: balance; }
+h1 { font-family: var(--f-display); font-weight: 600; font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.08; letter-spacing: .02em; margin: 0; color: var(--river); }
+h2 { font-family: var(--f-head); font-weight: 600; font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1.1; margin: 0 0 .4em; color: var(--river); letter-spacing: 0; }
+h3 { font-family: var(--f-body); font-weight: 600; font-size: 1.08rem; margin: 0 0 .35em; letter-spacing: .01em; }
+.eyebrow { font-family: var(--f-body); text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 600; color: var(--copper); margin: 0 0 .7em; }
+.lede { font-size: 1.2rem; line-height: 1.55; color: var(--ink-2); max-width: 44rem; }
+p { max-width: 42rem; }
+.muted { color: var(--ink-3); }
+.small { font-size: 14px; }
+
+/* Sections */
+section.band { padding-block: 64px; border-top: 1px solid var(--line); }
+section.band.alt { background: var(--paper); }
+.sec-head { display: grid; gap: 4px; margin-bottom: 28px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 28px; align-items: start; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 20px; align-items: start; }
+.grid2 > *, .grid3 > * { min-width: 0; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; box-shadow: var(--shadow); min-width: 0; }
+.alt .card { background: var(--mist); box-shadow: none; }
+
+/* KPI strip */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.kpi { background: var(--paper); padding: 16px 18px; display: grid; gap: 2px; }
+.kpi span { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-3); font-weight: 600; }
+.kpi b { font-size: 1.55rem; font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
+.kpi em { font-style: normal; font-size: 13px; color: var(--ink-3); }
+.kpi.hero b { color: var(--copper); }
+
+/* Tables */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--paper); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-body); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); background: color-mix(in srgb, var(--mist) 70%, var(--paper)); }
+td.r, th.r { text-align: right; }
+tr.total td { font-weight: 700; border-top: 2px solid var(--line-2); }
+tbody tr:last-child td { border-bottom: 0; }
+
+/* Tier chips */
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 9px 2px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.t-river { color: var(--tier-river); } .t-view { color: var(--tier-view); } .t-regular { color: var(--tier-regular); }
+.pill { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--mist); color: var(--ink-2); }
+.pill.good { color: var(--good); } .pill.warn { color: var(--warn); } .pill.bad { color: var(--bad); }
+
+/* Charts */
+.chart { position: relative; width: 100%; min-height: 260px; }
+.chart canvas { max-width: 100%; }
+.cap { font-size: 13px; color: var(--ink-3); margin-top: 8px; }
+
+/* Footer */
+footer { padding-block: 40px; font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line); }
+
+@media print {
+  @page { size: letter; margin: 0.45in; }
+  body { background: #fff; font-size: 11pt; }
+  .top, .no-print { display: none !important; }
+  section.band { padding-block: 22px; break-inside: auto; }
+  .card, .kpis, .tbl-wrap, figure, .chart { break-inside: avoid; box-shadow: none; }
+  .grid2, .grid3 { display: block; }
+  .grid2 > *, .grid3 > * { margin-bottom: 14px; }
+  a { color: inherit; text-decoration: none; }
+}
+.top nav .soon { font-size: 13px; color: var(--ink-3); padding: 10px; }
+@media print {
+  section.band { break-before: page; }
+  .sec-head, h2, h3 { break-after: avoid; break-inside: avoid; }
+  .tbl-wrap { overflow: visible; }
+  table.q { font-size: 8.5px; }
+  table.q th, table.q td { padding: 4px 5px; }
+  table.sens td.heat b { font-size: 11px; }
+}
+
+.draft { display: inline-block; font-size: 13.5px; color: var(--warn); border: 1px solid currentColor; border-radius: 8px; padding: 6px 12px; margin: 0 0 22px; max-width: 60rem; }
+.top nav a { padding: 10px 8px 8px; font-size: 13.5px; }
+.top .wrap { flex-wrap: nowrap; }
+@media (max-width: 1100px) { .top .wrap { flex-wrap: wrap; } }
+
+/* Pricing case: verdict tiles, the value ladder, comps, method, schedule. */
+.verdict { padding-block: 72px 56px; background: var(--paper); border-bottom: 1px solid var(--line); }
+.verdict h1 { max-width: 24ch; font-family: var(--f-head); font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: 0; }
+.tier-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 16px; margin-top: 32px; }
+.tile { border: 1px solid var(--line); border-radius: var(--r); padding: 20px 22px; background: var(--mist); display: grid; gap: 6px; border-top: 4px solid var(--tc); min-width: 0; }
+.tile .chip { justify-self: start; }
+.tile b { font-family: var(--f-data); font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 700; color: var(--ink); letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.tile span.rng { font-family: var(--f-data); font-size: 14px; color: var(--ink-2); }
+.tile p { margin: 4px 0 0; font-size: 14.5px; color: var(--ink-2); }
+.tile.river { --tc: var(--tier-river); } .tile.view { --tc: var(--tier-view); } .tile.regular { --tc: var(--tier-regular); }
+.points { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 18px; }
+.point { border-left: 3px solid var(--copper); padding: 4px 0 4px 16px; }
+.point h3 { color: var(--river); margin-bottom: 4px; }
+.point p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+.bignum { font-family: var(--f-data); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--copper); line-height: 1; font-variant-numeric: tabular-nums; }
+table.comps td small { display: block; color: var(--ink-3); font-size: 12px; }
+table.comps td.src a { font-size: 12px; white-space: nowrap; }
+.method { counter-reset: m; display: grid; gap: 14px; }
+.method li { list-style: none; display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: 12px; align-items: start; }
+.method li::before { counter-increment: m; content: counter(m); font-family: var(--f-display); font-weight: 700; color: var(--paper); background: var(--river); width: 2.2rem; height: 2.2rem; border-radius: 50%; display: grid; place-items: center; }
+.method ol { padding: 0; margin: 0; }
+.callout { background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--copper); border-radius: var(--r); padding: 18px 20px; }
+.chart.ladder { height: 420px; }
+.chart.scatter { height: 420px; }
+@media print { .verdict { padding-block: 24px; } .chart.ladder, .chart.scatter { height: 360px; } }
+
+.point .n { font-family: var(--f-data); font-weight: 700; font-size: 1.9rem; color: var(--river); line-height: 1.05; display: block; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+.card .bignum { margin: 0 0 6px; }
+.card h3 { margin-top: 0; }
+.card > p:last-child { margin-bottom: 0; }
+
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#verdict">CLINCH BLUFF<small>Lot pricing case</small></a>
+    <nav aria-label="Sections">
+      <a href="#verdict">Verdict</a><a href="#ladder">Value ladder</a><a href="#comps">Comparables</a><a href="#tiers">Tier pricing</a><a href="#water">Water access</a><a href="#schedule">Price schedule</a><a href="#risks">Risks</a>
+      <a class="out" href="plan.html">Business plan and model</a>
+    </nav>
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch color theme">Auto</button>
+  </div>
+</header>
+
+<main>
+<section class="verdict" id="verdict">
+  <div class="wrap">
+    <p class="draft">Draft for review, October 24, 2026. Comparable sales are from MLS and county records gathered on October 24, 2026.</p>
+    <p class="eyebrow">Lot pricing case&nbsp;&middot;&nbsp;Williams Bend&nbsp;&middot;&nbsp;Hardin Valley</p>
+    <h1>Riverfront bluff homesites at Clinch Bluff support $1.1 million at launch</h1>
+    <p class="lede">A buyer at Clinch Bluff gets something no one else can sell them: a finished, gated homesite on the last lakefront land in Hardin Valley, with the road paved, water and power in, and a septic system installed. Three independent methods put the Riverfront tier between $1.0 million and $1.9 million before any dock value. Docks are not possible on this shoreline, so we price below that range: launch at $1.1 million and step up to $1.35 million for the final bluff lots.</p>
+    <div class="tier-tiles">
+      <div class="tile river"><span class="chip t-river">Riverfront</span><b>$1.1M</b><span class="rng">Range $900K to $1.35M &middot; 6 lots</span><p>On the 1,200 feet of bluff, above protected TVA shoreline.</p></div>
+      <div class="tile view"><span class="chip t-view">Lake View</span><b>$800K</b><span class="rng">Range $650K to $900K &middot; 7 lots</span><p>Upper slopes and ridge, sited for lake and mountain views.</p></div>
+      <div class="tile regular"><span class="chip t-regular">Regular</span><b>$625K</b><span class="rng">Range $550K to $675K &middot; 7 lots</span><p>Finished, wooded homesites near the gate, priced above the raw Williams Bend lot.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="scarcity">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Why buyers will pay it</p>
+      <h2>The last lakefront land in Hardin Valley, finished and ready to build</h2>
+      <p class="lede">Williams Bend is the last lake property in Hardin Valley, the most exclusive part of Knoxville right now. The numbers around it show a wealthy buyer pool, rising lakefront values and almost no lakefront left to buy.</p>
+    </div>
+    <div class="points">
+      <div class="point"><span class="n">1 of 2</span><h3>Lakefront land listings in 37932</h3><p>On October 24, 2026 this tract was one of only two land listings in the Hardin Valley ZIP with any lake frontage. The other is a bluff that cannot take a dock.</p></div>
+      <div class="point"><span class="n">+148%</span><h3>Hardin Valley lakefront since 2020</h3><p>A gated Melton Hill home on Stephens Landing Way sold for $1.03 million in 2020 and $2.55 million in July 2026. Another on W Gallaher Ferry Rd rose 84% from 2020 to 2024.</p></div>
+      <div class="point"><span class="n">$119,703</span><h3>Median household income</h3><p>Hardin Valley (37932) households earn 65% more than the Knoxville metro, and the area has recorded about ten $1 million-plus home sales a year since 2023.</p></div>
+      <div class="point"><span class="n">$1.25M</span><h3>Appraisal on a 1,200 SF house</h3><p>A Williams Bend home bought off-market for $950,000 appraised at $1.25 million during escrow. A 3-acre lot on the road with no lake view is going for $550,000.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="ladder">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The value ladder</p>
+      <h2>From raw acreage to a finished lakefront homesite</h2>
+      <p class="lede">Each bar is a real price point, from what this land costs per lot to what finished lakefront sells for across Knoxville. Clinch Bluff&rsquo;s three tiers sit inside the range the market already pays.</p>
+    </div>
+    <div class="card">
+      <div class="chart ladder"><canvas id="chart-ladder" aria-label="Price per homesite from raw land to finished lakefront"></canvas></div>
+      <p class="cap"><span class="chip" style="color:var(--ink-3)">Raw land and cost</span> <span class="chip t-regular">No view or interior</span> <span class="chip t-view">View</span> <span class="chip t-river">Lakefront</span>. Hover a bar for its source.</p>
+    </div>
+    <div class="grid3" style="margin-top:24px">
+      <div class="card"><p class="bignum">$100K</p><h3>Land per planned lot</h3><p class="muted small">The $2.0 million listing spread across 20 homesites.</p></div>
+      <div class="card"><p class="bignum">$65K</p><h3>Cost to finish each lot</h3><p class="muted small">Road, water, power, fiber, septic, front entrance, engineering and contingency, at our own contractor pricing.</p></div>
+      <div class="card"><p class="bignum">$829K</p><h3>Average finished lot price</h3><p class="muted small">The launch prices across all 20 lots, before any step-up in later releases.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="tiers">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Three ways to price the tiers</p>
+      <h2>Each method lands at or above our launch prices</h2>
+    </div>
+    <ol class="method">
+      <li><div><h3>Start from the Williams Bend lot and apply the market&rsquo;s tier premiums</h3><p>In small gated lake enclaves, waterfront lots sell for about 2.3 to 3.5 times interior lots, and view lots for about 1.1 to 1.6 times. Applied to the $550,000 no-view lot on Williams Bend, that puts Riverfront at $1.27 million to $1.93 million and Lake View at $605,000 to $880,000. Most of those waterfront lots include a dock, so our $1.1 million Riverfront launch sits below the range on purpose.</p></div></li>
+      <li><div><h3>Compare to Knoxville&rsquo;s finished gated lakefront</h3><p>Five Arcadia lakefront homesites closed between $1.3 million and $2.45 million from September 2024 to August 2026, and current Arcadia lakefront lots ask $2.25 million to $3.0 million. Arcadia view lots without frontage closed at $750,000 and $975,000. Across the region, 14 lakefront lots have closed above $1 million since late 2023.</p></div></li>
+      <li><div><h3>Work back from the home a buyer will build</h3><p>In Arcadia and Rarity Bay the lot has run 15% to 29% of the home later built on it. A $1.1 million Riverfront lot fits a $3.8 million to $7.3 million home, a level Knoxville&rsquo;s top tier now reaches regularly. Four Knoxville-area homes closed between $8.15 million and $10.5 million in 2026, and Arcadia lots that sold for $1.2 million in 2019 now trade at $2.1 million to $2.45 million.</p></div></li>
+    </ol>
+    <div class="callout" style="margin-top:28px">
+      <h3>Why Regular lots launch at $625,000, above the raw Williams Bend lot</h3>
+      <p>A 3-acre lot on Williams Bend with no view is going for $550,000 as raw land. Its buyer still has to pay for a pump or drip septic system ($20,000 to $25,000 on these soils), a power run from LCUB, a water tap and line, and the soil map, and wait 6 to 12 months before starting a house. That is roughly $40,000 to $75,000 of cost plus the risk that the soils fail. Our Regular buyer gets all of it done, behind a gate on an HOA-maintained road, next to $1 million Riverfront lots. Plain, ungated 5-acre lots at Cornish Meadows in Lenoir City sold for $597,500 to $710,000, about 18 of them in 18 months. Our lots are about 2 acres, which is why we stop at $625,000 to $675,000.</p>
+    </div>
+    <div class="card" style="margin-top:28px">
+      <h3>Tier premiums applied to the Williams Bend anchor</h3>
+      <div class="chart mid"><canvas id="chart-prem" aria-label="Tier prices from premium ratios"></canvas></div>
+      <p class="cap">Ratios from small gated lake communities in Tennessee, the Carolinas and Virginia. Large resort communities show 8 to 15 times, which we leave out because their interior lots are oversupplied.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="comps">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Comparable homesites</p>
+      <h2>What Knoxville-area homesites ask and sell for</h2>
+    </div>
+    <div class="card">
+      <div class="chart scatter"><canvas id="chart-scatter" aria-label="Lot price against acreage by tier"></canvas></div>
+      <p class="cap">Each mark is a homesite sold or listed from late 2023 to October 2026 in Knox, Loudon and Blount counties: circles are lakefront, diamonds are view lots, triangles are wooded or interior lots. Copper stars are Clinch Bluff&rsquo;s launch prices. The table lists the closed sales.</p>
+    </div>
+    <div class="tbl-wrap" style="margin-top:22px"><table class="comps"><thead><tr><th>Homesite</th><th>Tier</th><th class="r">Price</th><th class="r">Acres</th><th class="r">Per acre</th><th>Status</th><th>Source</th></tr></thead><tbody id="comps-body"></tbody></table></div>
+  </div>
+</section>
+
+<section class="band alt" id="water">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Water access, stated plainly</p>
+      <h2>Protected shoreline below the bluff, and no docks</h2>
+    </div>
+    <div class="grid2">
+      <div>
+        <p>The Riverfront lots run down the bluff to the TVA line, which sits only 10 to 45 feet from the water. That strip is TVA Melton Hill Parcel 38, known as Hewitt Bluff, a habitat protection area where TVA does not allow docks, slips or clearing.</p>
+        <p>We put no dock value in any price on this page. The Riverfront tier is priced as bluff-front view homesites, which is why it launches below the lakefront comparables that come with docks.</p>
+      </div>
+      <div class="points" style="grid-template-columns:1fr">
+        <div class="point"><h3>Views no one can block</h3><p>TVA land below the lots stays wild. No neighbor can build, clear or put in a dock between a Riverfront home and the river.</p></div>
+        <div class="point"><h3>Trails on your own land</h3><p>Owners can build paths, stairs and overlooks on their lots down to the TVA line.</p></div>
+        <div class="point"><h3>Boating close by</h3><p>The public ramp at Melton Hill Park is about 1.3 miles away, and a marina is about 3.3 miles away.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="band" id="schedule">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Recommended release plan</p>
+      <h2>Launch at the base price, then step up as lots close</h2>
+      <p class="lede">Opening every tier at the base price sets the first closed sales quickly. Later releases step up, and the best bluff positions are held for last.</p>
+    </div>
+    <div class="grid2">
+      <div class="tbl-wrap"><table><thead><tr><th>Lots</th><th>Tier</th><th>Release</th><th class="r">Price</th><th>Why</th></tr></thead><tbody id="schedule-body"></tbody>
+        <tfoot><tr class="total"><td colspan="3">All 20 lots on this plan</td><td class="r">$17,725,000</td><td></td></tr></tfoot></table></div>
+      <div class="card">
+        <svg class="siteplan" role="img" aria-label="Lot plan showing lot numbers by tier"></svg>
+        <p class="cap">Lot numbers match the release plan. Illustrative layout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="pace">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How fast they sell</p>
+      <h2>About two years from the first closing to the last</h2>
+    </div>
+    <div class="points">
+      <div class="point"><h3>Launch with reservations</h3><p>Small gated enclaves typically place 3 to 5 lots under reservation before the plat records. At The Cliffs on Lake Keowee, 5 of 26 lakefront homesites went under contract on the first release weekend.</p></div>
+      <div class="point"><h3>Then about two a quarter</h3><p>After launch, about two closings a quarter sells all 20 lots in roughly 24 to 30 months. Cornish Meadows in Lenoir City sold about 18 plain five-acre lots at $597,500 to $710,000 in 18 months, and Saylors Watch on Lake Norman sold all 11 of its gated waterfront lots.</p></div>
+      <div class="point"><h3>A community sells faster than a single lot</h3><p>Single Knoxville lots listed one at a time have taken 300 to 500 days at $750,000 and up. A branded, gated launch with a builder program gives buyers a reason to act together.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="risks">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What could hold price down</p>
+      <h2>The questions a buyer&rsquo;s agent will ask, and our answers</h2>
+    </div>
+    <div class="risk"><h3>Can I put in a dock?</h3><p>No. The shoreline is TVA habitat-protection land, and TVA does not consider docks there. Every price on this page already assumes no dock. The upside is that the view and the shoreline below can never be built on.</p></div>
+    <div class="risk"><h3>Haven&rsquo;t lake lots softened in 2026?</h3><p>Several new East Tennessee lake offerings cut prices this year. That is why the plan opens at the base price, uses reservations to prove demand, and steps up only after real closings.</p></div>
+    <div class="risk"><h3>Melton Hill hasn&rsquo;t seen $1 million lots</h3><p>Every $1 million-plus lot sale so far has been on Fort Loudoun, the Tennessee River or Tellico, because no one has finished and gated a Melton Hill bluff like this. Raw Melton Hill tracts sell in the $300,000s for the same reason. The Hardin Valley lakefront homes that have more than doubled since 2020 show the buyers are already here.</p></div>
+    <div class="risk"><h3>Will the lots appraise?</h3><p>Most buyers at this level pay cash for the lot. For buyers who finance, the Williams Bend sale that appraised $300,000 over its price and the Arcadia closings give an appraiser real support.</p></div>
+    <div class="risk"><h3>What if values keep running?</h3><p>Planned land in Hardin Valley has re-traded fast. A 59-acre tract across from the Hardin Valley schools sold for $2.7 million in 2023 and again for $10.3 million in 2025. The release plan steps prices up as closings confirm the market, so the project captures that rise.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Prepared October 2026. Figures are estimates and projections, not guarantees. The site plan is illustrative; final lot count and layout depend on engineering, the soil map and Knox County approval.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>window.HB_PRICING = {"ladder":[{"label":"Clinch Bluff land, per planned lot","low":100000,"high":100000,"tier":"raw","note":"$2.0M listing spread across 20 homesites"},{"label":"Clinch Bluff land plus cost to finish","low":165000,"high":165000,"tier":"raw","note":"About $100K of land and $65K of road, utilities, septic, entrance and engineering per lot, at our contractor pricing"},{"label":"Raw Melton Hill waterfront, Hardin Valley (sold)","low":340000,"high":340000,"tier":"raw","note":"2777 Swanson Ln, 2.6 ac, Sep 2026, multiple offers"},{"label":"Williams Bend lot, 3 ac, no lake view","low":550000,"high":550000,"tier":"regular","note":"Lot only, going for $550,000"},{"label":"Cornish Meadows 5-acre lots, Lenoir City (sold)","low":597500,"high":700000,"tier":"regular","note":"Plain 5-acre lots, about 18 sold in 18 months, 2024 to 2026"},{"label":"Arcadia lake-view homesites (sold)","low":750000,"high":975000,"tier":"view","note":"Lot 246R $750,000 (Nov 2025) and Lot 237 $975,000 (Jun 2026)"},{"label":"Williams Bend home, 1,200 SF","low":950000,"high":1250000,"tier":"regular","note":"Bought off-market for $950,000, appraised at $1.25M during escrow"},{"label":"Carmel by the Lake view lots with dock rights (asking)","low":1050000,"high":1325000,"tier":"view","note":"5-lot gated enclave, Knoxville 37919"},{"label":"Osprey Point lakefront, Louisville (sold)","low":1100000,"high":1650000,"tier":"river","note":"6.5 to 6.8 ac, 2025 and 2026"},{"label":"Arcadia lakefront homesites (sold)","low":1300000,"high":2450000,"tier":"river","note":"Five closings, Sep 2024 to Aug 2026"},{"label":"Arcadia lakefront homesites (asking)","low":2250000,"high":2995000,"tier":"river","note":"1.98 to 7.23 ac, Oct 2026"}],"comps":[{"label":"Arcadia Peninsula Way (Phase 3B lot)","community":"Arcadia Peninsula (Phase 3B)","tier":"river","price":2450000,"acres":5.13,"ppa":477583,"status":"Sold","date":"Aug 2026","sources":["https://deborahkorlin.realgeeks.com/property/1350946/","https://www.redfin.com/TN/Knoxville/Arcadia-Peninsula-Way-37922/home/163504612"]},{"label":"10723 Artemis Place Way","community":"Arcadia Peninsula","tier":"river","price":2250000,"acres":3.12,"ppa":721154,"status":"Sold","date":"Jan 2026","sources":["https://deborahkorlin.realgeeks.com/property/1305002/","https://www.redfin.com/TN/Knoxville/10723-Artemis-Place-Way-37922/home/184899244"]},{"label":"420 Arcadia Peninsula Way","community":"Arcadia Peninsula","tier":"river","price":2125000,"acres":2.48,"ppa":856855,"status":"Sold","date":"Nov 2025","sources":["https://deborahkorlin.realgeeks.com/property/1317774/","https://www.redfin.com/TN/Knoxville/420-Arcadia-Peninsula-Way-37922/home/198495216"]},{"label":"Lysandra Way","community":"Arcadia Peninsula","tier":"river","price":1325000,"acres":1.06,"ppa":1250000,"status":"Sold","date":"May 2025","sources":["https://deborahkorlin.realgeeks.com/property/1274878/","https://www.redfin.com/TN/Knoxville/Lysandra-Way-37922/home/168031523"]},{"label":"Forest Glade Way","community":"Arcadia Peninsula","tier":"river","price":1300000,"acres":1.59,"ppa":817610,"status":"Sold","date":"Sep 2024","sources":["https://deborahkorlin.realgeeks.com/property/1254959/","https://www.redfin.com/TN/Knoxville/Glade-Dr-37922/home/176315149"]},{"label":"10616 Albion Way","community":"Arcadia (Phase 1C)","tier":"river","price":2995000,"acres":2.71,"ppa":1105166,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1353370/","https://www.redfin.com/TN/Knoxville/10616-Albion-Way-37922/home/170019679"]},{"label":"10640 Albion Way","community":"Arcadia","tier":"river","price":2895000,"acres":1.98,"ppa":1462121,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1343786/","https://www.redfin.com/TN/Knoxville/10640-Albion-Way-37922/home/170019674"]},{"label":"Lot 419 Arcadia Peninsula Way","community":"Arcadia Peninsula","tier":"river","price":2250000,"acres":7.23,"ppa":311203,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1347001/","https://www.redfin.com/TN/Knoxville/Lot-419-Arcadia-Peninsula-Way-37922/home/198674400"]},{"label":"Lot 237 Arcadia Peninsula Way","community":"Arcadia Peninsula","tier":"view","price":975000,"acres":1.05,"ppa":928571,"status":"Sold","date":"Jun 2026","sources":["https://deborahkorlin.realgeeks.com/property/1329271/","https://www.redfin.com/TN/Knoxville/Lot-237-Arcadia-Peninsula-Way-37922/home/200451372"]},{"label":"Lot 246R Arcadia Peninsula Way","community":"Arcadia","tier":"view","price":750000,"acres":1.57,"ppa":477707,"status":"Sold","date":"Nov 2025","sources":["https://deborahkorlin.realgeeks.com/property/1302242/","https://www.redfin.com/TN/Knoxville/Lot-246R-Arcadia-Peninsula-Way-37922/home/195911591"]},{"label":"2019 Arcadia Peninsula Way","community":"Arcadia Peninsula","tier":"view","price":785000,"acres":1.07,"ppa":733645,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1328528/","https://www.redfin.com/TN/Knoxville/2019-Arcadia-Peninsula-Way-37922/home/193217559"]},{"label":"2027 Arcadia Peninsula Way","community":"Arcadia Peninsula","tier":"view","price":750000,"acres":0.88,"ppa":852273,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1334484/","https://www.redfin.com/TN/Knoxville/2027-Arcadia-Peninsula-Way-37922/home/193217560"]},{"label":"Lot 250 Arcadia Peninsula Way","community":"Arcadia Peninsula","tier":"view","price":740000,"acres":0.83,"ppa":891566,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1350127/","https://www.redfin.com/TN/Knoxville/Lot-250-Arcadia-Peninsula-Way-37922/home/203527827"]},{"label":"225 Edgewater Way","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":1101950,"acres":0.39,"ppa":2825513,"status":"Sold","date":"Sep 2025","sources":["https://deborahkorlin.realgeeks.com/property/1314291/","https://www.redfin.com/TN/Lenoir-City/225-Edgewater-Way-37772/home/87138340"]},{"label":"588 Windlass Drive","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":801950,"acres":1.17,"ppa":685427,"status":"Sold","date":"Oct 2025","sources":["https://deborahkorlin.realgeeks.com/property/1249803/","https://www.redfin.com/TN/Lenoir-City/588-Windlass-Dr-37772/home/62972121"]},{"label":"787 Bulwark Way","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":724210,"acres":0.53,"ppa":1366434,"status":"Sold","date":"Nov 2023","sources":["https://deborahkorlin.realgeeks.com/property/1247538/","https://www.redfin.com/TN/Lenoir-City/787-Bulwark-Way-37772/home/87139299"]},{"label":"1081 Zepher Drive","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":651855,"acres":0.62,"ppa":1051379,"status":"Sold","date":"Dec 2024","sources":["https://deborahkorlin.realgeeks.com/property/1217384/","https://www.redfin.com/TN/Lenoir-City/1081-Zepher-Dr-37772/home/87140883"]},{"label":"535 Bulwark Way","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":601750,"acres":0.59,"ppa":1019915,"status":"Sold","date":"Nov 2023","sources":["https://deborahkorlin.realgeeks.com/property/1225620/","https://www.redfin.com/TN/Lenoir-City/535-Bulwark-Way-37772/home/87138850"]},{"label":"1450 Lanyard Way","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":600000,"acres":0.64,"ppa":937500,"status":"Sold","date":"Apr 2025","sources":["https://deborahkorlin.realgeeks.com/property/1250811/","https://www.redfin.com/TN/Lenoir-City/1450-Lanyard-Way-37772/home/87138684"]},{"label":"1199 Shadow Hill Drive","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":2300000,"acres":2.1,"ppa":1095238,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1320463/","https://www.redfin.com/TN/Lenoir-City/1199-Shadow-Hill-Dr-37772/home/87139963"]},{"label":"390 Admiral Court","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":1300000,"acres":0.89,"ppa":1460674,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1266840/","https://www.redfin.com/TN/Lenoir-City/390-Admiral-Ct-37772/home/87140514"]},{"label":"1263 Zepher Drive","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":1200000,"acres":0.47,"ppa":2553191,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1301563/","https://www.redfin.com/TN/Lenoir-City/1263-Zepher-Dr-37772/home/87140881"]},{"label":"272 Edgewater Way","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":1199000,"acres":0.43,"ppa":2788372,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1296271/","https://www.redfin.com/TN/Lenoir-City/272-Edgewater-Way-37772/home/77518179"]},{"label":"1999 Taffrail Drive","community":"WindRiver (fka Rarity Pointe)","tier":"river","price":996500,"acres":0.66,"ppa":1509848,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1288324/","https://www.redfin.com/TN/Lenoir-City/1999-Taffrail-Dr-37772/home/87140900"]},{"label":"476 Forward Way","community":"WindRiver (fka Rarity Pointe)","tier":"view","price":470855,"acres":0.47,"ppa":1001819,"status":"Sold","date":"Jun 2024","sources":["https://deborahkorlin.realgeeks.com/property/1219991/","https://www.redfin.com/TN/Unknown/476-Forward-Way-37772/home/147483692"]},{"label":"516 Beckets Way","community":"WindRiver (fka Rarity Pointe)","tier":"view","price":749000,"acres":0.46,"ppa":1628261,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1320466/","https://www.redfin.com/TN/Lenoir-City/516-Beckets-Way-37772/home/87141122"]},{"label":"919 Southern Way","community":"WindRiver (fka Rarity Pointe)","tier":"view","price":649000,"acres":0.73,"ppa":889041,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1245417/","https://www.redfin.com/TN/Lenoir-City/919-Southern-Way-37772/home/87139966"]},{"label":"155 Pineberry Drive","community":"Rarity Bay (Phase 2 Sec 1)","tier":"river","price":961000,"acres":0.63,"ppa":1525397,"status":"Sold","date":"May 2026","sources":["https://deborahkorlin.realgeeks.com/property/1330691/","https://www.redfin.com/TN/Vonore/155-Pineberry-Dr-37885/home/62975756"]},{"label":"728 Wood Duck Drive","community":"Rarity Bay","tier":"river","price":575000,"acres":0.72,"ppa":798611,"status":"Sold","date":"Apr 2026","sources":["https://deborahkorlin.realgeeks.com/property/1333973/","https://www.redfin.com/TN/Vonore/728-Wood-Duck-Dr-37885/home/103356903"]},{"label":"145 Amblecrest Drive","community":"Rarity Bay","tier":"river","price":440000,"acres":0.81,"ppa":543210,"status":"Sold","date":"Sep 2025","sources":["https://deborahkorlin.realgeeks.com/property/1307845/","https://www.redfin.com/TN/Vonore/145-Amblecrest-Dr-37885/home/87137900"]},{"label":"143 Chuniloti Way","community":"Tellico Village (Toqua Shores)","tier":"river","price":750000,"acres":0.51,"ppa":1470588,"status":"Sold","date":"Jan 2025","sources":["https://deborahkorlin.realgeeks.com/property/1281775/","https://www.redfin.com/TN/Loudon/143-Chuniloti-Way-37774/home/87151402"]},{"label":"110 Waynoka Lane","community":"Tellico Village (Tanasi Coves)","tier":"river","price":734500,"acres":0.4,"ppa":1836250,"status":"Sold","date":"May 2024","sources":["https://deborahkorlin.realgeeks.com/property/1253906/","https://www.redfin.com/TN/Loudon/110-Waynoka-Ln-37774/home/87150154"]},{"label":"201 Amohi Way","community":"Tellico Village (Toqua Coves)","tier":"river","price":645000,"acres":0.77,"ppa":837662,"status":"Sold","date":"Mar 2026","sources":["https://deborahkorlin.realgeeks.com/property/1330981/","https://www.redfin.com/TN/Loudon/201-Amohi-Way-37774/home/87152355"]},{"label":"168 Ganega Tr","community":"Tellico Village (Kahite)","tier":"river","price":479000,"acres":0.55,"ppa":870909,"status":"Sold","date":"Aug 2024","sources":["https://deborahkorlin.realgeeks.com/property/1269960/","https://www.redfin.com/TN/Loudon/168-Ganega-TRL-37774/home/191617949"]},{"label":"134 Agaya Tr","community":"Kahite (Tellico Village)","tier":"river","price":675000,"acres":0.43,"ppa":1569767,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1338655/","https://www.redfin.com/TN/Vonore/134-Agaya-TRL-37885/home/201621455"]},{"label":"2198 Mockingbird Lane","community":"Tennessee National","tier":"river","price":635000,"acres":1.82,"ppa":348901,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1343124/","https://www.redfin.com/TN/Loudon/2198-Mockingbird-Ln-37774/home/189413420"]},{"label":"114 Canopy Trail Lane","community":"Tennessee National","tier":"view","price":449900,"acres":0.79,"ppa":569494,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1359207/","https://www.redfin.com/TN/Loudon/114-Canopy-Trl-37774/home/194151857"]},{"label":"194 Forest Ridge Lane","community":"The Reserve at River Cove","tier":"view","price":745000,"acres":3.37,"ppa":221068,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1335800/","https://www.redfin.com/TN/Greenback/194-Forest-Ridge-LN-37742/home/201217588"]},{"label":"236 Osprey Point","community":"Osprey Point","tier":"river","price":1650000,"acres":6.79,"ppa":243004,"status":"Sold","date":"Jan 2025","sources":["https://deborahkorlin.realgeeks.com/property/1241935/","https://www.redfin.com/TN/Louisville/236-Osprey-Pt-37777/home/146697128"]},{"label":"Lot 9 Lowes Ferry Rd","community":"Osprey Point","tier":"river","price":1100000,"acres":6.47,"ppa":170015,"status":"Sold","date":"Apr 2026","sources":["https://deborahkorlin.realgeeks.com/property/1236220/","https://www.redfin.com/TN/Louisville/Lot-9-Lowes-Ferry-Rd-37777/home/186484246"]},{"label":"Ralph Phelps Rd","community":"Unrestricted tract, Ralph Phelps Rd","tier":"river","price":1350000,"acres":4.99,"ppa":270541,"status":"Sold","date":"Jan 2026","sources":["https://deborahkorlin.realgeeks.com/property/1322626/","https://www.redfin.com/TN/Louisville/Ralph-Phelps-Rd-37777/home/87157995"]},{"label":"3836 Lakeside Estates Way","community":"Lakeside Estates","tier":"river","price":750000,"acres":1.85,"ppa":405405,"status":"Sold","date":"Dec 2024","sources":["https://deborahkorlin.realgeeks.com/property/1279842/","https://www.redfin.com/TN/Louisville/3836-Lakeside-Dr-37777/home/193883927"]},{"label":"Lot # 25 Spoondrift Court","community":"Lowes Ferry","tier":"river","price":695000,"acres":0.93,"ppa":747312,"status":"Sold","date":"Sep 2024","sources":["https://deborahkorlin.realgeeks.com/property/1271921/","https://www.redfin.com/TN/Louisville/Lot-25-Spoondrift-Ct-37777/home/191933500"]},{"label":"Lot 20 Promontory Point","community":"Lowes Ferry","tier":"river","price":585000,"acres":0.72,"ppa":812500,"status":"Sold","date":"Nov 2024","sources":["https://deborahkorlin.realgeeks.com/property/1257695/","https://www.redfin.com/TN/Louisville/Lot-20-Promontory-Pt-37777/home/170409265"]},{"label":"Lot 30 Spoondrift Court","community":"Lowes Ferry","tier":"river","price":515000,"acres":0.68,"ppa":757353,"status":"Sold","date":"Jul 2025","sources":["https://deborahkorlin.realgeeks.com/property/1260049/","https://www.redfin.com/TN/Louisville/Lot-30-Spoondrift-Ct-37777/home/190559155"]},{"label":"3845 Gravelly Hills Rd","community":"Hidden Cove Acres","tier":"river","price":1750000,"acres":5.0,"ppa":350000,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1307894/","https://www.redfin.com/TN/Louisville/3845-Gravelly-Hills-Rd-37777/home/189634545"]},{"label":"3841 Gravelly Hills Rd","community":"Hidden Cove Acres","tier":"river","price":1750000,"acres":5.0,"ppa":350000,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1308473/","https://www.redfin.com/TN/Louisville/3841-Gravelly-Hills-Rd-37777/home/196418426"]},{"label":"3831 Gravelly Hills Rd","community":"Hidden Cove Acres","tier":"river","price":875000,"acres":5.0,"ppa":175000,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1308610/","https://www.redfin.com/TN/Louisville/3831-Gravelly-Hills-Rd-37777/home/189634552"]},{"label":"308 McReynolds Rd Unit Lot 1","community":"The Reserve at Marblegate Farm","tier":"river","price":2500000,"acres":5.22,"ppa":478927,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1336044/","https://www.redfin.com/TN/Friendsville/308-McReynolds-Rd-37737/unit-1/home/201247980"]},{"label":"308 McReynolds Rd Unit Lot 4","community":"The Reserve at Marblegate Farm","tier":"river","price":2000000,"acres":5.2,"ppa":384615,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1336071/","https://www.redfin.com/TN/Friendsville/308-McReynolds-Rd-37737/unit-4/home/201248592"]},{"label":"3835/3829 Lakeside Estates Way","community":"Lakeside Estates","tier":"river","price":799900,"acres":2.53,"ppa":316166,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1318687/","https://www.redfin.com/TN/Louisville/3835-Lakeside-Estates-Way-37777/home/197057071"]},{"label":"Blows Ferry Rd","community":"Cherokee Hills / Sequoyah Hills","tier":"river","price":1670000,"acres":1.19,"ppa":1403361,"status":"Sold","date":"Jul 2024","sources":["https://deborahkorlin.realgeeks.com/property/1239827/","https://www.redfin.com/TN/Knoxville/839-Blows-Ferry-Rd-37919/home/163478208"]},{"label":"3048 Kingston Pike","community":"Kingston Pike riverfront","tier":"river","price":1290000,"acres":1.13,"ppa":1141593,"status":"Sold","date":"Aug 2025","sources":["https://deborahkorlin.realgeeks.com/property/1308545/","https://www.redfin.com/TN/Knoxville/3048-Kingston-Pike-37919/home/163613193"]},{"label":"3516 Blow Drive","community":"Lakemoor Hills","tier":"river","price":1100000,"acres":1.17,"ppa":940171,"status":"Sold","date":"May 2025","sources":["https://deborahkorlin.realgeeks.com/property/1295985/","https://www.redfin.com/TN/Knoxville/3516-Blow-Dr-37920/home/102965856"]},{"label":"2300 SW Wagon Rd","community":"Lakemoor Hills","tier":"river","price":430000,"acres":1.37,"ppa":313869,"status":"Sold","date":"May 2026","sources":["https://deborahkorlin.realgeeks.com/property/1327347/","https://www.redfin.com/TN/Knoxville/2300-Wagon-Rd-37920/home/163544613"]},{"label":"1649 Harbor Crest Way","community":"Harbor Crest","tier":"river","price":1025000,"acres":2.4,"ppa":427083,"status":"Sold","date":"Aug 2025","sources":["https://deborahkorlin.realgeeks.com/property/1309869/","https://www.redfin.com/TN/Knoxville/1649-Harbor-Crest-Way-37922/home/168031125"]},{"label":"5340 Hickory Hollow Rd","community":"Lyonsbend","tier":"river","price":1150000,"acres":3.11,"ppa":369775,"status":"Sold","date":"Jun 2025","sources":["https://deborahkorlin.realgeeks.com/property/1297301/","https://www.redfin.com/TN/Knoxville/5340-Hickory-Hollow-Rd-37919/home/102128767"]},{"label":"1776 Choto Rd","community":"Choto Rd, unrestricted","tier":"river","price":875000,"acres":5.2,"ppa":168269,"status":"Sold","date":"Aug 2024","sources":["https://deborahkorlin.realgeeks.com/property/1266082/","https://www.redfin.com/TN/Knoxville/1776-Choto-Rd-37922/home/102979459"]},{"label":"1860 N Wilkerson Rd","community":"Westside Estates","tier":"river","price":675000,"acres":1.41,"ppa":478723,"status":"Sold","date":"Nov 2023","sources":["https://deborahkorlin.realgeeks.com/property/1221146/","https://www.redfin.com/TN/Knoxville/1860-N-Wilkerson-RD-37922/home/184741208"]},{"label":"1534 N Wilkerson Rd","community":"Westside Estates","tier":"river","price":500000,"acres":2.5,"ppa":200000,"status":"Sold","date":"Mar 2026","sources":["https://deborahkorlin.realgeeks.com/property/1307536/","https://www.redfin.com/TN/Knoxville/1534-Wilkerson-Rd-37922/home/189413147"]},{"label":"5136 Buckhead Trail Tr","community":"Buckhead (Lyons Bend peninsula)","tier":"river","price":2999000,"acres":7.3,"ppa":410822,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1295545/","https://www.redfin.com/TN/Knoxville/5136-Buckhead-Trl-37919/home/163550482"]},{"label":"S Northshore Drive","community":"S Northshore Dr","tier":"river","price":1200000,"acres":1.06,"ppa":1132075,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1329433/","https://www.redfin.com/TN/CONCORD-FARR/S-Northshore-Dr-37922/home/200504987"]},{"label":"2101 Woodmere Lane","community":"Lakemoor Hills","tier":"river","price":1100000,"acres":0.83,"ppa":1325301,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1330372/","https://www.redfin.com/TN/Knoxville/2101-Woodmere-Ln-37920/home/163587809"]},{"label":"1532 Regiment Way","community":"Harpers Cove","tier":"river","price":874900,"acres":0.88,"ppa":994205,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1339462/","https://www.redfin.com/TN/Knoxville/1532-Regiment-Way-37922/home/170018831"]},{"label":"12630 Veritas Way","community":"Cornerstone Cove","tier":"river","price":737900,"acres":1.06,"ppa":696132,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1338290/","https://www.redfin.com/TN/Knoxville/12630-Veritas-Way-37922/home/188941927"]},{"label":"Donaldson Light Lane","community":"Donaldson Light Ln, Loudon County","tier":"river","price":1500000,"acres":5.0,"ppa":300000,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1350252/","https://www.redfin.com/TN/Lenoir-City/Donaldson-Light-Ln-37772/home/205993880"]},{"label":"201 Plantation Way","community":"The Plantation","tier":"river","price":799000,"acres":2.3,"ppa":347391,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1334522/","https://www.redfin.com/TN/Lenoir-City/201-Plantation-Way-37772/home/109548894"]},{"label":"435 Carmel Lake Way","community":"Carmel by the Lake","tier":"view","price":1325000,"acres":0.75,"ppa":1766667,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1315160/","https://www.redfin.com/TN/Knoxville/435-Carmel-Lake-WAY-37919/home/192034437"]},{"label":"2777 Swanson Lane","community":"Swanson Ln, Hardin Valley","tier":"river","price":340000,"acres":2.6,"ppa":130769,"status":"Sold","date":"Sep 2026","sources":["https://deborahkorlin.realgeeks.com/property/1347567/"]},{"label":"Providence Ridge Way","community":"Providence Ridge (Hardin Valley)","tier":"river","price":699900,"acres":5.93,"ppa":118027,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1339122/","https://www.redfin.com/TN/Knoxville/Providence-Ridge-Way-37932/home/163460252"]},{"label":"LOT 2 Harbour Drive","community":"Melton Hill Landing (Clinton)","tier":"river","price":335000,"acres":0.75,"ppa":446667,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1352748/","https://www.redfin.com/TN/Clinton/2-Harbour-Dr-37716/home/185309288"]},{"label":"High Pointe Way","community":"Lashbrooke","tier":"view","price":470000,"acres":1.39,"ppa":338129,"status":"Sold","date":"Feb 2025","sources":["https://deborahkorlin.realgeeks.com/property/1282887/","https://www.redfin.com/TN/Louisville/High-Pointe-Way-37777/home/87173378"]},{"label":"625 Cypress Pointe Drive","community":"WindRiver (fka Rarity Pointe)","tier":"view","price":411855,"acres":0.36,"ppa":1144042,"status":"Sold","date":"Dec 2023","sources":["https://deborahkorlin.realgeeks.com/property/1219485/","https://www.redfin.com/TN/Lenoir-City/625-Cypress-Pointe-Dr-37772/home/188542187"]},{"label":"375 Southern Way","community":"WindRiver (fka Rarity Pointe)","tier":"view","price":401855,"acres":0.77,"ppa":521890,"status":"Sold","date":"Jun 2024","sources":["https://deborahkorlin.realgeeks.com/property/1247520/","https://www.redfin.com/TN/Lenoir-City/375-Southern-Way-37772/home/87139969"]},{"label":"315 Tobby Hollow Lane","community":"Tobby Hollow Ln, Melton Hill","tier":"view","price":249000,"acres":7.08,"ppa":35169,"status":"Sold","date":"Mar 2026","sources":["https://deborahkorlin.realgeeks.com/property/1315802/","https://www.redfin.com/TN/Knoxville/315-Toby-Hollow-LN-37931/home/198070265"]},{"label":"4706 /4714 Old Guinn Rd","community":"Old Guinn Rd, Hardin Valley area","tier":"view","price":255000,"acres":4.0,"ppa":63750,"status":"Sold","date":"Mar 2025","sources":["https://deborahkorlin.realgeeks.com/property/1278638/","https://www.redfin.com/TN/Knoxville/4706-Old-Guinn-Rd-37931/home/87472629"]},{"label":"LOT 5 Northshore Drive","community":"Cornish Meadows","tier":"regular","price":597500,"acres":5.29,"ppa":112949,"status":"Sold","date":"Dec 2024","sources":["https://deborahkorlin.realgeeks.com/property/1274173/","https://www.redfin.com/TN/Unknown/LOT-5-Northshore-Dr-37772/home/192221711"]},{"label":"Lot 3 Northshore Drive","community":"Cornish Meadows","tier":"regular","price":597500,"acres":5.29,"ppa":112949,"status":"Sold","date":"Jun 2025","sources":["https://deborahkorlin.realgeeks.com/property/1274171/","https://www.redfin.com/TN/Unknown/Lot-3-Northshore-Dr-37772/home/192221710"]},{"label":"152 Padstow Lane","community":"Cornish Meadows","tier":"regular","price":700000,"acres":5.07,"ppa":138067,"status":"Sold","date":"Sep 2025","sources":["https://deborahkorlin.realgeeks.com/property/1312069/","https://www.redfin.com/TN/Lenoir-City/152-Padstow-LN-37772/home/197073571"]},{"label":"163 Padstow Lane","community":"Cornish Meadows","tier":"regular","price":685000,"acres":5.05,"ppa":135644,"status":"Sold","date":"Oct 2025","sources":["https://deborahkorlin.realgeeks.com/property/1311895/","https://www.redfin.com/TN/Lenoir-City/163-Padstow-LN-37772/home/197009166"]},{"label":"116 Padstow Lane","community":"Cornish Meadows","tier":"regular","price":655000,"acres":5.06,"ppa":129447,"status":"Sold","date":"Jan 2026","sources":["https://deborahkorlin.realgeeks.com/property/1312078/","https://www.redfin.com/TN/Lenoir-City/116-Padstow-LN-37772/home/197077138"]},{"label":"14374 Northshore Drive","community":"Cornish Meadows","tier":"regular","price":622500,"acres":5.02,"ppa":124004,"status":"Sold","date":"Jun 2026","sources":["https://deborahkorlin.realgeeks.com/property/1311886/","https://www.redfin.com/TN/Lenoir-City/14374-Northshore-Dr-37772/home/197009091"]},{"label":"2226 Falcon Crest Lane","community":"Woodland Reserve","tier":"regular","price":475000,"acres":1.32,"ppa":359848,"status":"Sold","date":"Jul 2026","sources":["https://deborahkorlin.realgeeks.com/property/1334130/","https://www.redfin.com/TN/Knoxville/2226-Falcon-Crest-Ln-37919/home/143504813"]},{"label":"12793 Highwick Circle","community":"Bridgemore (Farragut)","tier":"regular","price":550000,"acres":0.53,"ppa":1037736,"status":"Sold","date":"Jun 2025","sources":["https://deborahkorlin.realgeeks.com/property/1281489/","https://www.redfin.com/TN/Knoxville/12793-Highwick-Cir-37934/home/144583699"]},{"label":"12805 Highwick Circle","community":"Bridgemore (Farragut)","tier":"regular","price":649000,"acres":0.55,"ppa":1180000,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1348699/","https://www.redfin.com/TN/Knoxville/12805-Highwick-Cir-37934/home/86410421"]},{"label":"7712 Cherokee Springs Way","community":"Cherokee Springs","tier":"regular","price":475000,"acres":2.2,"ppa":215909,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1328996/","https://www.redfin.com/TN/Knoxville/7712-Cherokee-Springs-Way-37919/home/102122165"]},{"label":"1673 Harbor Crest Way","community":"Harbor Crest","tier":"regular","price":435000,"acres":1.5,"ppa":290000,"status":"Sold","date":"May 2026","sources":["https://deborahkorlin.realgeeks.com/property/1337412/","https://www.redfin.com/TN/Knoxville/1673-Harbor-Crest-Way-37922/home/168031127"]},{"label":"12404 Hickory Creek Rd","community":"Shari Love Grace Resub (Hardin Valley)","tier":"regular","price":425000,"acres":5.02,"ppa":84661,"status":"Sold","date":"Jul 2024","sources":["https://deborahkorlin.realgeeks.com/property/1259515/","https://www.redfin.com/TN/Knoxville/12404-Hickory-Creek-Rd-37932/home/163484557"]},{"label":"65R Viewcrest Lane","community":"Covered Bridge at Hardin Valley","tier":"regular","price":260000,"acres":0.73,"ppa":356164,"status":"Sold","date":"Oct 2025","sources":["https://deborahkorlin.realgeeks.com/property/1318520/","https://www.redfin.com/TN/Hardin-Valley/65R-Viewcrest-Ln-37932/home/198579154"]},{"label":"Lot 3 Hardin Valley Road","community":"Hardin Valley Rd","tier":"regular","price":198500,"acres":1.0,"ppa":198500,"status":"Sold","date":"Dec 2024","sources":["https://deborahkorlin.realgeeks.com/property/1265674/","https://www.redfin.com/TN/Knoxville/lot-3-Hardin-Valley-Rd-37932/home/184606243"]},{"label":"Lot 1 Yarnell Rd","community":"Brown (Yarnell Rd)","tier":"regular","price":449000,"acres":2.44,"ppa":184016,"status":"Asking","date":"2026","sources":["https://deborahkorlin.realgeeks.com/property/1336101/","https://www.redfin.com/TN/Knoxville/Lot-1-Yarnell-Rd-37932/home/201249502"]},{"label":"13136 George Lovelace Ln","community":"Unrestricted, Hardin Valley area","tier":"river","price":945000,"acres":4.57,"ppa":206783,"status":"Asking","date":"2026","sources":["https://www.landsearch.com/properties/13136-george-lovelace-ln-knoxville-tn-37932/5419501","https://realmo.com/listing/13136-george-lovelace-ln-knoxville-tn-37932/20798290"]}],"targets":[{"label":"Clinch Bluff Riverfront","price":1100000,"acres":2.5},{"label":"Clinch Bluff Lake View","price":800000,"acres":2.0},{"label":"Clinch Bluff Regular","price":625000,"acres":2.0}],"premiumBars":[{"label":"Regular (anchor)","value":550000,"tier":"regular","note":"Williams Bend 3-acre lot with no view"},{"label":"Lake View at 1.1x","value":605000,"tier":"view","note":"Low end of view-to-interior ratios"},{"label":"Lake View at 1.6x","value":880000,"tier":"view","note":"Median view-to-interior ratio"},{"label":"Riverfront at 2.3x","value":1265000,"tier":"river","note":"Low end of boutique waterfront-to-interior ratios"},{"label":"Riverfront at 3.5x","value":1925000,"tier":"river","note":"Median boutique waterfront-to-interior ratio"}],"schedule":[{"lots":"Lots 1 to 2","tier":"river","tierName":"Riverfront","release":"Launch, reservations","price":1100000,"note":"Open the bluff at the base price to set the first closed sales"},{"lots":"Lots 7 to 9","tier":"view","tierName":"Lake View","release":"Launch, reservations","price":800000,"note":"In line with Arcadia view lots that closed at $750K and $975K"},{"lots":"Lots 14 to 16","tier":"regular","tierName":"Regular","release":"Launch, reservations","price":625000,"note":"Above the raw Williams Bend lot because it comes finished"},{"lots":"Lots 3 to 4","tier":"river","tierName":"Riverfront","release":"Second release, after first closings","price":1200000,"note":"Step up once closings set the comp"},{"lots":"Lots 10 to 11","tier":"view","tierName":"Lake View","release":"Second release","price":850000,"note":""},{"lots":"Lots 17 to 18","tier":"regular","tierName":"Regular","release":"Second release","price":650000,"note":""},{"lots":"Lots 5 to 6","tier":"river","tierName":"Riverfront","release":"Final release, best bluff positions","price":1350000,"note":"Hold the point and the longest views for last"},{"lots":"Lots 12 to 13","tier":"view","tierName":"Lake View","release":"Final release","price":900000,"note":""},{"lots":"Lots 19 to 20","tier":"regular","tierName":"Regular","release":"Final release","price":675000,"note":""}],"scatterMaxAcres":8,"planCounts":{"river":6,"view":7,"regular":7}};</script>
+<script>
+/* Illustrative site plan: lots are generated from the tier counts so the plan redraws as the model changes.
+   Geometry is schematic, traced loosely from the Cannon & Cannon boundary survey (river to the north, Williams Bend Rd to the south). */
+(function (root) {
+  'use strict';
+  const NS = 'http://www.w3.org/2000/svg';
+  const PARCEL = [[150, 225], [420, 262], [615, 296], [880, 222], [905, 960], [420, 985], [232, 862], [190, 560]];
+  const ZONES = {
+    river: [{ A: [[168, 258], [420, 294], [615, 327], [866, 257]], B: [[208, 500], [420, 508], [615, 512], [860, 496]] }],
+    view: [{ A: [[198, 562], [214, 735]], B: [[498, 562], [496, 735]] }, { A: [[884, 556], [889, 735]], B: [[542, 562], [539, 735]] }],
+    regular: [{ A: [[217, 757], [236, 868]], B: [[492, 757], [466, 868]], w: 0.4 }, { A: [[890, 757], [898, 938]], B: [[535, 757], [490, 938]], w: 0.6 }]
+  };
+  const LANE = [[200, 528], [420, 535], [615, 538], [868, 522]];
+  const SPINE = [[520, 536], [517, 700], [492, 845], [438, 968]];
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function lenOf(pts) { let L = 0; for (let i = 1; i < pts.length; i++) L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); return L; }
+  function at(pts, t) {
+    const L = lenOf(pts) * t; let acc = 0;
+    for (let i = 1; i < pts.length; i++) {
+      const seg = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+      if (acc + seg >= L || i === pts.length - 1) { const u = seg ? Math.min(1, (L - acc) / seg) : 0; return [pts[i - 1][0] + u * (pts[i][0] - pts[i - 1][0]), pts[i - 1][1] + u * (pts[i][1] - pts[i - 1][1])]; }
+      acc += seg;
+    }
+    return pts[pts.length - 1];
+  }
+  const P = pts => pts.map(p => p.map(v => Math.round(v * 10) / 10).join(',')).join(' ');
+  const smooth = pts => 'M' + pts.map(p => p.join(',')).join(' L');
+
+  function draw(svg, counts, opts) {
+    opts = opts || {};
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute('viewBox', '0 0 1000 1000');
+    el('title', {}, svg).textContent = 'Illustrative site plan of the lots by tier';
+    // Water and shoreline
+    el('path', { d: 'M0,0 H1000 V150 C 900,200 820,175 760,190 C 640,222 560,240 470,215 C 330,182 230,190 120,198 C 70,202 30,190 0,180 Z', fill: 'var(--tier-river)', 'fill-opacity': '.18' }, svg);
+    el('path', { d: 'M0,180 C 30,190 70,202 120,198 C 230,190 330,182 470,215 C 560,240 640,222 760,190 C 820,175 900,200 1000,150', fill: 'none', stroke: 'var(--tier-river)', 'stroke-opacity': '.5', 'stroke-width': '2' }, svg);
+    // Faint contours for the bluff
+    for (let i = 0; i < 6; i++) {
+      const y = 330 + i * 105;
+      el('path', { d: `M120,${y} C 300,${y - 30 + i * 4} 520,${y + 26} 700,${y - 8} S 920,${y + 18} 980,${y - 10}`, fill: 'none', stroke: 'var(--ink-3)', 'stroke-opacity': '.13', 'stroke-width': '1.2' }, svg);
+    }
+    // Parcel
+    el('polygon', { points: P(PARCEL), fill: 'var(--paper)', 'fill-opacity': '.55', stroke: 'var(--ink-2)', 'stroke-width': '2.2', 'stroke-dasharray': '10 6' }, svg);
+    // Lots
+    const g = el('g', {}, svg);
+    let n = 0;
+    ['river', 'view', 'regular'].forEach(tier => {
+      const zones = ZONES[tier];
+      const total = Math.max(0, Math.round(counts[tier] || 0));
+      let split = [total];
+      if (zones.length === 2) { const w0 = zones[0].w || 0.5; const a = Math.round(total * w0); split = [a, total - a]; }
+      zones.forEach((z, zi) => {
+        const k = split[zi];
+        for (let i = 0; i < k; i++) {
+          const a0 = at(z.A, i / k), a1 = at(z.A, (i + 1) / k), b1 = at(z.B, (i + 1) / k), b0 = at(z.B, i / k);
+          n++;
+          el('polygon', { points: P([a0, a1, b1, b0]), fill: `var(--tier-${tier})`, 'fill-opacity': '.2', stroke: `var(--tier-${tier})`, 'stroke-width': '1.6' }, g);
+          const cx = (a0[0] + a1[0] + b1[0] + b0[0]) / 4, cy = (a0[1] + a1[1] + b1[1] + b0[1]) / 4;
+          const fs = k > 9 ? 15 : 20;
+          const t = el('text', { x: cx, y: cy + fs / 3, 'text-anchor': 'middle', 'font-size': fs, 'font-weight': '700', fill: `var(--tier-${tier})`, 'font-family': 'var(--f-data)' }, g);
+          t.textContent = n;
+        }
+      });
+    });
+    // Roads
+    [LANE, SPINE].forEach(line => {
+      el('path', { d: smooth(line), fill: 'none', stroke: 'var(--ink-2)', 'stroke-width': '15', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-opacity': '.85' }, svg);
+      el('path', { d: smooth(line), fill: 'none', stroke: 'var(--paper)', 'stroke-width': '1.5', 'stroke-dasharray': '9 9' }, svg);
+    });
+    // County road
+    el('path', { d: 'M 260,1000 C 330,975 380,975 438,968 C 520,962 600,975 700,1000', fill: 'none', stroke: 'var(--ink-3)', 'stroke-width': '12', 'stroke-opacity': '.5' }, svg);
+    // Gate
+    el('circle', { cx: 438, cy: 958, r: 13, fill: 'var(--copper)' }, svg);
+    el('rect', { x: 430, y: 952, width: 16, height: 12, fill: 'var(--paper)', rx: 2 }, svg);
+    // Overlook at the bluff end of the spine
+    el('circle', { cx: 520, cy: 536, r: 24, fill: 'var(--tier-view)', 'fill-opacity': '.35', stroke: 'var(--tier-view)', 'stroke-width': '1.5' }, svg);
+    // Labels
+    const label = (x, y, txt, o) => { const t = el('text', Object.assign({ x, y, 'font-size': 18, fill: 'var(--ink-2)', 'font-family': 'var(--f-body)', 'letter-spacing': '1.5' }, o || {}), svg); t.textContent = txt; return t; };
+    label(500, 70, 'MELTON HILL LAKE  ·  CLINCH RIVER', { 'text-anchor': 'middle', 'font-size': 22, fill: 'var(--tier-river)', 'font-weight': '600', 'letter-spacing': '4' });
+    label(500, 100, opts.frontage || 'about 1,255 ft of bluff frontage', { 'text-anchor': 'middle', 'font-size': 16, fill: 'var(--tier-river)' });
+    label(470, 995, 'Gated entry  ·  Williams Bend Rd', { 'font-size': 16 });
+    label(560, 580, 'Overlook', { 'font-size': 15, fill: 'var(--tier-view)', 'font-weight': '600' });
+    // North arrow
+    const na = el('g', { transform: 'translate(950,300)' }, svg);
+    el('path', { d: 'M0,-26 L10,8 L0,2 L-10,8 Z', fill: 'var(--ink-2)' }, na);
+    const nt = el('text', { x: 0, y: 30, 'text-anchor': 'middle', 'font-size': 15, fill: 'var(--ink-2)', 'font-weight': '700' }, na); nt.textContent = 'N';
+    return n;
+  }
+
+  root.HBSitePlan = { draw };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+/* Lot pricing case: renders the value ladder, comps scatter, comps table and price schedule from window.HB_PRICING. */
+(function () {
+  'use strict';
+  const P = window.HB_PRICING;
+  const $ = s => document.querySelector(s);
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const fmt$ = v => '$' + Math.round(v).toLocaleString('en-US');
+  const fmtM = v => { const a = Math.abs(v); return a >= 1e6 ? '$' + (a / 1e6).toFixed(a >= 1e7 ? 1 : 2).replace(/\.?0+$/, '') + 'M' : '$' + Math.round(a / 1e3) + 'K'; };
+  const TIER = { river: '--tier-river', view: '--tier-view', regular: '--tier-regular', raw: '--ink-3' };
+  let charts = {};
+
+  function opts() {
+    const ink = css('--ink-2'), grid = css('--chart-grid');
+    return {
+      responsive: true, maintainAspectRatio: false, animation: { duration: 250 },
+      plugins: { legend: { labels: { color: ink, boxWidth: 12, boxHeight: 12, font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12 } } } },
+      scales: {
+        x: { grid: { color: grid }, border: { display: false }, ticks: { color: ink, font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 11 } } },
+        y: { grid: { display: false }, border: { display: false }, ticks: { color: ink, font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12 } } }
+      }
+    };
+  }
+
+  function ladder() {
+    const cv = $('#chart-ladder'); if (!cv || !P.ladder) return;
+    const o = opts(); o.indexAxis = 'y'; o.plugins.legend = { display: false };
+    o.scales.x.ticks.callback = v => fmtM(v); o.scales.x.min = 0;
+    o.plugins.tooltip = { callbacks: { label: c => { const it = P.ladder[c.dataIndex]; return it.low === it.high ? fmt$(it.low) : `${fmt$(it.low)} to ${fmt$(it.high)}`; }, afterLabel: c => P.ladder[c.dataIndex].note || '' } };
+    const data = {
+      labels: P.ladder.map(i => i.label),
+      datasets: [{ label: 'Price', data: P.ladder.map(i => [i.low, i.high === i.low ? i.low * 1.012 : i.high]), backgroundColor: P.ladder.map(i => css(TIER[i.tier] || '--river')), borderRadius: 4, borderSkipped: false, maxBarThickness: 20, minBarLength: 6 }]
+    };
+    make('ladder', cv, 'bar', data, o);
+  }
+
+  function scatter() {
+    const cv = $('#chart-scatter'); if (!cv || !P.comps) return;
+    const groups = [['river', 'Riverfront / lakefront'], ['view', 'Lake view'], ['regular', 'Wooded / interior']];
+    const o = opts();
+    o.scales.x = { type: 'linear', title: { display: true, text: 'Acres', color: css('--ink-3') }, grid: { color: css('--chart-grid') }, border: { display: false }, ticks: { color: css('--ink-2') }, min: 0, max: P.scatterMaxAcres || 10 };
+    o.scales.y = { title: { display: true, text: 'Lot price', color: css('--ink-3') }, grid: { color: css('--chart-grid') }, border: { display: false }, ticks: { color: css('--ink-2'), callback: v => fmtM(v) }, min: 0 };
+    o.plugins.tooltip = { callbacks: { label: c => { const d = c.raw.c; return `${d.label}: ${fmt$(d.price)}, ${d.acres} ac`; }, afterLabel: c => `${c.raw.c.community || ''} · ${c.raw.c.status}${c.raw.c.date ? ' ' + c.raw.c.date : ''}` } };
+    const shapes = { river: 'circle', view: 'rectRot', regular: 'triangle' };
+    const data = {
+      datasets: groups.map(([k, name]) => ({
+        label: name, pointStyle: shapes[k],
+        data: P.comps.filter(c => c.tier === k && c.acres && c.acres <= (P.scatterMaxAcres || 10)).map(c => ({ x: c.acres, y: c.price, c })),
+        backgroundColor: css(TIER[k]), borderColor: css('--paper'), borderWidth: 2, pointRadius: 7, pointHoverRadius: 10
+      }))
+    };
+    if (P.targets) data.datasets.push({ label: 'Clinch Bluff launch price', pointStyle: 'star', data: P.targets.map(t => ({ x: t.acres, y: t.price, c: { label: t.label, price: t.price, acres: t.acres, community: 'Clinch Bluff target', status: 'proposed' } })), backgroundColor: css('--copper'), borderColor: css('--copper'), borderWidth: 2, pointRadius: 11, pointHoverRadius: 13 });
+    make('scatter', cv, 'scatter', data, o);
+  }
+
+  function premiums() {
+    const cv = $('#chart-prem'); if (!cv || !P.premiumBars) return;
+    const o = opts(); o.plugins.legend = { display: false };
+    o.scales.x = { grid: { display: false }, ticks: { color: css('--ink-2'), font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12 } } };
+    o.scales.y = { grid: { color: css('--chart-grid') }, border: { display: false }, ticks: { color: css('--ink-2'), callback: v => fmtM(v) }, min: 0 };
+    o.plugins.tooltip = { callbacks: { label: c => `${fmt$(c.raw)}`, afterLabel: c => P.premiumBars[c.dataIndex].note || '' } };
+    make('prem', cv, 'bar', { labels: P.premiumBars.map(b => b.label), datasets: [{ data: P.premiumBars.map(b => b.value), backgroundColor: P.premiumBars.map(b => css(TIER[b.tier] || '--river')), borderRadius: 4, maxBarThickness: 64 }] }, o);
+  }
+
+  function make(key, cv, type, data, o) {
+    if (charts[key]) charts[key].destroy();
+    charts[key] = new Chart(cv, { type, data, options: o });
+  }
+
+  function tables() {
+    const tb = $('#comps-body');
+    if (tb && P.comps) {
+      const tierName = { river: 'Lakefront', view: 'Lake view', regular: 'Wooded' };
+      tb.innerHTML = P.comps.filter(c => c.status === 'Sold').sort((a, b) => b.price - a.price).map(c => `<tr>
+        <td><b>${c.label}</b><small>${c.community || ''}</small></td>
+        <td><span class="chip t-${c.tier}">${tierName[c.tier] || c.tier}</span></td>
+        <td class="r">${fmt$(c.price)}</td><td class="r">${c.acres ?? '–'}</td><td class="r">${c.ppa ? fmt$(c.ppa) : '–'}</td>
+        <td>${c.status}${c.date ? '<br><small>' + c.date + '</small>' : ''}</td>
+        <td class="src">${(c.sources || []).map((u, i) => `<a href="${u}" target="_blank" rel="noopener">source ${i + 1}</a>`).join(' ')}</td></tr>`).join('');
+    }
+    const sb = $('#schedule-body');
+    if (sb && P.schedule) {
+      sb.innerHTML = P.schedule.map(r => `<tr><td>${r.lots}</td><td><span class="chip t-${r.tier}">${r.tierName}</span></td><td>${r.release}</td><td class="r">${fmt$(r.price)}</td><td class="muted small">${r.note || ''}</td></tr>`).join('');
+    }
+  }
+
+  function renderAll() { if (window.Chart) { Chart.defaults.font.family = 'IBM Plex Sans, system-ui, sans-serif'; ladder(); scatter(); premiums(); } }
+
+  function theme() {
+    const btn = $('#theme-btn'); if (!btn) return;
+    const label = () => { const t = document.documentElement.getAttribute('data-theme'); btn.textContent = t === 'dark' ? 'Dark' : t === 'light' ? 'Light' : 'Auto'; };
+    try { const t = localStorage.getItem('hb-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) { }
+    label();
+    btn.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === null ? 'light' : cur === 'light' ? 'dark' : null;
+      if (next) document.documentElement.setAttribute('data-theme', next); else document.documentElement.removeAttribute('data-theme');
+      try { next ? localStorage.setItem('hb-theme', next) : localStorage.removeItem('hb-theme'); } catch (e) { }
+      label(); renderAll(); drawPlan();
+    });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { renderAll(); drawPlan(); });
+  }
+  function drawPlan() { if (window.HBSitePlan && P.planCounts) document.querySelectorAll('svg.siteplan').forEach(s => HBSitePlan.draw(s, P.planCounts)); }
+
+  function boot() { theme(); tables(); renderAll(); drawPlan(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+
+</script>
+
+</body>
+</html>

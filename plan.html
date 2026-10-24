@@ -1,0 +1,1696 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Clinch Bluff Business Plan</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Business plan and live financial model for Clinch Bluff, a 20-homesite gated lakefront community at Williams Bend in Hardin Valley, Knoxville.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a prospectus column (68rem) with full-bleed bands; editorial sections above, the working model below.
+   Palette from the land itself: Clinch River slate-green, Copper Ridge copper, limestone mist. */
+:root {
+  --river: #123f3d;        /* primary, deep river slate-green (ui-ux-pro-max real-estate teal, deepened) */
+  --river-2: #1d5c58;
+  --copper: #9a5530;       /* accent, Copper Ridge */
+  --copper-2: #c07a4c;
+  --mist: #f1f4f2;         /* page ground, limestone mist with a green bias */
+  --paper: #ffffff;
+  --ink: #142624;
+  --ink-2: #445855;
+  --ink-3: #6b7d7a;
+  --line: #d9e1de;
+  --line-2: #c4d0cc;
+  --good: #2f7a4f;
+  --warn: #a8701d;
+  --bad: #b03a2e;
+  --tier-river: #2563b5;   /* Riverfront: water blue (dataviz validator: all six checks pass, light) */
+  --tier-view: #16967a;    /* Lake View: lake-teal green */
+  --tier-regular: #b9781f; /* Regular: field gold */
+  --chart-grid: rgba(20, 38, 36, .08);
+  --shadow: 0 1px 2px rgba(18, 63, 61, .06), 0 8px 24px rgba(18, 63, 61, .06);
+  --f-display: "Cinzel", "Trajan Pro", Georgia, serif;           /* wordmark, page title, eyebrows */
+  --f-head: "Cormorant Garamond", "Cormorant", Georgia, serif;   /* section headings */
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;  /* body, UI and every number (tabular) */
+  --f-data: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --r: 10px;
+  --w: 68rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --river: #7cc4bb; --river-2: #a5dad2; --copper: #e09a68; --copper-2: #f0b48a;
+    --mist: #0c1716; --paper: #12201f; --ink: #e6efec; --ink-2: #b2c3bf; --ink-3: #8a9d99;
+    --line: #22312f; --line-2: #2e4240; --good: #6cc392; --warn: #e3b25a; --bad: #ef8a7d;
+    --tier-river: #4f86d9; --tier-view: #1f9e80; --tier-regular: #c4852f;
+    --chart-grid: rgba(230, 239, 236, .08); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --river: #7cc4bb; --river-2: #a5dad2; --copper: #e09a68; --copper-2: #f0b48a;
+  --mist: #0c1716; --paper: #12201f; --ink: #e6efec; --ink-2: #b2c3bf; --ink-3: #8a9d99;
+  --line: #22312f; --line-2: #2e4240; --good: #6cc392; --warn: #e3b25a; --bad: #ef8a7d;
+  --tier-river: #4f86d9; --tier-view: #1f9e80; --tier-regular: #c4852f;
+  --chart-grid: rgba(230, 239, 236, .08); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { background: var(--mist); color: var(--ink); font-family: var(--f-body); font-size: 16.5px; line-height: 1.6; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+a { color: var(--river-2); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: var(--w); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.num, table, input, select, .kpi b { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+/* Top bar */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 18px; min-height: 56px; flex-wrap: wrap; padding-block: 6px; }
+.mark { font-family: var(--f-display); font-weight: 600; letter-spacing: .14em; font-size: 15px; color: var(--river); text-decoration: none; white-space: nowrap; }
+.mark small { display: block; font-family: var(--f-body); letter-spacing: .2em; font-size: 10px; color: var(--copper); font-weight: 600; text-transform: uppercase; }
+.top nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+.top nav a { font-size: 14px; color: var(--ink-2); text-decoration: none; padding: 10px 10px 8px; border-radius: 6px; letter-spacing: .04em; }
+.top nav a:hover { background: var(--mist); color: var(--ink); }
+.top nav a.out { color: var(--copper); font-weight: 600; }
+.theme-btn { border: 1px solid var(--line-2); background: var(--paper); color: var(--ink-2); border-radius: 8px; min-width: 44px; min-height: 40px; cursor: pointer; font: inherit; font-size: 13px; }
+
+/* Type */
+h1, h2, h3 { text-wrap: balance; }
+h1 { font-family: var(--f-display); font-weight: 600; font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.08; letter-spacing: .02em; margin: 0; color: var(--river); }
+h2 { font-family: var(--f-head); font-weight: 600; font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1.1; margin: 0 0 .4em; color: var(--river); letter-spacing: 0; }
+h3 { font-family: var(--f-body); font-weight: 600; font-size: 1.08rem; margin: 0 0 .35em; letter-spacing: .01em; }
+.eyebrow { font-family: var(--f-body); text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 600; color: var(--copper); margin: 0 0 .7em; }
+.lede { font-size: 1.2rem; line-height: 1.55; color: var(--ink-2); max-width: 44rem; }
+p { max-width: 42rem; }
+.muted { color: var(--ink-3); }
+.small { font-size: 14px; }
+
+/* Sections */
+section.band { padding-block: 64px; border-top: 1px solid var(--line); }
+section.band.alt { background: var(--paper); }
+.sec-head { display: grid; gap: 4px; margin-bottom: 28px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 28px; align-items: start; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 20px; align-items: start; }
+.grid2 > *, .grid3 > * { min-width: 0; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; box-shadow: var(--shadow); min-width: 0; }
+.alt .card { background: var(--mist); box-shadow: none; }
+
+/* KPI strip */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.kpi { background: var(--paper); padding: 16px 18px; display: grid; gap: 2px; }
+.kpi span { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-3); font-weight: 600; }
+.kpi b { font-size: 1.55rem; font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
+.kpi em { font-style: normal; font-size: 13px; color: var(--ink-3); }
+.kpi.hero b { color: var(--copper); }
+
+/* Tables */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--paper); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-body); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); background: color-mix(in srgb, var(--mist) 70%, var(--paper)); }
+td.r, th.r { text-align: right; }
+tr.total td { font-weight: 700; border-top: 2px solid var(--line-2); }
+tbody tr:last-child td { border-bottom: 0; }
+
+/* Tier chips */
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 9px 2px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.t-river { color: var(--tier-river); } .t-view { color: var(--tier-view); } .t-regular { color: var(--tier-regular); }
+.pill { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--mist); color: var(--ink-2); }
+.pill.good { color: var(--good); } .pill.warn { color: var(--warn); } .pill.bad { color: var(--bad); }
+
+/* Charts */
+.chart { position: relative; width: 100%; min-height: 260px; }
+.chart canvas { max-width: 100%; }
+.cap { font-size: 13px; color: var(--ink-3); margin-top: 8px; }
+
+/* Footer */
+footer { padding-block: 40px; font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line); }
+
+@media print {
+  @page { size: letter; margin: 0.45in; }
+  body { background: #fff; font-size: 11pt; }
+  .top, .no-print { display: none !important; }
+  section.band { padding-block: 22px; break-inside: auto; }
+  .card, .kpis, .tbl-wrap, figure, .chart { break-inside: avoid; box-shadow: none; }
+  .grid2, .grid3 { display: block; }
+  .grid2 > *, .grid3 > * { margin-bottom: 14px; }
+  a { color: inherit; text-decoration: none; }
+}
+.top nav .soon { font-size: 13px; color: var(--ink-3); padding: 10px; }
+@media print {
+  section.band { break-before: page; }
+  .sec-head, h2, h3 { break-after: avoid; break-inside: avoid; }
+  .tbl-wrap { overflow: visible; }
+  table.q { font-size: 8.5px; }
+  table.q th, table.q td { padding: 4px 5px; }
+  table.sens td.heat b { font-size: 11px; }
+}
+
+.draft { display: inline-block; font-size: 13.5px; color: var(--warn); border: 1px solid currentColor; border-radius: 8px; padding: 6px 12px; margin: 0 0 22px; max-width: 60rem; }
+.top nav a { padding: 10px 8px 8px; font-size: 13.5px; }
+.top .wrap { flex-wrap: nowrap; }
+@media (max-width: 1100px) { .top .wrap { flex-wrap: wrap; } }
+
+/* Model workspace: assumptions on the left, live results pinned on the right on wide screens. */
+.model-grid { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: 28px; align-items: start; }
+@media (max-width: 1020px) { .model-grid { grid-template-columns: minmax(0, 1fr); } }
+.results { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 72px); display: grid; gap: 14px; }
+@media (max-width: 1020px) { .results { position: static; order: -1; } }
+.results .card { padding: 18px; }
+.rlist { display: grid; gap: 0; margin: 0; }
+.rlist div { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.rlist div:last-child { border-bottom: 0; }
+.rlist dt { color: var(--ink-2); }
+.rlist dd { margin: 0; font-family: var(--f-data); font-variant-numeric: tabular-nums; font-weight: 700; }
+.rlist .big dd { font-size: 1.35rem; color: var(--copper); }
+.rlist .big dt { align-self: center; font-weight: 600; color: var(--ink); }
+
+#inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 18px; }
+.grp { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; min-width: 0; }
+.grp.wide { grid-column: 1 / -1; }
+.grp h3 { color: var(--river); }
+.grp > p { margin: 0 0 12px; }
+.flds { display: grid; gap: 12px; }
+.fld { display: grid; gap: 4px; }
+.fld > span { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+.fld small { font-size: 12.5px; color: var(--ink-3); line-height: 1.4; }
+.ctl { display: flex; align-items: center; border: 1px solid var(--line-2); border-radius: 8px; background: var(--paper); overflow: hidden; }
+.ctl:focus-within { border-color: var(--copper); box-shadow: 0 0 0 3px color-mix(in srgb, var(--copper) 18%, transparent); }
+.ctl i { font-style: normal; color: var(--ink-3); font-size: 13px; padding: 0 0 0 10px; white-space: nowrap; }
+.ctl i.post { padding: 0 10px 0 0; }
+.ctl input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); font-size: 15px; padding: 10px; min-height: 42px; outline: none; }
+input.cell, .mini input { width: 100%; min-width: 5.5rem; border: 1px solid var(--line-2); border-radius: 7px; background: var(--paper); color: var(--ink); font-size: 14px; padding: 8px; min-height: 38px; text-align: right; }
+input.cell:focus, .mini input:focus, select:focus { outline: 2px solid var(--copper); outline-offset: 0; }
+table.tiers td, table.costs td { vertical-align: middle; }
+table.tiers input.cell { max-width: 9rem; margin-left: auto; display: block; }
+table.costs select { border: 1px solid var(--line-2); border-radius: 7px; background: var(--paper); color: var(--ink); font: 14px var(--f-data); padding: 8px; min-height: 38px; max-width: 11rem; }
+table.costs td.lbl { min-width: 12rem; }
+table.costs td.lbl b { display: block; font-family: var(--f-body); font-weight: 600; font-size: 14.5px; }
+table.costs td.lbl small { display: block; color: var(--ink-3); font-size: 12px; line-height: 1.35; margin-top: 2px; font-family: var(--f-body); }
+.minis { display: flex; gap: 8px; flex-wrap: wrap; }
+.mini { display: grid; gap: 2px; width: 8.2rem; }
+.mini span { font-size: 11.5px; color: var(--ink-3); font-family: var(--f-body); white-space: nowrap; }
+
+/* Scenario bar */
+.scenarios { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 18px; }
+.seg { border: 1px solid var(--line-2); background: var(--paper); color: var(--ink-2); border-radius: 999px; padding: 9px 18px; min-height: 42px; font: 600 14px var(--f-body); letter-spacing: .04em; cursor: pointer; }
+.seg[aria-pressed="true"] { background: var(--river); border-color: var(--river); color: var(--paper); }
+.seg:hover { border-color: var(--river); }
+.scn-note { font-size: 13.5px; color: var(--ink-3); margin-right: auto; padding-left: 6px; }
+.ghost { border: 1px solid var(--line-2); background: transparent; color: var(--ink-2); border-radius: 8px; padding: 8px 12px; min-height: 40px; font: 13px var(--f-body); cursor: pointer; }
+.ghost:hover { border-color: var(--copper); color: var(--copper); }
+.load-box { flex-basis: 100%; display: grid; gap: 6px; }
+.load-box textarea { width: 100%; font: 12px var(--f-data); border: 1px solid var(--line-2); border-radius: 8px; padding: 8px; background: var(--paper); color: var(--ink); }
+.load-box .row { display: flex; gap: 10px; align-items: center; }
+.livebar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: -6px 0 18px; }
+.live-msg { font-size: 13.5px; color: var(--ink-3); margin-right: auto; padding-left: 6px; }
+.ghost.save { border-color: var(--copper); color: var(--copper); font-weight: 600; }
+.ghost:disabled { opacity: .55; cursor: default; }
+.load-box input { width: 100%; max-width: 32rem; font: 13px var(--f-data); border: 1px solid var(--line-2); border-radius: 8px; padding: 8px; background: var(--paper); color: var(--ink); }
+
+/* Sensitivity heat table */
+table.sens td.heat { background: color-mix(in srgb, var(--hc) calc(var(--a) * 100%), var(--paper)); }
+table.sens td.heat b { display: block; font-size: 14px; }
+table.sens td.heat small { display: block; color: var(--ink-2); font-size: 11.5px; }
+table.sens td.base { outline: 2px solid var(--copper); outline-offset: -2px; }
+table.sens th { white-space: nowrap; }
+
+.chart.tall { height: 340px; }
+.chart.mid { height: 280px; }
+.chart.short { height: 240px; }
+svg.siteplan { width: 100%; height: auto; display: block; }
+
+@media print {
+  .model-grid { display: block; }
+  .results { position: static; }
+  .scenarios .ghost, .load-box { display: none !important; }
+  .grp { break-inside: avoid; margin-bottom: 12px; }
+  #inputs { display: block; }
+  .ctl input, input.cell, .mini input { border: 0; padding: 2px 4px; min-height: 0; }
+  select { appearance: none; border: 0 !important; padding: 2px !important; }
+}
+
+/* Cost lines as formulas: label and pricing method, the inputs as a sentence, then the line total */
+.crow { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr) 7.5rem; gap: 6px 16px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); }
+.crow.total { border-top: 2px solid var(--line-2); font-weight: 700; }
+.c-lbl { display: grid; gap: 4px; min-width: 0; }
+.c-lbl b { font-weight: 600; font-size: 14.5px; line-height: 1.3; }
+.c-lbl small { color: var(--ink-3); font-size: 12px; line-height: 1.35; }
+.c-lbl select { border: 1px solid var(--line-2); border-radius: 7px; background: var(--paper); color: var(--ink); font: 13px var(--f-data); padding: 6px 8px; min-height: 36px; max-width: 12rem; }
+.c-fx { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13.5px; color: var(--ink-3); min-width: 0; }
+.c-fx input.fx { border: 1px solid var(--line-2); border-radius: 7px; background: var(--paper); color: var(--ink); font: 14px var(--f-data); font-variant-numeric: tabular-nums; padding: 7px 8px; min-height: 38px; text-align: right; max-width: 100%; }
+.c-fx input.fx:focus { outline: 2px solid var(--copper); outline-offset: 0; }
+.c-total { text-align: right; font-weight: 700; font-size: 15px; }
+@media (max-width: 640px) { .crow { grid-template-columns: minmax(0, 1fr) auto; } .c-fx { grid-column: 1 / -1; grid-row: 2; } .c-total { grid-row: 1; grid-column: 2; } }
+table.tiers input.cell { min-width: 3.6rem; }
+table.tiers td:nth-child(3) input.cell { min-width: 7.6rem; }
+@media print { .c-fx input.fx { border: 0; padding: 2px; min-height: 0; } .c-lbl select { border: 0; padding: 0; appearance: none; } .crow { break-inside: avoid; } }
+.wrap.wide { max-width: 84rem; }
+
+/* Plan page: prospectus hero, thesis points, site facts, schedule. */
+.hero-plan { background: var(--paper); padding-block: 72px 48px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.hero-plan h1 { font-size: clamp(2.6rem, 7vw, 4.8rem); letter-spacing: .04em; }
+.hero-plan .tag { font-family: var(--f-head); font-style: italic; font-weight: 500; font-size: clamp(1.4rem, 3vw, 2.05rem); color: var(--copper); margin: .3em 0 .6em; max-width: 40ch; line-height: 1.2; }
+.hero-kpis { margin-top: 30px; }
+.points { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 22px; }
+.point { border-top: 3px solid var(--copper); padding-top: 14px; min-width: 0; }
+.point .n { font-family: var(--f-data); font-weight: 700; font-size: 2rem; color: var(--river); line-height: 1.05; display: block; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+.point h3 { margin: 0 0 4px; }
+.point p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+.facts-tbl td:first-child { color: var(--ink-3); width: 38%; font-family: var(--f-body); }
+.facts-tbl td { font-family: var(--f-body); font-size: 15px; }
+.gantt { display: grid; gap: 8px; }
+.g-row { display: grid; grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr); gap: 12px; align-items: center; font-size: 14px; }
+.g-track { position: relative; height: 26px; background: var(--mist); border-radius: 6px; }
+.g-bar { position: absolute; top: 3px; bottom: 3px; border-radius: 4px; background: var(--river); color: var(--paper); font: 600 11.5px var(--f-data); display: flex; align-items: center; padding: 0 8px; white-space: nowrap; overflow: hidden; }
+.g-bar.copper { background: var(--copper); }
+.g-bar.soft { background: var(--river-2); }
+.g-axis { display: grid; grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr); gap: 12px; font-size: 12px; color: var(--ink-3); }
+.g-ticks { display: flex; justify-content: space-between; font-family: var(--f-data); }
+.risk { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 6px 22px; padding: 16px 0; border-top: 1px solid var(--line); }
+.risk h3 { margin: 0; }
+.risk p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+@media (max-width: 640px) { .risk { grid-template-columns: 1fr; } .g-row, .g-axis { grid-template-columns: 1fr; } }
+@media print { .hero-plan { padding-block: 20px; } .risk { break-inside: avoid; } }
+
+.callout-plan { margin-top: 32px; background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--copper); border-radius: var(--r); padding: 20px 22px; }
+.callout-plan p { margin: 0; color: var(--ink-2); }
+.tier-card { border-top: 4px solid var(--tc); display: grid; gap: 6px; align-content: start; }
+.tier-card .chip { justify-self: start; }
+.tier-card.river { --tc: var(--tier-river); } .tier-card.view { --tc: var(--tier-view); } .tier-card.regular { --tc: var(--tier-regular); }
+.tier-card p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+.tier-price { display: flex; align-items: baseline; gap: 10px; margin-top: 8px !important; }
+.tier-price b { font-family: var(--f-data); font-size: 1.6rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tier-price span { font-size: 14px; color: var(--ink-3); }
+.facts-tbl td { line-height: 1.45; }
+
+.cushion { margin-top: 18px; display: grid; gap: 8px; }
+.cushion .track { position: relative; height: 12px; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, var(--bad) 35%, var(--paper)), color-mix(in srgb, var(--good) 40%, var(--paper))); }
+.cushion .mk { position: absolute; top: -5px; width: 3px; height: 22px; background: var(--ink); border-radius: 2px; }
+.cushion .mk.be { background: var(--bad); }
+.cushion p { margin: 0; font-size: 14.5px; color: var(--ink-2); max-width: none; }
+.rf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-bottom: 18px; }
+.rf-grid div { background: var(--paper); padding: 14px 16px; display: grid; gap: 2px; }
+.rf-grid span { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-3); font-weight: 600; }
+.rf-grid b { font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+.rf-grid em { font-style: normal; font-size: 13px; color: var(--ink-3); }
+.changes { font-size: 14px; color: var(--ink-2); margin: -6px 0 18px; }
+.changes b { color: var(--copper); }
+.changes span { display: inline-block; margin: 4px 8px 0 0; padding: 3px 9px; border-radius: 6px; background: var(--paper); border: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(--copper) 9%, var(--paper)); }
+
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr)); gap: 14px; counter-reset: s; }
+.step { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: grid; gap: 6px; align-content: start; position: relative; }
+.step b { font-family: var(--f-display); color: var(--paper); background: var(--river); width: 2rem; height: 2rem; border-radius: 50%; display: grid; place-items: center; }
+.step h3 { margin: 4px 0 0; font-size: 1rem; }
+.step p { margin: 0; font-size: 14px; color: var(--ink-2); }
+.step span { font-size: 12.5px; font-weight: 600; color: var(--copper); }
+@media print { .step { break-inside: avoid; } }
+
+.hero-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 760px) { .hero-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.rf-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .rf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media print { .hero-plan .cap { display: none; } .hero-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; } .hero-kpis .kpi b { font-size: 1.25rem; } }
+
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#overview">CLINCH BLUFF<small>Business plan</small></a>
+    <nav aria-label="Sections">
+      <a href="#thesis">Thesis</a><a href="#site">Site</a><a href="#plan">Lot plan</a><a href="#approvals">Approvals</a><a href="#schedule">Schedule</a><a href="#model">Model</a><a href="#returns">What we make</a><a href="#risks">Risks</a>
+      <a class="out" href="lot-pricing.html">Lot pricing case</a>
+    </nav>
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch color theme">Auto</button>
+  </div>
+</header>
+
+<main>
+<section class="hero-plan" id="overview">
+  <div class="wrap">
+    <p class="draft">Draft 3 for review, October 24, 2026. Development costs use our own contractor pricing. The soil map, final bids and lender terms will firm them up.</p>
+    <p class="eyebrow">Williams Bend&nbsp;&middot;&nbsp;Hardin Valley&nbsp;&middot;&nbsp;Knoxville, Tennessee</p>
+    <h1>Clinch Bluff</h1>
+    <p class="tag">The last lakefront land in Hardin Valley, finished as twenty private homesites.</p>
+    <p class="lede">We plan to buy 44.45 acres with about 1,200 feet of bluff above Melton Hill Lake, build a gated private road, bring water, power and wastewater to every lot, and sell twenty finished homesites in three tiers. A buyer closes on a lot and starts building, in the Hardin Valley school zone, twenty minutes from West Knoxville.</p>
+    <div class="kpis hero-kpis">
+      <div class="kpi"><span>Gross lot sales</span><b data-k="revenue"></b><em data-k="lots-note">20 homesites</em></div>
+      <div class="kpi"><span>Development budget</span><b data-k="devbudget"></b><em data-k="devperlot"></em></div>
+      <div class="kpi"><span>Total project cost</span><b data-k="cost"></b><em>land, build-out, carry, sales costs, financing</em></div>
+      <div class="kpi hero"><span>Net profit</span><b data-k="profit"></b><em>after every cost</em></div>
+      <div class="kpi"><span>Margin on cost</span><b data-k="moc"></b><em>profit / total cost</em></div>
+      <div class="kpi"><span>Return on cash</span><b data-k="irr"></b><em>IRR, annualized</em></div>
+      <div class="kpi"><span>Cash multiple</span><b data-k="em"></b><em>cash back / cash in</em></div>
+      <div class="kpi"><span>Most cash in</span><b data-k="peak"></b><em>at any one time</em></div>
+    </div>
+    <div class="cushion" aria-live="polite"><div class="track"><i class="mk be" id="cu-be"></i><i class="mk" id="cu-avg"></i></div><p id="cu-text"></p></div>
+    <p class="cap">Figures update live from the scenario selected in the model below. Change any assumption and these numbers follow.</p>
+  </div>
+</section>
+<section class="band" id="thesis">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The thesis</p>
+      <h2>Hardin Valley has run out of lakefront, and finished lots here sell for a premium</h2>
+      <p class="lede">Williams Bend is the last lake property in Hardin Valley, the most exclusive part of Knoxville right now. Buyers already pay estate prices on this road for small houses and bare lots. We turn 44 raw acres into twenty lots a buyer can build on the day they close.</p>
+    </div>
+    <div class="points">
+      <div class="point"><span class="n">The last</span><h3>Lake property in Hardin Valley</h3><p>On October 24, 2026 this tract was one of only two land listings in the Hardin Valley ZIP with any lake frontage, and the other cannot take a dock. Hardin Valley lakefront homes have risen 84% to 148% since 2020.</p></div>
+      <div class="point"><span class="n">$1.25M</span><h3>Appraisal on a 1,200 SF house</h3><p>A neighboring Williams Bend home bought off-market for $950,000 appraised at $1.25 million during escrow. Buyers here are paying for the address and the land.</p></div>
+      <div class="point"><span class="n">$550K</span><h3>A 3-acre lot with no lake view</h3><p>Another Williams Bend lot without a view is going for $550,000 as raw land, with no utilities in. Our finished, gated Regular lots launch above it at $625,000.</p></div>
+      <div class="point"><span class="n">$1.3M&ndash;$2.45M</span><h3>Finished lakefront lots in Arcadia</h3><p>Five lakefront homesites in Arcadia, Knoxville&rsquo;s gated community on Fort Loudoun Lake, closed between $1.3 million and $2.45 million from 2024 to 2026. Current Arcadia lakefront lots ask up to $3.0 million.</p></div>
+    </div>
+    <div class="callout-plan">
+      <h3>Why a finished lot is worth more than raw land</h3>
+      <p>A buyer who purchases raw lakefront acreage still has to build a road, extend water and power, get septic approved and wait a year or more before starting a house. Our buyers skip all of it. Water and power are at the lot line, the wastewater system is in, the road is paved and the gate is up, so they close and start building. That certainty is what supports $1 million-plus pricing for the Riverfront lots.</p>
+    </div>
+  </div>
+</section>
+<section class="band alt" id="site">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The site</p>
+      <h2>44.45 acres on a bluff above Melton Hill Lake</h2>
+    </div>
+    <div class="grid2">
+      <div class="tbl-wrap">
+        <table class="facts-tbl"><tbody>
+          <tr><td>Address</td><td>0 Williams Bend Rd, Knoxville, TN 37932 (Hardin Valley)</td></tr>
+          <tr><td>Listing</td><td>MLS 1359172, listed October 16, 2026 at $2,000,000</td></tr>
+          <tr><td>Parcel</td><td>Knox County tax map 102, parcel 011.03</td></tr>
+          <tr><td>Size</td><td>44.45 acres by survey; about 20 acres cleared and 24 wooded</td></tr>
+          <tr><td>Water</td><td>About 1,200 ft of lakefront bluff on the Clinch River arm of Melton Hill Lake, roughly 150 ft above the water</td></tr>
+          <tr><td>Terrain</td><td>From about 1,064 ft at the road to 900 to 960 ft on the bluff top and 810 ft at the TVA line; rolling upland on the Copper Ridge landform, steep toward the river</td></tr>
+          <tr><td>Zoning</td><td>A (Agricultural): one-acre minimum, so 20 lots are allowed by right with no rezoning. In Greenbelt, no recorded restrictions</td></tr>
+          <tr><td>Utilities</td><td>Water from West Knox Utility District; electric most likely from Lenoir City Utilities Board, with LCUB fiber; no public sewer at the site</td></tr>
+          <tr><td>Schools</td><td>Hardin Valley Elementary 1.8 mi, Hardin Valley Middle 1.9 mi, Hardin Valley Academy 2.0 mi</td></tr>
+          <tr><td>Shoreline</td><td>TVA Melton Hill Parcel 38 (Hewitt Bluff), a protected strip 10 to 45 ft deep between the lots and the water. TVA does not allow docks here</td></tr>
+          <tr><td>Flood zone</td><td>Zone X (minimal) across the upland; the high-hazard zone is limited to the water&rsquo;s edge</td></tr>
+          <tr><td>Recorded sales</td><td>$715,000 (2014), $1,175,000 (2020), $2,000,000 (January 2025)</td></tr>
+          <tr><td>On file</td><td>Boundary survey (Cannon &amp; Cannon) and a 2020 preliminary soil map that mapped septic sites for two homes and a clubhouse</td></tr>
+        </tbody></table>
+      </div>
+      <div class="card">
+        <svg class="siteplan" role="img" aria-label="Illustrative site plan of the community"></svg>
+        <p class="cap"><span class="chip t-river">Riverfront</span> <span class="chip t-view">Lake View</span> <span class="chip t-regular">Regular</span></p>
+        <p class="cap">Illustrative concept traced from the boundary survey. Lot lines, road alignment and the final lot count come from the civil engineer and Knox County approval.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="band" id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The lot plan</p>
+      <h2>Twenty finished homesites in three tiers</h2>
+      <p class="lede">Every lot is delivered with a paved private road behind a gate, public water, underground power, fiber conduit and a septic system installed when the lot sells.</p>
+    </div>
+    <div class="grid3">
+      <div class="card tier-card river"><span class="chip t-river">Riverfront</span><h3>On the bluff</h3><p>Lots along the 1,200 feet of bluff, running down to protected TVA shoreline, with long views up and down the river.</p><p class="tier-price"><b data-k="p-river"></b><span data-k="c-river"></span></p></div>
+      <div class="card tier-card view"><span class="chip t-view">Lake View</span><h3>Above the water</h3><p>Lots on the upper slopes and the cleared ridge, sited to open views of the lake and the ridgelines beyond.</p><p class="tier-price"><b data-k="p-view"></b><span data-k="c-view"></span></p></div>
+      <div class="card tier-card regular"><span class="chip t-regular">Regular</span><h3>In the woods</h3><p>Private wooded lots near the gate, with the same address and school zone at the most accessible price.</p><p class="tier-price"><b data-k="p-regular"></b><span data-k="c-regular"></span></p></div>
+    </div>
+    <p class="cap">Prices and lot counts follow the model. The full price case is in the companion lot pricing analysis.</p>
+  </div>
+</section>
+<section class="band" id="approvals">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Approvals</p>
+      <h2>Twenty lots are allowed by right</h2>
+      <p class="lede">The A zone requires one acre per home, and 20 lots on 44.45 acres is less than half that density, so no rezoning is needed. Knox County approval runs through three steps, about 16 to 26 months from closing to recorded lots.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Pre-application and diligence</h3><p>Meet Knox Planning, County Engineering and the Health Department. Complete the topo survey, a full high-intensity soil map, the stream determination, and West Knox Utility District and LCUB service letters.</p><span>2 to 4 months</span></div>
+      <div class="step"><b>2</b><h3>Concept Plan</h3><p>Planning Commission approval of the layout, the private gated street and the soil-mapped lots. A concept plan vests for three years.</p><span>About 9 weeks to hearing</span></div>
+      <div class="step"><b>3</b><h3>Design Plan</h3><p>County Engineering approves the street profile, grading, stormwater and the gate, with the state construction stormwater permit.</p><span>3 to 6 months</span></div>
+      <div class="step"><b>4</b><h3>Build the road and utilities</h3><p>Clearing, rough grading, the road, water, power, fiber and the front entrance, built by our own subcontractors.</p><span>6 to 12 months</span></div>
+      <div class="step"><b>5</b><h3>Final Plat</h3><p>Planning staff certify the plat with Health Department sign-off, and lots can close. A recent Williams Bend Rd plat took about 10 weeks.</p><span>About 10 weeks</span></div>
+    </div>
+    <div class="points" style="margin-top:28px">
+      <div class="point"><h3>The private street</h3><p>A private road for six or more lots is built to county street standards: a 40 to 50 ft right-of-way, 20 to 26 ft of pavement and grades up to 12%, maintained by the HOA. The gate is approved as a condition of the plan.</p></div>
+      <div class="point"><h3>Septic sets the final count</h3><p>About 30 acres sit under the 30% slope limit for septic, roughly 1.2 usable acres per lot after the road and buffers. The full soil map confirms each lot before closing on the land, with drip systems, a community system or a sewer extension as fallbacks.</p></div>
+      <div class="point"><h3>Greenbelt rollback</h3><p>About $10,000 to $13,000, triggered as each phase is platted. Keeping the land in Greenbelt during approvals defers it.</p></div>
+    </div>
+  </div>
+</section>
+<section class="band alt" id="schedule">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Schedule</p>
+      <h2>From closing to the last lot sold</h2>
+      <p class="lede" id="gantt-sum"></p>
+    </div>
+    <div class="card"><div class="gantt" id="gantt"></div></div>
+    <p class="cap">The bars follow the model: change the approval, construction or sales assumptions and the schedule redraws.</p>
+  </div>
+</section>
+<section class="band" id="model">
+  <div class="wrap wide">
+    <div class="sec-head">
+      <p class="eyebrow">Financial model</p>
+      <h2>Change any assumption and the whole plan recalculates</h2>
+      <p class="lede">Start from a scenario, then edit lots, prices, any cost line, the schedule or the financing. Each infrastructure line can be priced as a total, per lot, per foot, or as a shared main plus a per-lot hookup.</p>
+    </div>
+    <div class="scenarios" id="scenarios" role="group" aria-label="Scenario"></div>
+    <div class="livebar no-print" id="livebar"></div>
+    <div class="changes" id="changes" hidden></div>
+    <div class="model-grid">
+      <div id="inputs"></div>
+      <aside class="results" aria-label="Live results">
+        <div class="card">
+          <p class="eyebrow">Live results</p>
+          <dl class="rlist">
+            <div class="big"><dt>Net profit</dt><dd data-k="profit"></dd></div>
+            <div><dt>Gross lot sales</dt><dd data-k="revenue"></dd></div>
+            <div><dt>Total project cost</dt><dd data-k="cost"></dd></div>
+            <div><dt>Margin on cost</dt><dd data-k="moc"></dd></div>
+            <div><dt>Development budget</dt><dd data-k="devbudget"></dd></div>
+            <div><dt>Return on cash (IRR)</dt><dd data-k="irr"></dd></div>
+            <div><dt>Project IRR, no loan</dt><dd data-k="uirr"></dd></div>
+            <div><dt>Cash multiple</dt><dd data-k="em"></dd></div>
+            <div><dt>Most cash in at one time</dt><dd data-k="peak"></dd></div>
+            <div><dt>All-in cost per lot</dt><dd data-k="perlot"></dd></div>
+            <div><dt>Break-even average lot price</dt><dd data-k="be"></dd></div>
+            <div><dt>Months to sell out</dt><dd data-k="months"></dd></div>
+          </dl>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Lot plan</p>
+          <svg class="siteplan" role="img" aria-label="Illustrative site plan showing lots by tier"></svg>
+          <p class="cap"><span class="chip t-river">Riverfront</span> <span class="chip t-view">Lake View</span> <span class="chip t-regular">Regular</span></p>
+          <p class="cap">Illustrative only. The engineered plan will set final lot lines.</p>
+        </div>
+        <button type="button" class="ghost no-print" id="reset-btn">Reset to this scenario</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="returns">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What we make</p>
+      <h2>Where the money goes and when it comes back</h2>
+    </div>
+    <div class="kpis" style="margin-bottom:28px">
+      <div class="kpi hero"><span>Net profit</span><b data-k="profit"></b><em>after every cost</em></div>
+      <div class="kpi"><span>Margin on cost</span><b data-k="moc"></b><em>profit / total cost</em></div>
+      <div class="kpi"><span>Return on cash</span><b data-k="irr"></b><em>IRR, monthly flows annualized</em></div>
+      <div class="kpi"><span>Cash multiple</span><b data-k="em"></b><em>cash back / cash in</em></div>
+      <div class="kpi"><span>Most cash in</span><b data-k="peak"></b><em>at any one time</em></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Uses of funds</h3>
+        <div class="chart short"><canvas id="chart-uses" aria-label="Project cost by category"></canvas></div>
+        <div class="tbl-wrap" style="margin-top:14px"><table><thead><tr><th>Use</th><th class="r">Amount</th><th class="r">Share</th><th class="r">Per lot</th></tr></thead><tbody id="uses"></tbody></table></div>
+      </div>
+      <div class="card">
+        <h3>What the owner puts in and takes out</h3>
+        <div class="tbl-wrap"><table><thead><tr><th></th><th class="r">Amount</th></tr></thead><tbody id="sources"></tbody></table></div>
+        <h3 style="margin-top:20px">Residual land value</h3>
+        <p><b class="num" id="resid" style="font-size:1.4rem;color:var(--copper)"></b></p>
+        <p class="muted small" id="resid-note"></p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:28px" id="rf-case">
+      <h3>The Riverfront case</h3>
+      <p class="muted small" id="rf-lede"></p>
+      <div class="rf-grid">
+        <div><span>Riverfront launch price</span><b data-k="rf-price"></b><em data-k="rf-ff"></em></div>
+        <div><span>Share of lots</span><b data-k="rf-lots"></b><em>Riverfront lots / all lots</em></div>
+        <div><span>Share of revenue</span><b data-k="rf-share"></b><em>Riverfront sales / all sales</em></div>
+        <div><span>Profit if Riverfront sold at Regular prices</span><b data-k="rf-floor"></b><em>every other input unchanged</em></div>
+        <div><span>Profit on each Riverfront lot</span><b data-k="rf-target"></b><em>after its share of every cost</em></div>
+        <div><span>Home a buyer would build</span><b data-k="rf-home"></b><em>lot at 20% to 25% of the home</em></div>
+      </div>
+      <div class="chart mid"><canvas id="chart-rf" aria-label="Return on cash at each Riverfront price"></canvas></div>
+      <p class="cap">Return on cash at each Riverfront launch price, with every other input held at the current scenario. The marker shows $1,000,000.</p>
+    </div>
+
+    <div class="card" style="margin-top:28px">
+      <h3>Three scenarios side by side</h3>
+      <div class="tbl-wrap"><table class="compare" id="compare"></table></div>
+    </div>
+
+    <div class="card" style="margin-top:28px">
+      <h3>Owner cash in and out, by quarter</h3>
+      <p class="muted small">Grey bars are cash the owner puts in. Dark teal bars are cash coming back once lots close and the loan is paid down. The copper line is the running total, which turns positive when every dollar put in has come back.</p>
+      <div class="chart tall"><canvas id="chart-cf" aria-label="Quarterly owner cash flow"></canvas></div>
+    </div>
+
+    <div class="grid2" style="margin-top:28px">
+      <div class="card">
+        <h3>Loan balance and lot closings</h3>
+        <div class="chart mid"><canvas id="chart-loan" aria-label="Loan balance by quarter"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Profit per lot by tier</h3>
+        <p class="muted small">All-in cost is the total project cost (before commissions) spread evenly across every lot.</p>
+        <div class="tbl-wrap"><table><thead><tr><th>Tier</th><th class="r">Lots</th><th class="r">Price</th><th class="r">All-in cost</th><th class="r">Profit per lot</th><th class="r">Margin</th></tr></thead><tbody id="tier-econ"></tbody></table></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:28px">
+      <h3>Quarterly cash flow</h3>
+      <div class="tbl-wrap"><table class="q"><thead><tr id="qhead"></tr></thead><tbody id="qbody"></tbody></table></div>
+    </div>
+
+    <div class="grid2" style="margin-top:28px">
+      <div class="card">
+        <h3>Profit if prices and costs move</h3>
+        <p class="muted small">Net profit and return on cash for every combination. The outlined cell is the current scenario.</p>
+        <div class="tbl-wrap"><table class="sens" id="sens"></table></div>
+      </div>
+      <div class="card">
+        <h3>What moves profit most</h3>
+        <p class="muted small">Change in net profit when each assumption moves on its own.</p>
+        <div class="chart mid"><canvas id="chart-tor" aria-label="Sensitivity of profit to each assumption"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:28px">
+      <h3>Development budget detail</h3>
+      <div class="tbl-wrap"><table><thead><tr><th></th><th>Line</th><th class="r">Amount</th><th class="r">Per lot</th></tr></thead><tbody id="budget-detail"></tbody></table></div>
+    </div>
+  </div>
+</section>
+<section class="band" id="risks">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Risks and how we manage them</p>
+      <h2>What could change the numbers</h2>
+    </div>
+    <div class="risk"><h3>Lot count</h3><p>Zoning allows 20 lots by right, but each lot needs enough suitable soil for its septic system and a duplicate area. If parts of the site map poorly the count could fall into the mid teens. We run the full soil map during the diligence period, before closing, and the model shows the result at any lot count.</p></div>
+    <div class="risk"><h3>Wastewater</h3><p>There is no public sewer. Soils mapped in 2020 support subsurface systems at the sites tested. We map every planned lot before closing and keep a community sewer system as the alternative, and both are priced in the model.</p></div>
+    <div class="risk"><h3>Water access</h3><p>The shoreline below the bluff is TVA habitat-protection land, and TVA does not allow docks there. Every price in this plan assumes no dock. Riverfront lots are sold on the bluff, the view and the protected shoreline, with public boat ramps about 1.3 miles away.</p></div>
+    <div class="risk"><h3>Site costs</h3><p>The budget uses our own contractor pricing, well below published East Tennessee rates, and a 10% contingency. The road drops about 100 to 160 feet from Williams Bend Rd to the bluff, and rock can raise grading costs, so we get an early road profile and lock fixed prices with our subcontractors before closing.</p></div>
+    <div class="risk"><h3>Sales pace and price</h3><p>Reservations during construction test pricing before the lots are finished. Holding the best Riverfront lots for later releases protects price, and the model shows profit at slower sales and lower prices.</p></div>
+    <div class="risk"><h3>Gate and street connections</h3><p>The Planning Commission can ask for a stub street to neighboring land, which works against a gate. We settle the gate and any connection request at the pre-application meeting.</p></div>
+    <div class="risk"><h3>Interest rates</h3><p>The loan covers 65% of cost, and lot sales repay it first. The sensitivity chart shows the effect of a two-point rate change.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Prepared October 2026. Figures are estimates and projections, not guarantees. The site plan is illustrative; final lot count and layout depend on engineering, the soil map and Knox County approval.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>window.HB_DEFAULTS = {"version":"v4","targetIRR":0.2,"scenarios":{"conservative":{"label":"Conservative","note":"Riverfront $900K, Lake View $650K, Regular $550K; costs 15% higher, slower sales","site":{"acres":44.45,"frontageFt":1200},"land":{"price":2000000,"closingPct":0,"rollback":{"mode":"auto","appraisal":1105300,"ratePer100":1.554,"greenbeltTax":377.62,"years":3}},"tiers":[{"key":"river","name":"Riverfront","count":6,"price":900000,"acres":2.5,"delay":0},{"key":"view","name":"Lake View","count":7,"price":650000,"acres":2.0,"delay":0},{"key":"regular","name":"Regular","count":7,"price":550000,"acres":2.0,"delay":0}],"sales":{"startOffset":0,"pace":{"river":0.5,"view":0.5,"regular":0.5},"presalePct":10,"escalationPct":0,"commissionPct":6,"closingPct":1.25},"timeline":{"entitleMonths":12,"constructMonths":12},"hard":[{"key":"road","label":"Private road and drainage","mode":"perUnit","qty":1700,"unit":"LF","unitCost":172,"bench":"Your contractor pricing: $150 per LF on a 1,700 LF spine road from the gate to the bluff, about $255K. Research range was $147 to $448 per LF."},{"key":"clearing","label":"Clearing","mode":"perUnit","qty":8.5,"unit":"ac","unitCost":2300,"bench":"Done by your grader along with the rough grading. Research range was $4,000 to $9,000 per acre."},{"key":"grading","label":"Rough grading","mode":"perUnit","qty":44.45,"unit":"ac","unitCost":575,"bench":"Your grader\u2019s price: $500 per acre across the whole site."},{"key":"erosion","label":"Erosion control and stormwater","mode":"total","total":11500,"bench":"Your grader installs and maintains it; this covers silt fence and materials."},{"key":"water","label":"Water main and services (plumbing)","mode":"unitCombo","qty":1700,"unit":"LF","unitCost":80,"perLot":1380,"lots":null,"bench":"West Knox Utility District. Low end of the $70 to $150 per LF range with your subs, plus $1,200 per service."},{"key":"hydrants","label":"Fire hydrants","mode":"perUnit","qty":4,"unit":"each","unitCost":8625,"bench":"Four hydrants along the 1,700 LF road."},{"key":"electric","label":"Underground electric","mode":"combo","total":9200,"perLot":8050,"lots":null,"bench":"Lenoir City Utilities Board, most likely. Low end of the $7K to $17K per lot range, with your crews trenching and setting conduit."},{"key":"telecom","label":"Fiber and telecom conduit","mode":"perUnit","qty":1700,"unit":"LF","unitCost":8,"bench":"Your price: $7 per LF."},{"key":"septic","label":"Septic systems, installed per lot","mode":"perLot","perLot":23000,"lots":null,"timing":"sale","bench":"Your price: about $20,000 per lot. Installed as each lot sells, so it is paid from sale proceeds."},{"key":"sewer","label":"Community sewer (alternative)","mode":"perLot","perLot":48300,"lots":0,"bench":"Not used. A TPUC-regulated drip system runs $30K to $60K per lot. Set lots served above 0 to use it."},{"key":"gate","label":"Front entrance and gate","mode":"total","total":86250,"bench":"Your price for the whole front entrance through your contacts. No landscaping."}],"soft":[{"key":"civil","label":"Civil engineering","mode":"total","total":57500,"timing":"entitle","bench":"Your budget: about $50,000."},{"key":"survey","label":"Surveys and soil maps","mode":"total","total":23000,"timing":"entitle","bench":"Your budget: about $20,000 for surveys, site plans and the soil maps."}],"contingency":{"hardPct":15,"softPct":5,"costEscalationPct":4.5},"carry":{"propertyTaxYr":4300,"lotTaxYr":2700,"insuranceYr":8000,"hoaBudgetYr":42000},"finance":{"useLoan":true,"ltcPct":65,"ratePct":9.0,"originationPct":1.0,"releasePct":120}},"base":{"label":"Base","note":"Your contractor pricing; Riverfront $1.1M, Lake View $800K, Regular $625K","site":{"acres":44.45,"frontageFt":1200},"land":{"price":2000000,"closingPct":0,"rollback":{"mode":"auto","appraisal":1105300,"ratePer100":1.554,"greenbeltTax":377.62,"years":3}},"tiers":[{"key":"river","name":"Riverfront","count":6,"price":1100000,"acres":2.5,"delay":0},{"key":"view","name":"Lake View","count":7,"price":800000,"acres":2.0,"delay":0},{"key":"regular","name":"Regular","count":7,"price":625000,"acres":2.0,"delay":0}],"sales":{"startOffset":0,"pace":{"river":0.75,"view":0.75,"regular":0.75},"presalePct":20,"escalationPct":3,"commissionPct":6,"closingPct":1.25},"timeline":{"entitleMonths":9,"constructMonths":9},"hard":[{"key":"road","label":"Private road and drainage","mode":"perUnit","qty":1700,"unit":"LF","unitCost":150,"bench":"Your contractor pricing: $150 per LF on a 1,700 LF spine road from the gate to the bluff, about $255K. Research range was $147 to $448 per LF."},{"key":"clearing","label":"Clearing","mode":"perUnit","qty":8.5,"unit":"ac","unitCost":2000,"bench":"Done by your grader along with the rough grading. Research range was $4,000 to $9,000 per acre."},{"key":"grading","label":"Rough grading","mode":"perUnit","qty":44.45,"unit":"ac","unitCost":500,"bench":"Your grader\u2019s price: $500 per acre across the whole site."},{"key":"erosion","label":"Erosion control and stormwater","mode":"total","total":10000,"bench":"Your grader installs and maintains it; this covers silt fence and materials."},{"key":"water","label":"Water main and services (plumbing)","mode":"unitCombo","qty":1700,"unit":"LF","unitCost":70,"perLot":1200,"lots":null,"bench":"West Knox Utility District. Low end of the $70 to $150 per LF range with your subs, plus $1,200 per service."},{"key":"hydrants","label":"Fire hydrants","mode":"perUnit","qty":4,"unit":"each","unitCost":7500,"bench":"Four hydrants along the 1,700 LF road."},{"key":"electric","label":"Underground electric","mode":"combo","total":8000,"perLot":7000,"lots":null,"bench":"Lenoir City Utilities Board, most likely. Low end of the $7K to $17K per lot range, with your crews trenching and setting conduit."},{"key":"telecom","label":"Fiber and telecom conduit","mode":"perUnit","qty":1700,"unit":"LF","unitCost":7,"bench":"Your price: $7 per LF."},{"key":"septic","label":"Septic systems, installed per lot","mode":"perLot","perLot":20000,"lots":null,"timing":"sale","bench":"Your price: about $20,000 per lot. Installed as each lot sells, so it is paid from sale proceeds."},{"key":"sewer","label":"Community sewer (alternative)","mode":"perLot","perLot":42000,"lots":0,"bench":"Not used. A TPUC-regulated drip system runs $30K to $60K per lot. Set lots served above 0 to use it."},{"key":"gate","label":"Front entrance and gate","mode":"total","total":75000,"bench":"Your price for the whole front entrance through your contacts. No landscaping."}],"soft":[{"key":"civil","label":"Civil engineering","mode":"total","total":50000,"timing":"entitle","bench":"Your budget: about $50,000."},{"key":"survey","label":"Surveys and soil maps","mode":"total","total":20000,"timing":"entitle","bench":"Your budget: about $20,000 for surveys, site plans and the soil maps."}],"contingency":{"hardPct":10,"softPct":5,"costEscalationPct":3.5},"carry":{"propertyTaxYr":4300,"lotTaxYr":2700,"insuranceYr":8000,"hoaBudgetYr":42000},"finance":{"useLoan":true,"ltcPct":65,"ratePct":8.0,"originationPct":1.0,"releasePct":120}},"upside":{"label":"Upside","note":"Riverfront $1.35M, Lake View $875K, Regular $675K; faster sales, 5% price growth","site":{"acres":44.45,"frontageFt":1200},"land":{"price":2000000,"closingPct":0,"rollback":{"mode":"auto","appraisal":1105300,"ratePer100":1.554,"greenbeltTax":377.62,"years":3}},"tiers":[{"key":"river","name":"Riverfront","count":6,"price":1350000,"acres":2.5,"delay":0},{"key":"view","name":"Lake View","count":7,"price":875000,"acres":2.0,"delay":0},{"key":"regular","name":"Regular","count":7,"price":675000,"acres":2.0,"delay":0}],"sales":{"startOffset":0,"pace":{"river":1.0,"view":1.0,"regular":1.0},"presalePct":30,"escalationPct":5,"commissionPct":6,"closingPct":1.25},"timeline":{"entitleMonths":7,"constructMonths":8},"hard":[{"key":"road","label":"Private road and drainage","mode":"perUnit","qty":1700,"unit":"LF","unitCost":150,"bench":"Your contractor pricing: $150 per LF on a 1,700 LF spine road from the gate to the bluff, about $255K. Research range was $147 to $448 per LF."},{"key":"clearing","label":"Clearing","mode":"perUnit","qty":8.5,"unit":"ac","unitCost":2000,"bench":"Done by your grader along with the rough grading. Research range was $4,000 to $9,000 per acre."},{"key":"grading","label":"Rough grading","mode":"perUnit","qty":44.45,"unit":"ac","unitCost":500,"bench":"Your grader\u2019s price: $500 per acre across the whole site."},{"key":"erosion","label":"Erosion control and stormwater","mode":"total","total":10000,"bench":"Your grader installs and maintains it; this covers silt fence and materials."},{"key":"water","label":"Water main and services (plumbing)","mode":"unitCombo","qty":1700,"unit":"LF","unitCost":70,"perLot":1200,"lots":null,"bench":"West Knox Utility District. Low end of the $70 to $150 per LF range with your subs, plus $1,200 per service."},{"key":"hydrants","label":"Fire hydrants","mode":"perUnit","qty":4,"unit":"each","unitCost":7500,"bench":"Four hydrants along the 1,700 LF road."},{"key":"electric","label":"Underground electric","mode":"combo","total":8000,"perLot":7000,"lots":null,"bench":"Lenoir City Utilities Board, most likely. Low end of the $7K to $17K per lot range, with your crews trenching and setting conduit."},{"key":"telecom","label":"Fiber and telecom conduit","mode":"perUnit","qty":1700,"unit":"LF","unitCost":7,"bench":"Your price: $7 per LF."},{"key":"septic","label":"Septic systems, installed per lot","mode":"perLot","perLot":20000,"lots":null,"timing":"sale","bench":"Your price: about $20,000 per lot. Installed as each lot sells, so it is paid from sale proceeds."},{"key":"sewer","label":"Community sewer (alternative)","mode":"perLot","perLot":42000,"lots":0,"bench":"Not used. A TPUC-regulated drip system runs $30K to $60K per lot. Set lots served above 0 to use it."},{"key":"gate","label":"Front entrance and gate","mode":"total","total":75000,"bench":"Your price for the whole front entrance through your contacts. No landscaping."}],"soft":[{"key":"civil","label":"Civil engineering","mode":"total","total":50000,"timing":"entitle","bench":"Your budget: about $50,000."},{"key":"survey","label":"Surveys and soil maps","mode":"total","total":20000,"timing":"entitle","bench":"Your budget: about $20,000 for surveys, site plans and the soil maps."}],"contingency":{"hardPct":10,"softPct":5,"costEscalationPct":3.0},"carry":{"propertyTaxYr":4300,"lotTaxYr":2700,"insuranceYr":8000,"hoaBudgetYr":42000},"finance":{"useLoan":true,"ltcPct":65,"ratePct":7.75,"originationPct":1.0,"releasePct":120}}},"targetMarginOnCost":0.25};</script>
+<script>
+/* Highland Bluff development model engine.
+   Pure functions: compute(inputs) -> results. Monthly cash flow, reported by quarter.
+   Works in the browser (window.HBEngine) and in Node (module.exports) for testing. */
+(function (root) {
+  'use strict';
+
+  const MODES = {
+    total: 'Total',
+    perLot: 'Per lot',
+    perUnit: 'Per unit',
+    combo: 'Total + per lot',
+    unitCombo: 'Per unit + per lot',
+    pctHard: '% of hard cost'
+  };
+
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  function num(v, d) { const n = Number(v); return Number.isFinite(n) ? n : (d || 0); }
+
+  function totalLots(inp) { return inp.tiers.reduce((s, t) => s + Math.max(0, Math.round(num(t.count))), 0); }
+
+  function lotsServed(line, lots) {
+    if (line.lots === undefined || line.lots === null || line.lots === '' || line.lots === 'all') return lots;
+    return Math.max(0, Math.min(lots, Math.round(num(line.lots))));
+  }
+
+  // Cost of one line before contingency. hardBase is needed only for % of hard cost lines.
+  function lineCost(line, lots, hardBase) {
+    const n = lotsServed(line, lots);
+    switch (line.mode) {
+      case 'total': return num(line.total);
+      case 'perLot': return num(line.perLot) * n;
+      case 'perUnit': return num(line.qty) * num(line.unitCost);
+      case 'combo': return num(line.total) + num(line.perLot) * n;
+      case 'unitCombo': return num(line.qty) * num(line.unitCost) + num(line.perLot) * n;
+      case 'pctHard': return num(line.pct) / 100 * (hardBase || 0);
+      default: return 0;
+    }
+  }
+
+  function rollbackTax(inp) {
+    const r = inp.land.rollback || {};
+    if (r.mode === 'manual') return num(r.amount);
+    // Tennessee greenbelt rollback: 3 years of (market-value tax - greenbelt tax).
+    const marketTax = num(r.appraisal, 1105300) * 0.25 * num(r.ratePer100, 1.554) / 100;
+    return Math.max(0, (marketTax - num(r.greenbeltTax, 377.62)) * num(r.years, 3));
+  }
+
+  function budget(inp) {
+    const lots = totalLots(inp);
+    const hard = inp.hard.filter(l => !l.removed).map(l => ({ key: l.key, label: l.label, group: l.group || 'Site', timing: l.timing || 'construct', cost: lineCost(l, lots, 0) }));
+    const hardSub = hard.reduce((s, l) => s + l.cost, 0);
+    const hardCont = hardSub * num(inp.contingency.hardPct) / 100;
+    const soft = inp.soft.map(l => ({ key: l.key, label: l.label, timing: l.timing || 'spread', cost: lineCost(l, lots, hardSub) }));
+    const rb = rollbackTax(inp);
+    soft.push({ key: 'rollback', label: 'Greenbelt rollback taxes', timing: 'construct0', cost: rb });
+    const softSub = soft.reduce((s, l) => s + l.cost, 0);
+    const softCont = softSub * num(inp.contingency.softPct) / 100;
+    const landPrice = num(inp.land.price);
+    const landClosing = landPrice * num(inp.land.closingPct) / 100;
+    return {
+      lots, hard, hardSub, hardCont, soft, softSub, softCont, rollback: rb,
+      landPrice, landClosing,
+      land: landPrice + landClosing,
+      devTotal: hardSub + hardCont + softSub + softCont,
+      beforeCarry: landPrice + landClosing + hardSub + hardCont + softSub + softCont
+    };
+  }
+
+  // Integer lot closings per month for one tier.
+  function tierSchedule(tier, start, paceQ, presalePct, horizon) {
+    const count = Math.max(0, Math.round(num(tier.count)));
+    const sched = new Array(horizon).fill(0);
+    if (!count) return sched;
+    const s = Math.max(0, Math.round(start + num(tier.delay)));
+    let pre = Math.min(count, Math.round(count * num(presalePct) / 100));
+    if (s < horizon) sched[s] += pre;
+    let left = count - pre;
+    const perMonth = Math.max(0.01, num(paceQ, 1) / 3);
+    let acc = 0;
+    for (let m = s; m < horizon && left > 0; m++) {
+      acc += perMonth;
+      const k = Math.min(left, Math.floor(acc + 1e-9));
+      if (k > 0) { sched[m] += k; left -= k; acc -= k; }
+    }
+    if (left > 0) sched[horizon - 1] += left;
+    return sched;
+  }
+
+  function irr(flows) {
+    // Monthly IRR by bisection on NPV; returns annualized rate or null.
+    const npv = r => flows.reduce((s, f, i) => s + f / Math.pow(1 + r, i), 0);
+    const hasNeg = flows.some(f => f < 0), hasPos = flows.some(f => f > 0);
+    if (!hasNeg || !hasPos) return null;
+    let lo = -0.99, hi = 1.0, flo = npv(lo), fhi = npv(hi);
+    if (flo * fhi > 0) return null;
+    for (let i = 0; i < 200; i++) {
+      const mid = (lo + hi) / 2, fm = npv(mid);
+      if (Math.abs(fm) < 1e-6) { lo = hi = mid; break; }
+      if (flo * fm < 0) { hi = mid; fhi = fm; } else { lo = mid; flo = fm; }
+    }
+    const m = (lo + hi) / 2;
+    return Math.pow(1 + m, 12) - 1;
+  }
+
+  function compute(inputIn) {
+    const inp = clone(inputIn);
+    const b = budget(inp);
+    const lots = b.lots;
+    const T = inp.timeline;
+    const ent = Math.max(1, Math.round(num(T.entitleMonths, 6)));
+    const con = Math.max(1, Math.round(num(T.constructMonths, 8)));
+    const conStart = ent;                 // construction starts when approvals are in
+    const complete = ent + con;           // final plat recorded, lots deliverable
+    const salesStart = Math.max(0, Math.round(num(inp.sales.startOffset, 0))) + complete;
+    const horizon = 120;
+
+    // Sales schedule and revenue by month
+    const S = inp.sales;
+    const tiers = inp.tiers.map(t => {
+      const sched = tierSchedule(t, salesStart, (S.pace || {})[t.key], S.presalePct, horizon);
+      return { key: t.key, name: t.name, count: Math.round(num(t.count)), price: num(t.price), sched };
+    });
+    const escM = Math.pow(1 + num(S.escalationPct) / 100, 1 / 12) - 1;
+    const rev = new Array(horizon).fill(0), lotsSold = new Array(horizon).fill(0);
+    const tierRev = {};
+    let lastSale = 0;
+    tiers.forEach(t => {
+      tierRev[t.key] = 0;
+      t.sched.forEach((k, m) => {
+        if (!k) return;
+        const p = t.price * Math.pow(1 + escM, Math.max(0, m - salesStart));
+        rev[m] += k * p; lotsSold[m] += k; tierRev[t.key] += k * p; lastSale = Math.max(lastSale, m);
+      });
+    });
+    const H = Math.min(horizon, lastSale + 2);
+    const salesCostPct = (num(S.commissionPct) + num(S.closingPct)) / 100;
+
+    // Development cost by month
+    const cost = { land: new Array(H).fill(0), hard: new Array(H).fill(0), soft: new Array(H).fill(0), carry: new Array(H).fill(0), sales: new Array(H).fill(0) };
+    cost.land[0] = b.land;
+    const spread = (arr, amount, from, months) => { for (let i = 0; i < months; i++) if (from + i < H) arr[from + i] += amount / months; };
+    // Hard costs: timing per line, contingency follows the hard spend curve
+    b.hard.forEach(l => {
+      const amt = l.cost * (1 + num(inp.contingency.hardPct) / 100);
+      if (l.timing === 'close') cost.hard[0] += amt;
+      else if (l.timing === 'sale') { for (let m = 0; m < H; m++) if (lotsSold[m]) cost.hard[m] += amt * lotsSold[m] / Math.max(1, lots); }
+      else if (l.timing === 'entitle') spread(cost.hard, amt, 0, ent);
+      else spread(cost.hard, amt, conStart, con);
+    });
+    // Soft costs: design and entitlement work front-loaded, the rest through construction
+    b.soft.forEach(l => {
+      const amt = l.cost * (1 + num(inp.contingency.softPct) / 100);
+      if (l.timing === 'close') cost.soft[0] += amt;
+      else if (l.timing === 'entitle') spread(cost.soft, amt, 0, ent);
+      else if (l.timing === 'construct0') cost.soft[Math.min(H - 1, conStart)] += amt;
+      else if (l.timing === 'sales') spread(cost.soft, amt, Math.max(0, salesStart - 3), Math.max(1, lastSale - salesStart + 4));
+      else { spread(cost.soft, amt * 0.6, 0, ent); spread(cost.soft, amt * 0.4, conStart, con); }
+    });
+    // Cost escalation: hard and soft spend rise from today's dollars at the annual rate
+    const costEsc = num(inp.contingency.costEscalationPct) / 100;
+    if (costEsc) for (let m = 0; m < H; m++) { const f = Math.pow(1 + costEsc, m / 12); cost.hard[m] *= f; cost.soft[m] *= f; }
+    // Carry: acreage tax until the plat records, then tax on each unsold lot; insurance on the unsold share; HOA shortfall after completion
+    const C = inp.carry;
+    let unsold = lots;
+    for (let m = 0; m < H; m++) {
+      const share = lots ? unsold / lots : 0;
+      cost.carry[m] += m < complete ? num(C.propertyTaxYr) / 12 : unsold * num(C.lotTaxYr) / 12;
+      cost.carry[m] += num(C.insuranceYr) / 12 * share;
+      if (m >= complete) cost.carry[m] += num(C.hoaBudgetYr) / 12 * share;
+      unsold -= lotsSold[m] || 0;
+      cost.sales[m] = (rev[m] || 0) * salesCostPct;
+    }
+
+    // Unlevered flows
+    const out = new Array(H).fill(0);
+    for (let m = 0; m < H; m++) out[m] = cost.land[m] + cost.hard[m] + cost.soft[m] + cost.carry[m];
+    const netRev = rev.slice(0, H).map((r, m) => r - cost.sales[m]);
+    const unlev = out.map((o, m) => netRev[m] - o);
+
+    // Financing: equity first, then the loan up to LTC; interest capitalized; release-price paydowns
+    const F = inp.finance;
+    const totalUses = out.reduce((s, x) => s + x, 0);
+    const loanCommit = F.useLoan ? totalUses * num(F.ltcPct) / 100 : 0;
+    const origination = loanCommit * num(F.originationPct) / 100;
+    const rM = num(F.ratePct) / 100 / 12;
+    const grossRevTotal = tiers.reduce((s, t) => s + t.count * t.price, 0) || 1;
+    let equityLeft = totalUses - loanCommit + origination;
+    let bal = 0, drawn = 0, interestTotal = 0;
+    const eq = new Array(H).fill(0), loanBal = new Array(H).fill(0), interest = new Array(H).fill(0), lev = new Array(H).fill(0);
+    let lotsLeft = lots;
+    for (let m = 0; m < H; m++) {
+      const it = bal * rM; interest[m] = it; interestTotal += it; bal += it;
+      let need = out[m] + (m === 0 ? origination : 0);
+      let fromEq = Math.min(need, Math.max(0, equityLeft));
+      equityLeft -= fromEq; need -= fromEq;
+      let fromLoan = need;
+      if (fromLoan > 0) { bal += fromLoan; drawn += fromLoan; }
+      // Sale proceeds this month
+      let proceeds = netRev[m];
+      let paydown = 0;
+      if (proceeds > 0 && bal > 0) {
+        lotsLeft -= lotsSold[m] || 0;
+        if (lotsLeft <= 0) paydown = bal;
+        else {
+          let release = 0;
+          tiers.forEach(t => { const k = t.sched[m] || 0; if (k) release += k * loanCommit * (t.price / grossRevTotal) * num(F.releasePct, 100) / 100; });
+          paydown = Math.min(bal, Math.max(release, 0));
+        }
+        paydown = Math.min(paydown, proceeds + (lotsLeft <= 0 ? Infinity : 0));
+        bal -= paydown;
+      } else if (proceeds > 0) { lotsLeft -= lotsSold[m] || 0; }
+      const dist = proceeds - paydown;
+      lev[m] = dist - fromEq;
+      eq[m] = fromEq;
+      loanBal[m] = bal;
+    }
+    // Any balance left is repaid from equity in the final month
+    if (bal > 0.5) { lev[H - 1] -= bal; bal = 0; loanBal[H - 1] = 0; }
+
+    const sum = a => a.reduce((s, x) => s + x, 0);
+    const grossRevenue = sum(rev.slice(0, H));
+    const salesCosts = sum(cost.sales);
+    const carryTotal = sum(cost.carry);
+    const hardSpent = sum(cost.hard), softSpent = sum(cost.soft);
+    const escalationTotal = hardSpent + softSpent - b.devTotal;
+    const totalCostUnlev = b.land + hardSpent + softSpent + carryTotal + salesCosts;
+    const financeCost = interestTotal + origination;
+    const totalCost = totalCostUnlev + financeCost;
+    const profit = grossRevenue - totalCost;
+
+    let cum = 0, peak = 0; const cumEq = [];
+    lev.forEach(v => { cum += v; cumEq.push(cum); peak = Math.min(peak, cum); });
+    const contributed = sum(lev.filter(v => v < 0)) * -1;
+    const distributed = sum(lev.filter(v => v > 0));
+    let cumU = 0, peakU = 0; unlev.forEach(v => { cumU += v; peakU = Math.min(peakU, cumU); });
+
+    const quarters = [];
+    for (let q = 0; q * 3 < H; q++) {
+      const r = { q, land: 0, hard: 0, soft: 0, carry: 0, interest: 0, revenue: 0, salesCost: 0, lots: 0, unlev: 0, lev: 0, loan: 0 };
+      for (let m = q * 3; m < Math.min(H, q * 3 + 3); m++) {
+        r.land += cost.land[m]; r.hard += cost.hard[m]; r.soft += cost.soft[m]; r.carry += cost.carry[m];
+        r.interest += interest[m]; r.revenue += rev[m]; r.salesCost += cost.sales[m]; r.lots += lotsSold[m];
+        r.unlev += unlev[m]; r.lev += lev[m]; r.loan = loanBal[m];
+      }
+      quarters.push(r);
+    }
+
+    const avgPrice = lots ? grossRevenue / lots : 0;
+    const costExLand = totalCost - b.land;
+    return {
+      budget: b, lots, tiers: tiers.map(t => ({ key: t.key, name: t.name, count: t.count, price: t.price, revenue: tierRev[t.key] })),
+      months: { entitle: ent, construct: con, complete, salesStart, sellout: lastSale, horizon: H },
+      grossRevenue, salesCosts, netRevenue: grossRevenue - salesCosts, carryTotal, interestTotal, origination, financeCost, escalationTotal,
+      rfRevenueShare: grossRevenue ? (tierRev.river || 0) / grossRevenue : 0,
+      totalCostUnlev, totalCost, profit,
+      marginOnCost: totalCost ? profit / totalCost : 0,
+      marginOnRevenue: grossRevenue ? profit / grossRevenue : 0,
+      unleveredIRR: irr(unlev), leveredIRR: irr(lev),
+      equityMultiple: contributed ? distributed / contributed : null,
+      peakEquity: -peak, peakUnlevered: -peakU, contributed, distributed, loanCommit, loanDrawn: drawn,
+      costPerLot: lots ? totalCost / lots : 0,
+      devCostPerLot: lots ? (b.devTotal) / lots : 0,
+      avgPrice,
+      breakEvenAvgPrice: lots ? totalCost / (lots * (1 - salesCostPct)) : 0,
+      quarters, monthly: { rev: rev.slice(0, H), unlev, lev, loanBal, cumEq, lotsSold: lotsSold.slice(0, H) }
+    };
+  }
+
+  // Land price that delivers a target profit margin on cost (bisection).
+  function residualLand(inp, targetMarginOnCost) {
+    let lo = 0, hi = 30000000;
+    for (let i = 0; i < 60; i++) {
+      const mid = (lo + hi) / 2; const x = clone(inp); x.land.price = mid;
+      const r = compute(x);
+      if (r.marginOnCost > targetMarginOnCost) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
+
+  // Riverfront launch price that makes a result function hit a target (bisection), other tiers held.
+  function solveRiverPrice(inp, fn, target) {
+    let lo = 50000, hi = 5000000;
+    const at = p => { const x = clone(inp); x.tiers.forEach(t => { if (t.key === 'river') t.price = p; }); return fn(compute(x)); };
+    if (at(hi) < target) return null;
+    if (at(lo) > target) return lo;
+    for (let i = 0; i < 50; i++) { const mid = (lo + hi) / 2; if (at(mid) >= target) hi = mid; else lo = mid; }
+    return (lo + hi) / 2;
+  }
+
+  function riverCurve(inp, prices) {
+    return prices.map(p => { const x = clone(inp); x.tiers.forEach(t => { if (t.key === 'river') t.price = p; }); const r = compute(x); return { price: p, irr: r.leveredIRR, profit: r.profit }; });
+  }
+
+  function scaleCosts(inp, f) {
+    const x = clone(inp);
+    const s = l => { ['total', 'perLot', 'unitCost'].forEach(k => { if (l[k] !== undefined) l[k] = num(l[k]) * f; }); };
+    x.hard.forEach(s); x.soft.forEach(l => { if (l.mode !== 'pctHard') s(l); });
+    return x;
+  }
+
+  function sensitivity(inp, priceSteps, costSteps, tierKey) {
+    return priceSteps.map(p => costSteps.map(c => {
+      const x = scaleCosts(inp, 1 + c);
+      x.tiers.forEach(t => { if (!tierKey || t.key === tierKey) t.price = num(t.price) * (1 + p); });
+      const r = compute(x);
+      return { p, c, profit: r.profit, irr: r.leveredIRR, margin: r.marginOnCost };
+    }));
+  }
+
+  function tornado(inp) {
+    const base = compute(inp).profit;
+    const tests = [
+      ['All lot prices ±10%', x => x.tiers.forEach(t => t.price *= 0.9), x => x.tiers.forEach(t => t.price *= 1.1)],
+      ['Riverfront price ±10%', x => x.tiers.forEach(t => { if (t.key === 'river') t.price *= 0.9; }), x => x.tiers.forEach(t => { if (t.key === 'river') t.price *= 1.1; })],
+      ['Development cost ±15%', x => Object.assign(x, scaleCosts(x, 1.15)), x => Object.assign(x, scaleCosts(x, 0.85))],
+      ['Land price ±10%', x => { x.land.price *= 1.1; }, x => { x.land.price *= 0.9; }],
+      ['Sales pace ±33%', x => Object.keys(x.sales.pace).forEach(k => x.sales.pace[k] *= 0.67), x => Object.keys(x.sales.pace).forEach(k => x.sales.pace[k] *= 1.33)],
+      ['Approvals and build +/-4 months', x => { x.timeline.entitleMonths += 2; x.timeline.constructMonths += 2; }, x => { x.timeline.entitleMonths = Math.max(1, x.timeline.entitleMonths - 2); x.timeline.constructMonths = Math.max(1, x.timeline.constructMonths - 2); }],
+      ['Price growth 0% vs 2x', x => { x.sales.escalationPct = 0; }, x => { x.sales.escalationPct *= 2; }],
+      ['Interest rate ±2 pts', x => { x.finance.ratePct += 2; }, x => { x.finance.ratePct = Math.max(0, x.finance.ratePct - 2); }]
+    ];
+    return tests.map(([label, lowFn, highFn]) => {
+      const a = clone(inp); lowFn(a); const b = clone(inp); highFn(b);
+      const pa = compute(a).profit, pb = compute(b).profit;
+      return { label, low: Math.min(pa, pb) - base, high: Math.max(pa, pb) - base, base };
+    }).sort((u, v) => (v.high - v.low) - (u.high - u.low));
+  }
+
+  // Simple two-party waterfall on the levered equity flows: return of capital, investor preferred return, then a profit split.
+  function waterfall(res, terms) {
+    const lpPct = num(terms.lpEquityPct, 80) / 100, prefM = Math.pow(1 + num(terms.prefPct, 8) / 100, 1 / 12) - 1;
+    const lpSplit = num(terms.lpProfitPct, 60) / 100;
+    const flows = res.monthly.lev;
+    let lpCap = 0, gpCap = 0, lpPref = 0;
+    const lp = [], gp = [];
+    flows.forEach(f => {
+      lpPref += lpCap * prefM;
+      let a = 0, b = 0;
+      if (f < 0) { a = f * lpPct; b = f * (1 - lpPct); lpCap += -a; gpCap += -b; }
+      else if (f > 0) {
+        let cash = f;
+        const cap = lpCap + gpCap;
+        const roc = Math.min(cash, cap);
+        if (roc > 0) { const ra = cap ? roc * lpCap / cap : 0; a += ra; b += roc - ra; lpCap -= ra; gpCap -= (roc - ra); cash -= roc; }
+        const pref = Math.min(cash, lpPref); a += pref; lpPref -= pref; cash -= pref;
+        a += cash * lpSplit; b += cash * (1 - lpSplit);
+      }
+      lp.push(a); gp.push(b);
+    });
+    const stats = arr => {
+      const inv = -arr.filter(v => v < 0).reduce((s, v) => s + v, 0), out = arr.filter(v => v > 0).reduce((s, v) => s + v, 0);
+      return { invested: inv, distributed: out, profit: out - inv, multiple: inv ? out / inv : null, irr: irr(arr) };
+    };
+    return { lp: stats(lp), gp: stats(gp) };
+  }
+
+  const api = { compute, budget, residualLand, sensitivity, tornado, waterfall, solveRiverPrice, riverCurve, lineCost, rollbackTax, irr, MODES, clone };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.HBEngine = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+/* Illustrative site plan: lots are generated from the tier counts so the plan redraws as the model changes.
+   Geometry is schematic, traced loosely from the Cannon & Cannon boundary survey (river to the north, Williams Bend Rd to the south). */
+(function (root) {
+  'use strict';
+  const NS = 'http://www.w3.org/2000/svg';
+  const PARCEL = [[150, 225], [420, 262], [615, 296], [880, 222], [905, 960], [420, 985], [232, 862], [190, 560]];
+  const ZONES = {
+    river: [{ A: [[168, 258], [420, 294], [615, 327], [866, 257]], B: [[208, 500], [420, 508], [615, 512], [860, 496]] }],
+    view: [{ A: [[198, 562], [214, 735]], B: [[498, 562], [496, 735]] }, { A: [[884, 556], [889, 735]], B: [[542, 562], [539, 735]] }],
+    regular: [{ A: [[217, 757], [236, 868]], B: [[492, 757], [466, 868]], w: 0.4 }, { A: [[890, 757], [898, 938]], B: [[535, 757], [490, 938]], w: 0.6 }]
+  };
+  const LANE = [[200, 528], [420, 535], [615, 538], [868, 522]];
+  const SPINE = [[520, 536], [517, 700], [492, 845], [438, 968]];
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function lenOf(pts) { let L = 0; for (let i = 1; i < pts.length; i++) L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); return L; }
+  function at(pts, t) {
+    const L = lenOf(pts) * t; let acc = 0;
+    for (let i = 1; i < pts.length; i++) {
+      const seg = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+      if (acc + seg >= L || i === pts.length - 1) { const u = seg ? Math.min(1, (L - acc) / seg) : 0; return [pts[i - 1][0] + u * (pts[i][0] - pts[i - 1][0]), pts[i - 1][1] + u * (pts[i][1] - pts[i - 1][1])]; }
+      acc += seg;
+    }
+    return pts[pts.length - 1];
+  }
+  const P = pts => pts.map(p => p.map(v => Math.round(v * 10) / 10).join(',')).join(' ');
+  const smooth = pts => 'M' + pts.map(p => p.join(',')).join(' L');
+
+  function draw(svg, counts, opts) {
+    opts = opts || {};
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute('viewBox', '0 0 1000 1000');
+    el('title', {}, svg).textContent = 'Illustrative site plan of the lots by tier';
+    // Water and shoreline
+    el('path', { d: 'M0,0 H1000 V150 C 900,200 820,175 760,190 C 640,222 560,240 470,215 C 330,182 230,190 120,198 C 70,202 30,190 0,180 Z', fill: 'var(--tier-river)', 'fill-opacity': '.18' }, svg);
+    el('path', { d: 'M0,180 C 30,190 70,202 120,198 C 230,190 330,182 470,215 C 560,240 640,222 760,190 C 820,175 900,200 1000,150', fill: 'none', stroke: 'var(--tier-river)', 'stroke-opacity': '.5', 'stroke-width': '2' }, svg);
+    // Faint contours for the bluff
+    for (let i = 0; i < 6; i++) {
+      const y = 330 + i * 105;
+      el('path', { d: `M120,${y} C 300,${y - 30 + i * 4} 520,${y + 26} 700,${y - 8} S 920,${y + 18} 980,${y - 10}`, fill: 'none', stroke: 'var(--ink-3)', 'stroke-opacity': '.13', 'stroke-width': '1.2' }, svg);
+    }
+    // Parcel
+    el('polygon', { points: P(PARCEL), fill: 'var(--paper)', 'fill-opacity': '.55', stroke: 'var(--ink-2)', 'stroke-width': '2.2', 'stroke-dasharray': '10 6' }, svg);
+    // Lots
+    const g = el('g', {}, svg);
+    let n = 0;
+    ['river', 'view', 'regular'].forEach(tier => {
+      const zones = ZONES[tier];
+      const total = Math.max(0, Math.round(counts[tier] || 0));
+      let split = [total];
+      if (zones.length === 2) { const w0 = zones[0].w || 0.5; const a = Math.round(total * w0); split = [a, total - a]; }
+      zones.forEach((z, zi) => {
+        const k = split[zi];
+        for (let i = 0; i < k; i++) {
+          const a0 = at(z.A, i / k), a1 = at(z.A, (i + 1) / k), b1 = at(z.B, (i + 1) / k), b0 = at(z.B, i / k);
+          n++;
+          el('polygon', { points: P([a0, a1, b1, b0]), fill: `var(--tier-${tier})`, 'fill-opacity': '.2', stroke: `var(--tier-${tier})`, 'stroke-width': '1.6' }, g);
+          const cx = (a0[0] + a1[0] + b1[0] + b0[0]) / 4, cy = (a0[1] + a1[1] + b1[1] + b0[1]) / 4;
+          const fs = k > 9 ? 15 : 20;
+          const t = el('text', { x: cx, y: cy + fs / 3, 'text-anchor': 'middle', 'font-size': fs, 'font-weight': '700', fill: `var(--tier-${tier})`, 'font-family': 'var(--f-data)' }, g);
+          t.textContent = n;
+        }
+      });
+    });
+    // Roads
+    [LANE, SPINE].forEach(line => {
+      el('path', { d: smooth(line), fill: 'none', stroke: 'var(--ink-2)', 'stroke-width': '15', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-opacity': '.85' }, svg);
+      el('path', { d: smooth(line), fill: 'none', stroke: 'var(--paper)', 'stroke-width': '1.5', 'stroke-dasharray': '9 9' }, svg);
+    });
+    // County road
+    el('path', { d: 'M 260,1000 C 330,975 380,975 438,968 C 520,962 600,975 700,1000', fill: 'none', stroke: 'var(--ink-3)', 'stroke-width': '12', 'stroke-opacity': '.5' }, svg);
+    // Gate
+    el('circle', { cx: 438, cy: 958, r: 13, fill: 'var(--copper)' }, svg);
+    el('rect', { x: 430, y: 952, width: 16, height: 12, fill: 'var(--paper)', rx: 2 }, svg);
+    // Overlook at the bluff end of the spine
+    el('circle', { cx: 520, cy: 536, r: 24, fill: 'var(--tier-view)', 'fill-opacity': '.35', stroke: 'var(--tier-view)', 'stroke-width': '1.5' }, svg);
+    // Labels
+    const label = (x, y, txt, o) => { const t = el('text', Object.assign({ x, y, 'font-size': 18, fill: 'var(--ink-2)', 'font-family': 'var(--f-body)', 'letter-spacing': '1.5' }, o || {}), svg); t.textContent = txt; return t; };
+    label(500, 70, 'MELTON HILL LAKE  ·  CLINCH RIVER', { 'text-anchor': 'middle', 'font-size': 22, fill: 'var(--tier-river)', 'font-weight': '600', 'letter-spacing': '4' });
+    label(500, 100, opts.frontage || 'about 1,255 ft of bluff frontage', { 'text-anchor': 'middle', 'font-size': 16, fill: 'var(--tier-river)' });
+    label(470, 995, 'Gated entry  ·  Williams Bend Rd', { 'font-size': 16 });
+    label(560, 580, 'Overlook', { 'font-size': 15, fill: 'var(--tier-view)', 'font-weight': '600' });
+    // North arrow
+    const na = el('g', { transform: 'translate(950,300)' }, svg);
+    el('path', { d: 'M0,-26 L10,8 L0,2 L-10,8 Z', fill: 'var(--ink-2)' }, na);
+    const nt = el('text', { x: 0, y: 30, 'text-anchor': 'middle', 'font-size': 15, fill: 'var(--ink-2)', 'font-weight': '700' }, na); nt.textContent = 'N';
+    return n;
+  }
+
+  root.HBSitePlan = { draw };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+/* Highland Bluff interactive model: renders the assumption inputs, recomputes on every edit, draws results. */
+(function () {
+  'use strict';
+  const E = window.HBEngine, D = window.HB_DEFAULTS;
+  const $ = (s, r) => (r || document).querySelector(s);
+  const LS_KEY = 'hb-model-v1';
+
+  // ---------- formatting ----------
+  const fmt$ = v => (v < 0 ? '-$' : '$') + Math.round(Math.abs(v)).toLocaleString('en-US');
+  const fmtM = v => {
+    const a = Math.abs(v), s = v < 0 ? '-$' : '$';
+    if (a >= 1e6) return s + (a / 1e6).toFixed(a >= 1e7 ? 1 : 2) + 'M';
+    if (a >= 1e3) return s + Math.round(a / 1e3) + 'K';
+    return s + Math.round(a);
+  };
+  const fmtPct = (v, d) => v === null || v === undefined || !isFinite(v) ? 'n/a' : (v * 100).toFixed(d === undefined ? 1 : d) + '%';
+  const fmtX = v => v === null || !isFinite(v) ? 'n/a' : v.toFixed(2) + 'x';
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+  // ---------- state ----------
+  let active = 'base', edited = false;
+  let S = E.clone(D.scenarios.base);
+  // live: the copy saved for everyone; liveAt: the saved copy this browser's edits started from.
+  let live = null, liveLoaded = false, liveAt = null, localMine = false, stash = null, liveNote = '', noteTimer = null;
+  try {
+    const saved = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
+    if (saved && saved.state && saved.v === D.version) { S = saved.state; active = saved.active || 'base'; edited = !!saved.edited; liveAt = saved.liveAt || null; localMine = saved.mine !== false; }
+  } catch (e) { /* storage unavailable */ }
+  const persist = () => {
+    const mine = !live || JSON.stringify(S) !== JSON.stringify(live.state);
+    try { localStorage.setItem(LS_KEY, JSON.stringify({ v: D.version, state: S, active, edited, liveAt, mine })); } catch (e) { }
+    updateLiveBar();
+  };
+
+  const getPath = (o, p) => p.split('.').reduce((a, k) => (a == null ? a : a[k]), o);
+  const setPath = (o, p, v) => { const ks = p.split('.'); const last = ks.pop(); const t = ks.reduce((a, k) => a[k], o); t[last] = v; };
+
+  // ---------- input builders ----------
+  // Money inputs show commas at rest and the raw number while editing.
+  const MONEY_KEYS = new Set(['total', 'perLot', 'unitCost', 'price', 'qty']);
+  function bindNumber(inp, get, set, money) {
+    const show = () => { const v = get(); inp.value = v === null || v === undefined || v === '' ? '' : (money ? Number(v).toLocaleString('en-US') : v); };
+    if (money) { inp.type = 'text'; inp.inputMode = 'numeric'; }
+    show();
+    if (money) {
+      inp.addEventListener('focus', () => { const v = get(); inp.value = v === null || v === undefined ? '' : v; });
+      inp.addEventListener('blur', show);
+    }
+    inp.addEventListener('input', () => {
+      const raw = inp.value.replace(/[^0-9.\-]/g, '');
+      set(raw === '' ? null : Number(raw)); changed();
+    });
+  }
+  function field(label, path, o) {
+    o = o || {};
+    const id = 'in-' + path.replace(/\./g, '-');
+    const wrap = document.createElement('label');
+    wrap.className = 'fld';
+    wrap.setAttribute('for', id);
+    const unitPre = o.unit === '$' ? '<i>$</i>' : '';
+    const unitPost = o.unit && o.unit !== '$' ? `<i class="post">${o.unit}</i>` : '';
+    wrap.innerHTML = `<span>${label}</span><div class="ctl">${unitPre}<input id="${id}" type="number" inputmode="decimal" step="${o.step || 'any'}" ${o.min !== undefined ? `min="${o.min}"` : ''}>${unitPost}</div>${o.help ? `<small>${o.help}</small>` : ''}`;
+    const inp = wrap.querySelector('input');
+    bindNumber(inp, () => getPath(S, path), v => setPath(S, path, v === null ? 0 : v), o.unit === '$');
+    return wrap;
+  }
+
+  function group(title, sub, nodes, cls) {
+    const g = document.createElement('div');
+    g.className = 'grp ' + (cls || '');
+    g.innerHTML = `<h3>${title}</h3>${sub ? `<p class="muted small">${sub}</p>` : ''}<div class="flds"></div>`;
+    nodes.forEach(n => g.querySelector('.flds').appendChild(n));
+    return g;
+  }
+
+  function tierTable() {
+    const g = document.createElement('div');
+    g.className = 'grp wide';
+    g.innerHTML = `<h3>Lots and launch prices</h3><p class="muted small">Prices are launch prices for a finished lot with road, water, power and wastewater in place. Pace is lots closed per quarter once sales open.</p>
+      <div class="tbl-wrap"><table class="tiers"><thead><tr><th>Tier</th><th class="r">Lots</th><th class="r">Launch price</th><th class="r">Typical size (ac)</th><th class="r">Pace (lots/qtr)</th><th class="r">Release delay (mo)</th><th class="r">Tier revenue</th></tr></thead><tbody></tbody>
+      <tfoot><tr class="total"><td>All lots</td><td class="r" id="tt-lots"></td><td class="r" id="tt-avg"></td><td class="r" id="tt-ac"></td><td></td><td></td><td class="r" id="tt-rev"></td></tr></tfoot></table></div>`;
+    const tb = g.querySelector('tbody');
+    S.tiers.forEach((t, i) => {
+      const tr = document.createElement('tr');
+      const cell = (path, step) => `<td class="r"><input class="cell" data-path="${path}" type="number" inputmode="decimal" step="${step}" min="0" aria-label="${t.name} ${path.split('.').pop()}"></td>`;
+      tr.innerHTML = `<td><span class="chip t-${t.key}">${t.name}</span></td>${cell(`tiers.${i}.count`, 1)}${cell(`tiers.${i}.price`, 25000)}${cell(`tiers.${i}.acres`, 0.25)}${cell(`sales.pace.${t.key}`, 0.25)}${cell(`tiers.${i}.delay`, 1)}<td class="r num" id="tr-${t.key}"></td>`;
+      tb.appendChild(tr);
+    });
+    g.querySelectorAll('input.cell').forEach(inp => {
+      const p = inp.dataset.path;
+      bindNumber(inp, () => getPath(S, p), v => setPath(S, p, v === null ? 0 : v), p.endsWith('.price'));
+    });
+    return g;
+  }
+
+  const MODE_FIELDS = {
+    total: ['total'], perLot: ['perLot', 'lots'], perUnit: ['qty', 'unitCost'],
+    combo: ['total', 'perLot', 'lots'], unitCombo: ['qty', 'unitCost', 'perLot', 'lots'], pctHard: ['pct']
+  };
+  const SUBLBL = { total: 'Total $', perLot: '$ per lot', lots: 'Lots served', qty: 'Quantity', unitCost: '$ per unit', pct: '% of hard cost' };
+
+  function costTable(kind) {
+    const lines = S[kind];
+    const g = document.createElement('div');
+    g.className = 'grp wide';
+    const title = kind === 'hard' ? 'Hard costs: site work and infrastructure' : 'Soft costs: engineering and surveys';
+    const sub = kind === 'hard'
+      ? 'Pick how each line is priced: a total, per lot, per foot or acre, or a shared main plus a per-lot hookup. The range under each line is the East Tennessee 2026 benchmark from the cost research.'
+      : 'Civil engineering, surveys and soil maps only. Greenbelt rollback tax, about $11,700, is calculated automatically from the county appraisal.';
+    g.innerHTML = `<h3>${title}</h3><p class="muted small">${sub}</p><div class="crows" role="table" aria-label="${title}"></div><div class="crow total"><div class="c-lbl"><b>Subtotal before contingency</b></div><div></div><div class="c-total num" id="sub-${kind}"></div></div>`;
+    const host = g.querySelector('.crows');
+    lines.forEach((l, i) => host.appendChild(costRow(kind, l, i)));
+    return g;
+  }
+
+  function costRow(kind, l, i) {
+    const row = document.createElement('div');
+    row.className = 'crow'; row.setAttribute('role', 'row');
+    const modes = kind === 'hard' ? ['total', 'perLot', 'perUnit', 'combo', 'unitCombo'] : ['total', 'perLot', 'pctHard', 'perUnit'];
+    const sel = `<select aria-label="How ${l.label} is priced" id="mode-${kind}-${l.key}">${modes.map(m => `<option value="${m}" ${m === l.mode ? 'selected' : ''}>${E.MODES[m]}</option>`).join('')}</select>`;
+    const box = (f, w) => `<input class="fx" data-f="${f}" id="c-${kind}-${l.key}-${f}" aria-label="${l.label}: ${SUBLBL[f]}" style="width:${w}rem" type="number" inputmode="decimal" step="any" min="0" placeholder="${f === 'lots' ? 'all' : ''}">`;
+    const unit = l.unit || 'units';
+    const parts = {
+      total: () => `<span>$</span>${box('total', 7.4)}`,
+      perLot: () => `<span>$</span>${box('perLot', 6.2)}<span>per lot ×</span>${box('lots', 3.6)}<span>lots</span>`,
+      perUnit: () => `${box('qty', 4.8)}<span>${unit} × $</span>${box('unitCost', 5.2)}`,
+      combo: () => `<span>$</span>${box('total', 7)}<span>+ $</span>${box('perLot', 6)}<span>per lot ×</span>${box('lots', 3.6)}<span>lots</span>`,
+      unitCombo: () => `${box('qty', 4.8)}<span>${unit} × $</span>${box('unitCost', 4.6)}<span>+ $</span>${box('perLot', 6)}<span>per lot ×</span>${box('lots', 3.6)}<span>lots</span>`,
+      pctHard: () => `${box('pct', 4)}<span>% of hard cost</span>`
+    };
+    row.innerHTML = `<div class="c-lbl"><b>${l.label}</b>${l.bench ? `<small>${l.bench}</small>` : ''}${sel}</div><div class="c-fx">${parts[l.mode]()}</div><div class="c-total num" id="lt-${kind}-${l.key}"></div>`;
+    row.querySelector('select').addEventListener('change', e => {
+      l.mode = e.target.value;
+      if (l.mode === 'pctHard' && l.pct === undefined) l.pct = 5;
+      if ((l.mode === 'perUnit' || l.mode === 'unitCombo') && !l.unit) l.unit = 'units';
+      row.replaceWith(costRow(kind, l, i)); changed();
+    });
+    row.querySelectorAll('input.fx').forEach(inp => {
+      const f = inp.dataset.f;
+      bindNumber(inp, () => (f === 'lots' && (l.lots === undefined || l.lots === 'all')) ? null : l[f],
+        v => { if (f === 'lots') l.lots = v; else l[f] = v === null ? 0 : v; }, MONEY_KEYS.has(f));
+    });
+    return row;
+  }
+
+  function buildInputs() {
+    const host = $('#inputs');
+    host.innerHTML = '';
+    host.appendChild(tierTable());
+    host.appendChild(group('Land and acquisition', 'The listing price is $2,000,000 for 44.45 acres.', [
+      field('Purchase price', 'land.price', { unit: '$', step: 25000, min: 0 }),
+      field('Buyer closing costs', 'land.closingPct', { unit: '%', step: 0.25, min: 0 }),
+      field('Gross acres', 'site.acres', { unit: 'ac', step: 0.01, min: 0, help: 'Used for density and per-acre figures.' })
+    ]));
+    host.appendChild(group('Sales terms', null, [
+      field('Price growth after launch', 'sales.escalationPct', { unit: '%/yr', step: 0.5 }),
+      field('Lots under contract before completion', 'sales.presalePct', { unit: '%', step: 5, min: 0, help: 'Reservations that close when the final plat records.' }),
+      field('Brokerage commission', 'sales.commissionPct', { unit: '%', step: 0.5, min: 0 }),
+      field('Seller closing costs', 'sales.closingPct', { unit: '%', step: 0.25, min: 0 })
+    ]));
+    host.appendChild(group('Timeline', 'Months from closing on the land.', [
+      field('Approvals and engineering', 'timeline.entitleMonths', { unit: 'mo', step: 1, min: 1 }),
+      field('Infrastructure construction', 'timeline.constructMonths', { unit: 'mo', step: 1, min: 1 }),
+      field('Sales open after completion', 'sales.startOffset', { unit: 'mo', step: 1, min: 0, help: 'Use 0 to start closings the month the plat records.' })
+    ]));
+    host.appendChild(group('Contingency, escalation and holding costs', null, [
+      field('Hard cost contingency', 'contingency.hardPct', { unit: '%', step: 1, min: 0 }),
+      field('Soft cost contingency', 'contingency.softPct', { unit: '%', step: 1, min: 0 }),
+      field('Cost escalation', 'contingency.costEscalationPct', { unit: '%/yr', step: 0.5, min: 0, help: 'Hard and soft costs rise from today\u2019s dollars at this rate.' }),
+      field('Property tax on the acreage', 'carry.propertyTaxYr', { unit: '$/yr', step: 500, min: 0, help: 'At market value after the Greenbelt rollback, until the plat records.' }),
+      field('Property tax per unsold lot', 'carry.lotTaxYr', { unit: '$/yr', step: 100, min: 0, help: 'Each platted lot is assessed on its own after the plat records.' }),
+      field('Insurance while held', 'carry.insuranceYr', { unit: '$/yr', step: 500, min: 0 }),
+      field('HOA operating budget', 'carry.hoaBudgetYr', { unit: '$/yr', step: 1000, min: 0, help: 'Gate, road, common areas. The developer covers the unsold lots’ share.' })
+    ]));
+    host.appendChild(group('Financing', 'Equity goes in first, then the acquisition and development loan. Interest accrues on the drawn balance and is repaid from lot sales.', [
+      field('Loan to cost', 'finance.ltcPct', { unit: '%', step: 5, min: 0 }),
+      field('Interest rate', 'finance.ratePct', { unit: '%', step: 0.25, min: 0 }),
+      field('Origination fee', 'finance.originationPct', { unit: '%', step: 0.25, min: 0 }),
+      field('Release price', 'finance.releasePct', { unit: '% of loan per lot', step: 5, min: 100, help: 'Each lot sale repays this share of its loan allocation.' })
+    ]));
+    host.appendChild(costTable('hard'));
+    host.appendChild(costTable('soft'));
+  }
+
+  // ---------- scenario controls ----------
+  function setScenario(key) {
+    active = key; edited = false; S = E.clone(D.scenarios[key]);
+    buildInputs(); recompute(); persist();
+  }
+  function changed() { edited = true; schedule(); }
+  let timer = null;
+  function schedule() { clearTimeout(timer); timer = setTimeout(() => { recompute(); persist(); }, 90); }
+
+  function scenarioBar() {
+    const bar = $('#scenarios');
+    bar.innerHTML = Object.keys(D.scenarios).map(k => `<button type="button" class="seg" data-k="${k}" aria-pressed="${k === active}">${D.scenarios[k].label}</button>`).join('') +
+      `<span class="scn-note" id="scn-note"></span><button type="button" class="ghost" id="scn-copy">Copy scenario code</button><button type="button" class="ghost" id="scn-load-btn">Load a code</button>
+       <div class="load-box" id="load-box" hidden><label for="scn-load" class="small">Paste a scenario code</label><textarea id="scn-load" rows="2"></textarea><div class="row"><button type="button" class="ghost" id="scn-load-go">Load</button><span class="small muted" id="scn-load-msg"></span></div></div>`;
+    bar.querySelectorAll('.seg').forEach(b => b.addEventListener('click', () => setScenario(b.dataset.k)));
+    $('#scn-copy').addEventListener('click', () => {
+      const code = btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+      const done = () => { $('#scn-copy').textContent = 'Copied'; setTimeout(() => $('#scn-copy').textContent = 'Copy scenario code', 1600); };
+      try { navigator.clipboard.writeText(code).then(done, () => { $('#scn-load').value = code; $('#load-box').hidden = false; $('#scn-load').select(); }); }
+      catch (e) { $('#scn-load').value = code; $('#load-box').hidden = false; }
+    });
+    $('#scn-load-btn').addEventListener('click', () => { $('#load-box').hidden = !$('#load-box').hidden; });
+    $('#scn-load-go').addEventListener('click', () => {
+      try {
+        const st = JSON.parse(decodeURIComponent(escape(atob($('#scn-load').value.trim()))));
+        if (!st.tiers || !st.hard) throw new Error('bad');
+        S = st; edited = true; buildInputs(); recompute(); persist();
+        $('#scn-load-msg').textContent = 'Scenario loaded.';
+      } catch (e) { $('#scn-load-msg').textContent = 'That code could not be read. Copy it again from the page that made it.'; }
+    });
+  }
+  function updateScenarioBar() {
+    document.querySelectorAll('#scenarios .seg').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.k === active && !edited)));
+    $('#scn-note').textContent = edited ? `Edited from ${D.scenarios[active].label}` : D.scenarios[active].note || '';
+  }
+
+  // ---------- saved for everyone ----------
+  // The shared copy is model.json on the repo's data branch. Anyone's edits save in their own browser;
+  // the editor key (a GitHub token limited to this repo) publishes them for everyone.
+  const REPO = 'rivers-code/clinch-bluff', BRANCH = 'data', FILE = 'model.json', KEY_LS = 'cb-editor-key';
+  const API = `https://api.github.com/repos/${REPO}/contents/${FILE}`;
+  const KEY_URL = 'https://github.com/settings/personal-access-tokens/new?name=Clinch+Bluff+editor+key&description=Saves+the+Clinch+Bluff+model+for+everyone&target_name=rivers-code&expires_in=366&contents=write';
+  const b64 = s => btoa(unescape(encodeURIComponent(s)));
+  const unb64 = s => decodeURIComponent(escape(atob(s.replace(/\s/g, ''))));
+  const when = iso => new Date(iso).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+  const editorKey = () => { try { return localStorage.getItem(KEY_LS) || ''; } catch (e) { return ''; } };
+  const headers = key => Object.assign({ Accept: 'application/vnd.github+json' }, key ? { Authorization: 'Bearer ' + key } : {});
+
+  async function fetchLive(key) {
+    let r = await fetch(`${API}?ref=${BRANCH}`, { headers: headers(key), cache: 'no-store' });
+    if (r.status === 401 && key) r = await fetch(`${API}?ref=${BRANCH}`, { headers: headers(''), cache: 'no-store' });
+    if (r.status === 404) return { rec: null, sha: null };
+    if (r.ok) { const j = await r.json(); return { rec: JSON.parse(unb64(j.content)), sha: j.sha }; }
+    // GitHub's API limits anonymous reads per hour; the raw file is a few minutes behind but always readable.
+    const raw = await fetch(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${FILE}?t=${Date.now()}`, { cache: 'no-store' });
+    if (!raw.ok) throw new Error('GitHub ' + r.status);
+    return { rec: await raw.json(), sha: null };
+  }
+
+  function applyLive() {
+    S = E.clone(live.state); active = D.scenarios[live.active] ? live.active : 'base'; edited = !!live.edited; liveAt = live.savedAt;
+    buildInputs(); recompute(); persist();
+  }
+
+  async function loadLive() {
+    let got;
+    try { got = await fetchLive(editorKey()); }
+    catch (e) { liveLoaded = true; flash('The saved model could not be loaded, so this shows the numbers last used in this browser.'); return; }
+    liveLoaded = true;
+    live = got.rec && got.rec.v === D.version && got.rec.state ? got.rec : null;
+    if (!live) { updateLiveBar(); return; }
+    const same = JSON.stringify(S) === JSON.stringify(live.state);
+    if (!same && !(localMine && liveAt === live.savedAt)) {
+      // Newer numbers were saved for everyone since this browser last looked: show them, keep this browser's edits one click away.
+      if (localMine) stash = { state: S, active, edited };
+      applyLive(); return;
+    }
+    if (same && liveAt !== live.savedAt) { liveAt = live.savedAt; persist(); return; }
+    updateLiveBar();
+  }
+
+  async function saveLive() {
+    const key = editorKey();
+    if (!key) { $('#key-box').hidden = false; $('#key-in').focus(); return; }
+    const btn = $('#live-save'); btn.disabled = true; flash('Saving…', true);
+    try {
+      const cur = await fetch(`${API}?ref=${BRANCH}`, { headers: headers(key), cache: 'no-store' });
+      if (cur.status === 401) throw new Error('key');
+      let sha;
+      if (cur.ok) {
+        const j = await cur.json(); sha = j.sha;
+        const theirs = JSON.parse(unb64(j.content));
+        if (theirs.savedAt && theirs.savedAt !== liveAt && !confirm(`Newer numbers were saved for everyone on ${when(theirs.savedAt)}. Replace them with yours?`)) { flash('Not saved.'); return; }
+      }
+      const rec = { v: D.version, state: S, active, edited, savedAt: new Date().toISOString() };
+      const body = { message: 'Save model ' + rec.savedAt, content: b64(JSON.stringify(rec, null, 1)), branch: BRANCH };
+      if (sha) body.sha = sha;
+      const r = await fetch(API, { method: 'PUT', headers: Object.assign(headers(key), { 'Content-Type': 'application/json' }), body: JSON.stringify(body) });
+      if (r.status === 401 || r.status === 403 || r.status === 404) throw new Error('key');
+      if (!r.ok) throw new Error('GitHub ' + r.status);
+      live = JSON.parse(JSON.stringify(rec)); liveAt = rec.savedAt; stash = null; persist();
+      flash('Saved. Everyone who opens the plan now sees these numbers.');
+    } catch (e) {
+      if (e.message === 'key') { $('#key-box').hidden = false; flash('That editor key cannot save to this site. Make sure it has the clinch-bluff repository with Contents read and write, then paste it again.'); }
+      else flash('Could not save just now (' + e.message + '). Your edits are still in this browser. Try again.');
+    } finally { btn.disabled = false; updateLiveBar(); }
+  }
+
+  function flash(text, stay) {
+    liveNote = text; clearTimeout(noteTimer); updateLiveBar();
+    if (!stay) noteTimer = setTimeout(() => { liveNote = ''; updateLiveBar(); }, 6000);
+  }
+
+  function updateLiveBar() {
+    const msg = $('#live-msg'); if (!msg) return;
+    const dirty = !live || JSON.stringify(S) !== JSON.stringify(live.state);
+    msg.textContent = liveNote || (!liveLoaded ? 'Loading the saved model…'
+      : !live ? 'Your edits save in this browser. Nothing has been saved for everyone yet.'
+      : dirty ? `Your edits are saved in this browser only. The copy everyone sees was saved ${when(live.savedAt)}.`
+      : `Showing the model saved for everyone on ${when(live.savedAt)}.`);
+    $('#live-discard').hidden = !(live && dirty);
+    $('#live-restore').hidden = !stash;
+    $('#live-save').hidden = !!live && !dirty;
+  }
+
+  function liveBar() {
+    const bar = $('#livebar');
+    bar.innerHTML = `<span class="live-msg" id="live-msg" aria-live="polite"></span>
+      <button type="button" class="ghost" id="live-restore" hidden>Restore my edits</button>
+      <button type="button" class="ghost" id="live-discard" hidden>Discard my edits</button>
+      <button type="button" class="ghost save" id="live-save">Save for everyone</button>
+      <div class="load-box" id="key-box" hidden><label for="key-in" class="small">Editor key</label><input id="key-in" type="password" autocomplete="off" spellcheck="false">
+        <div class="row"><button type="button" class="ghost" id="key-go">Save key and publish</button><button type="button" class="ghost" id="key-forget">Forget key</button></div>
+        <p class="small muted">Only the editor can save for everyone. The key stays in this browser. <a href="${KEY_URL}" target="_blank" rel="noopener">Make a key on GitHub</a>, choose Only select repositories, pick clinch-bluff, and paste it here.</p></div>`;
+    $('#live-save').addEventListener('click', saveLive);
+    $('#live-discard').addEventListener('click', () => { stash = null; applyLive(); });
+    $('#live-restore').addEventListener('click', () => { S = stash.state; active = stash.active; edited = stash.edited; stash = null; buildInputs(); recompute(); persist(); });
+    $('#key-go').addEventListener('click', () => {
+      const k = $('#key-in').value.trim(); if (!k) return;
+      try { localStorage.setItem(KEY_LS, k); } catch (e) { }
+      $('#key-in').value = ''; $('#key-box').hidden = true; saveLive();
+    });
+    $('#key-forget').addEventListener('click', () => { try { localStorage.removeItem(KEY_LS); } catch (e) { } $('#key-box').hidden = true; flash('Editor key removed from this browser.'); });
+    updateLiveBar();
+  }
+
+  // ---------- results ----------
+  let charts = {};
+  function recompute() {
+    const r = E.compute(S);
+    window.HB_LAST = r;
+    const b = r.budget;
+
+    // Tier table
+    let ac = 0;
+    r.tiers.forEach((t, i) => { const c = $('#tr-' + t.key); if (c) c.textContent = fmt$(t.revenue); ac += (S.tiers[i].acres || 0) * t.count; });
+    $('#tt-lots').textContent = r.lots; $('#tt-avg').textContent = 'avg ' + fmt$(r.avgPrice); $('#tt-ac').textContent = ac.toFixed(1) + ' ac in lots'; $('#tt-rev').textContent = fmt$(r.grossRevenue);
+
+    // Line totals
+    ['hard', 'soft'].forEach(kind => {
+      S[kind].forEach(l => { const c = $(`#lt-${kind}-${l.key}`); if (c) c.textContent = fmt$(E.lineCost(l, r.lots, b.hardSub)); });
+      $('#sub-' + kind).textContent = fmt$(kind === 'hard' ? b.hardSub : b.softSub - b.rollback);
+    });
+
+    // KPIs (hero and model)
+    const k = {
+      revenue: fmtM(r.grossRevenue), cost: fmtM(r.totalCost), profit: fmtM(r.profit),
+      moc: fmtPct(r.marginOnCost, 0), irr: fmtPct(r.leveredIRR, 0), uirr: fmtPct(r.unleveredIRR, 0),
+      em: fmtX(r.equityMultiple), peak: fmtM(r.peakEquity), lots: String(r.lots),
+      perlot: fmtM(r.costPerLot), be: fmtM(r.breakEvenAvgPrice), months: String(r.months.sellout + 1),
+      'lots-note': `${r.lots} homesites`,
+      devbudget: fmtM(r.budget.devTotal), devperlot: `${fmtM(r.budget.devTotal / Math.max(1, r.lots))} per lot`
+    };
+    S.tiers.forEach(t => { k['p-' + t.key] = fmtM(t.price); k['c-' + t.key] = `${t.count} lots, about ${t.acres} ac each`; });
+    document.querySelectorAll('[data-k]').forEach(n => { if (k[n.dataset.k] !== undefined && n.tagName !== 'BUTTON') n.textContent = k[n.dataset.k]; });
+
+    // Sources and uses
+    const uses = [
+      ['Land and closing', b.land], ['Hard costs', b.hardSub], ['Hard cost contingency', b.hardCont],
+      ['Soft costs and fees', b.softSub], ['Soft cost contingency', b.softCont], ['Cost escalation', r.escalationTotal], ['Taxes, insurance and HOA carry', r.carryTotal],
+      ['Commissions and closing on sales', r.salesCosts], ['Loan interest and fees', r.financeCost]
+    ];
+    $('#uses').innerHTML = uses.map(([l, v]) => `<tr><td>${l}</td><td class="r">${fmt$(v)}</td><td class="r muted">${fmtPct(v / r.totalCost, 1)}</td><td class="r muted">${fmt$(v / Math.max(1, r.lots))}</td></tr>`).join('') +
+      `<tr class="total"><td>Total project cost</td><td class="r">${fmt$(r.totalCost)}</td><td class="r">100%</td><td class="r">${fmt$(r.costPerLot)}</td></tr>`;
+    $('#sources').innerHTML = [
+      ['Lot sales (gross)', r.grossRevenue], ['Development budget (road, utilities, septic, entrance, engineering)', r.budget.devTotal],
+      ['Acquisition and development loan', r.loanCommit], ['Most cash in at one time', r.peakEquity], ['Total cash put in', r.contributed], ['Total cash back', r.distributed]
+    ].map(([l, v]) => `<tr><td>${l}</td><td class="r">${fmt$(v)}</td></tr>`).join('');
+
+    // Budget detail
+    const rows = [];
+    b.hard.forEach(l => rows.push(['Hard', l.label, l.cost]));
+    rows.push(['Hard', 'Contingency (' + S.contingency.hardPct + '%)', b.hardCont]);
+    b.soft.forEach(l => rows.push(['Soft', l.label, l.cost]));
+    rows.push(['Soft', 'Contingency (' + S.contingency.softPct + '%)', b.softCont]);
+    $('#budget-detail').innerHTML = rows.map(([g, l, v]) => `<tr><td class="muted">${g}</td><td>${l}</td><td class="r">${fmt$(v)}</td><td class="r muted">${fmt$(v / Math.max(1, r.lots))}</td></tr>`).join('') +
+      `<tr class="total"><td></td><td>Development cost before land, carry and financing</td><td class="r">${fmt$(b.devTotal)}</td><td class="r">${fmt$(r.devCostPerLot)}</td></tr>`;
+
+    // Per-tier economics
+    const allIn = r.lots ? (r.totalCost - r.salesCosts) / r.lots : 0;
+    $('#tier-econ').innerHTML = r.tiers.map((t, i) => {
+      const price = S.tiers[i].price, net = price * (1 - (S.sales.commissionPct + S.sales.closingPct) / 100);
+      return `<tr><td><span class="chip t-${t.key}">${t.name}</span></td><td class="r">${t.count}</td><td class="r">${fmt$(price)}</td><td class="r">${fmt$(allIn)}</td><td class="r"><b>${fmt$(net - allIn)}</b></td><td class="r">${fmtPct(price ? (net - allIn) / price : 0, 0)}</td></tr>`;
+    }).join('');
+
+    // Quarterly table
+    const qs = r.quarters;
+    const ql = q => { const y = Math.floor(q / 4) + 1, n = (q % 4) + 1; return `Y${y} Q${n}`; };
+    $('#qhead').innerHTML = '<th>Quarter</th>' + qs.map(q => `<th class="r">${ql(q.q)}</th>`).join('') + '<th class="r">Total</th>';
+    const qrow = (label, f, cls) => { const vals = qs.map(f); const tot = vals.reduce((s, v) => s + v, 0); return `<tr class="${cls || ''}"><td>${label}</td>${vals.map(v => `<td class="r">${v ? fmtM(v) : '–'}</td>`).join('')}<td class="r"><b>${fmtM(tot)}</b></td></tr>`; };
+    $('#qbody').innerHTML = [
+      `<tr><td>Lots closed</td>${qs.map(q => `<td class="r">${q.lots || '–'}</td>`).join('')}<td class="r"><b>${r.lots}</b></td></tr>`,
+      qrow('Lot sales', q => q.revenue), qrow('Commissions and closing', q => -q.salesCost), qrow('Land', q => -q.land), qrow('Hard costs', q => -q.hard),
+      qrow('Soft costs', q => -q.soft), qrow('Carry', q => -q.carry), qrow('Unlevered cash flow', q => q.unlev, 'total'),
+      qrow('Owner cash in and out', q => q.lev, 'total'),
+      `<tr><td>Loan balance at quarter end</td>${qs.map(q => `<td class="r">${q.loan ? fmtM(q.loan) : '–'}</td>`).join('')}<td></td></tr>`
+    ].join('');
+
+    // Waterfall table
+
+    // Break-even and residual land
+    const target = (D.targetMarginOnCost || 0.25);
+    const resid = E.residualLand(S, target);
+    $('#resid').textContent = fmtM(resid);
+    $('#resid-note').textContent = `The most the land could cost and still return ${Math.round(target * 100)}% on total cost with every other assumption unchanged.`;
+
+    renderGantt(r); renderCushion(r); renderRiver(r); renderCompare(); renderChanges(); renderSensitivity(); renderCharts(r); updateScenarioBar();
+    if (window.HBSitePlan) document.querySelectorAll('svg.siteplan').forEach(svg => HBSitePlan.draw(svg, { river: S.tiers[0].count, view: S.tiers[1].count, regular: S.tiers[2].count }));
+  }
+
+
+  function renderCushion(r) {
+    const t = $('#cu-text'); if (!t) return;
+    const be = r.breakEvenAvgPrice, avg = r.avgPrice, lo = Math.min(be, avg) * 0.6, hi = Math.max(be, avg) * 1.15;
+    const pos = v => (100 * (v - lo) / (hi - lo)).toFixed(1) + '%';
+    $('#cu-be').style.left = pos(be); $('#cu-avg').style.left = pos(avg);
+    const cush = avg ? 1 - be / avg : 0;
+    t.innerHTML = `Break-even average lot price is <b>${fmtM(be)}</b> against a modeled average of <b>${fmtM(avg)}</b>. Lot prices could fall <b>${Math.round(cush * 100)}%</b> across the board before the project loses money.`;
+  }
+
+  function renderRiver(r) {
+    if (!$('#rf-case')) return;
+    const rt = S.tiers.find(t => t.key === 'river'), rg = S.tiers.find(t => t.key === 'regular');
+    const ff = (S.site && S.site.frontageFt) || 1200;
+    const floorInp = E.clone(S); floorInp.tiers.forEach(t => { if (t.key === 'river') t.price = rg ? rg.price : t.price; });
+    const floor = E.compute(floorInp);
+    const allIn = r.lots ? (r.totalCost - r.salesCosts) / r.lots : 0;
+    const rfProfit = rt.price * (1 - (S.sales.commissionPct + S.sales.closingPct) / 100) - allIn;
+    const k = {
+      'rf-price': fmtM(rt.price), 'rf-ff': `${fmt$(rt.price * rt.count / ff)} per front foot across ${ff.toLocaleString()} ft`,
+      'rf-lots': fmtPct(rt.count / Math.max(1, r.lots), 0), 'rf-share': fmtPct(r.rfRevenueShare, 0),
+      'rf-floor': fmtM(floor.profit),
+      'rf-target': fmtM(rfProfit),
+      'rf-home': `${fmtM(rt.price / 0.25)} to ${fmtM(rt.price / 0.2)}`
+    };
+    Object.keys(k).forEach(key => document.querySelectorAll(`[data-k="${key}"]`).forEach(n => { n.textContent = k[key]; }));
+    $('#rf-lede').textContent = floor.profit > 0
+      ? `The Riverfront lots are the upside, and the deal does not depend on them. If every Riverfront lot sold for the Regular price, the project would still make ${fmtM(floor.profit)}. Each step up in Riverfront price goes almost straight to profit.`
+      : `The Riverfront lots carry the deal. At Regular prices the project would lose ${fmtM(-floor.profit)}, so Riverfront pricing is the number to defend.`;
+    if (!window.Chart) return;
+    const prices = []; for (let p = 500000; p <= 1700000; p += 100000) prices.push(p);
+    const curve = E.riverCurve(S, prices);
+    const o = baseOpts(); o.plugins.legend = { display: false };
+    o.scales.y.ticks.callback = v => Math.round(v * 100) + '%';
+    o.plugins.tooltip.callbacks.label = c => `Return on cash ${fmtPct(c.raw, 0)}, profit ${fmtM(curve[c.dataIndex].profit)}`;
+    const river = css('--tier-river'), copper = css('--copper');
+    const data = { labels: prices.map(fmtM), datasets: [{ label: 'Return on cash', data: curve.map(c => c.irr), borderColor: river, backgroundColor: river, borderWidth: 2, tension: 0.25, pointRadius: prices.map(p => (p === 1000000 ? 7 : 3)), pointBackgroundColor: prices.map(p => (p === 1000000 ? copper : river)), pointHoverRadius: 7 }] };
+    upsert('rf', 'chart-rf', 'line', data, o);
+  }
+
+  function renderCompare() {
+    const tb = $('#compare'); if (!tb) return;
+    const keys = Object.keys(D.scenarios);
+    const cols = keys.map(k => ({ name: D.scenarios[k].label, r: E.compute(D.scenarios[k]), cur: k === active && !edited }));
+    if (edited) cols.push({ name: 'Your edits', r: E.compute(S), cur: true });
+    const rows = [
+      ['Riverfront launch price', c => fmtM(c.r.tiers.find(t => t.key === 'river').price)],
+      ['Gross lot sales', c => fmtM(c.r.grossRevenue)], ['Total project cost', c => fmtM(c.r.totalCost)],
+      ['Net profit', c => fmtM(c.r.profit)], ['Margin on cost', c => fmtPct(c.r.marginOnCost, 0)], ['Margin on revenue', c => fmtPct(c.r.marginOnRevenue, 0)],
+      ['Development budget', c => fmtM(c.r.budget.devTotal)], ['Return on cash (IRR)', c => fmtPct(c.r.leveredIRR, 0)], ['Cash multiple', c => fmtX(c.r.equityMultiple)], ['Most cash in at one time', c => fmtM(c.r.peakEquity)],
+      ['Last lot closes (month)', c => String(c.r.months.sellout + 1)]
+    ];
+    tb.innerHTML = `<thead><tr><th></th>${cols.map(c => `<th class="r${c.cur ? ' cur' : ''}">${c.name}</th>`).join('')}</tr></thead><tbody>` +
+      rows.map(([l, f]) => `<tr><td>${l}</td>${cols.map(c => `<td class="r${c.cur ? ' cur' : ''}">${f(c)}</td>`).join('')}</tr>`).join('') + '</tbody>';
+  }
+
+  // Lists every input that differs from the loaded scenario, in plain words.
+  function renderChanges() {
+    const box = $('#changes'); if (!box) return;
+    const base = D.scenarios[active], out = [];
+    const money = v => (typeof v === 'number' && Math.abs(v) >= 1000 ? fmtM(v) : String(v));
+    const skip = ['label', 'note', 'bench', 'unit', 'name', 'key', 'timing'];
+    const walk = (a, b, path) => {
+      if (a && typeof a === 'object') { Object.keys(Object.assign({}, a, b || {})).forEach(k => walk(a[k], b ? b[k] : undefined, path.concat(k))); return; }
+      if (a === b || skip.includes(path[path.length - 1])) return;
+      out.push({ path, from: b, to: a });
+    };
+    walk(S, base, []);
+    if (!out.length || !edited) { box.hidden = true; return; }
+    const nameOf = path => {
+      if (path[0] === 'tiers') { const t = S.tiers[+path[1]]; return `${t.name} ${({ price: 'price', count: 'lots', acres: 'acres', delay: 'release delay' })[path[2]] || path[2]}`; }
+      if (path[0] === 'hard' || path[0] === 'soft') { const l = S[path[0]][+path[1]]; return `${l.label}: ${({ total: 'total', perLot: 'per lot', qty: 'quantity', unitCost: 'unit cost', lots: 'lots served', pct: 'percent', mode: 'pricing method' })[path[2]] || path[2]}`; }
+      if (path[0] === 'sales' && path[1] === 'pace') return `${(S.tiers.find(t => t.key === path[2]) || {}).name} pace`;
+      return path.join(' ').replace(/([A-Z])/g, ' $1').toLowerCase();
+    };
+    box.hidden = false;
+    box.innerHTML = `<b>${out.length} input${out.length > 1 ? 's' : ''} changed from ${D.scenarios[active].label}:</b> ` +
+      out.slice(0, 24).map(c => `<span>${nameOf(c.path)}: ${money(c.from)} \u2192 ${money(c.to)}</span>`).join('');
+  }
+
+  function renderGantt(r) {
+    const host = $('#gantt'); if (!host) return;
+    const m = r.months, end = Math.max(m.sellout + 1, m.complete + 3);
+    const span = Math.ceil(end / 6) * 6;
+    const pct = v => (100 * v / span).toFixed(2) + '%';
+    const firstClose = r.monthly.lotsSold.findIndex(k => k > 0);
+    const rows = [
+      ['Close on the land', 0, 0.6, 'copper', ''],
+      ['Approvals and engineering', 0, m.entitle, '', `${m.entitle} mo`],
+      ['Site work and utilities', m.entitle, m.complete, 'soft', `${m.construct} mo`],
+      ['Reservations taken', Math.max(0, m.complete - 4), m.complete, 'copper', 'presale'],
+      ['Lot closings', Math.max(0, firstClose), m.sellout + 1, '', `${r.lots} lots`]
+    ];
+    host.innerHTML = rows.map(([l, a, b, cls, txt]) => `<div class="g-row"><span>${l}</span><div class="g-track"><div class="g-bar ${cls}" style="left:${pct(a)};width:${pct(Math.max(0.6, b - a))}">${txt}</div></div></div>`).join('') +
+      `<div class="g-axis"><span></span><div class="g-ticks">${Array.from({ length: span / 6 + 1 }, (_, i) => `<span>${i === 0 ? 'Close' : 'Mo ' + i * 6}</span>`).join('')}</div></div>`;
+    const sum = $('#gantt-sum');
+    if (sum) sum.textContent = `Lots can be delivered about ${m.complete} months after closing on the land, and the last lot closes in about month ${m.sellout + 1} at the pace in the model.`;
+  }
+
+  function renderSensitivity() {
+    const ps = [-0.2, -0.1, 0, 0.1, 0.2], cs = [-0.1, 0, 0.1, 0.2, 0.3];
+    const grid = E.sensitivity(S, ps, cs, null);
+    const all = grid.flat().map(c => c.profit), mx = Math.max(...all.map(Math.abs)) || 1;
+    $('#sens').innerHTML = `<thead><tr><th>All lot prices ↓ / Development cost →</th>${cs.map(c => `<th class="r">${c > 0 ? '+' : ''}${Math.round(c * 100)}%</th>`).join('')}</tr></thead><tbody>` +
+      grid.map((row, i) => `<tr><th>${ps[i] > 0 ? '+' : ''}${Math.round(ps[i] * 100)}%</th>${row.map(c => {
+        const a = Math.abs(c.profit) / mx, col = c.profit >= 0 ? 'var(--river)' : 'var(--bad)';
+        const base = c.p === 0 && c.c === 0;
+        return `<td class="r heat${base ? ' base' : ''}" style="--a:${(0.06 + a * 0.32).toFixed(2)};--hc:${col}"><b>${fmtM(c.profit)}</b><small>${fmtPct(c.irr, 0)} return</small></td>`;
+      }).join('')}</tr>`).join('') + '</tbody>';
+  }
+
+  // ---------- charts ----------
+  function baseOpts() {
+    const ink = css('--ink-2'), grid = css('--chart-grid');
+    return {
+      responsive: true, maintainAspectRatio: false, animation: { duration: 250 },
+      plugins: { legend: { labels: { color: ink, boxWidth: 12, boxHeight: 12, font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12 } } },
+        tooltip: { callbacks: { label: c => `${c.dataset.label}: ${fmt$(Array.isArray(c.raw) ? c.raw[1] - c.raw[0] : c.raw)}` } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: ink, font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 11 } } },
+        y: { grid: { color: grid }, border: { display: false }, ticks: { color: ink, font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 11 }, callback: v => fmtM(v) } }
+      }
+    };
+  }
+
+  function renderCharts(r) {
+    if (!window.Chart) return;
+    Chart.defaults.font.family = 'IBM Plex Sans, system-ui, sans-serif'; Chart.defaults.color = css('--ink-2');
+    const river = css('--river'), copper = css('--copper'), ink3 = css('--ink-3'), bad = css('--bad');
+    const labels = r.quarters.map(q => `Y${Math.floor(q.q / 4) + 1} Q${q.q % 4 + 1}`);
+    let cum = 0; const cumEq = r.quarters.map(q => (cum += q.lev));
+    const cf = {
+      labels,
+      datasets: [
+        { type: 'bar', label: 'Cash back (+) or put in (−)', data: r.quarters.map(q => q.lev), backgroundColor: r.quarters.map(q => q.lev >= 0 ? river : ink3), borderRadius: 4, borderSkipped: false, maxBarThickness: 34, order: 2 },
+        { type: 'line', label: 'Running total', data: cumEq, borderColor: copper, backgroundColor: copper, borderWidth: 2, pointRadius: 3, pointHoverRadius: 6, tension: 0.25, order: 1 }
+      ]
+    };
+    upsert('cf', 'chart-cf', 'bar', cf, baseOpts());
+
+    const loan = {
+      labels,
+      datasets: [{ label: 'Loan balance', data: r.quarters.map(q => q.loan), borderColor: river, backgroundColor: river + '22', fill: true, borderWidth: 2, pointRadius: 0, pointHoverRadius: 5, tension: 0.2 },
+        { label: 'Lots closed (× $100K for scale)', data: r.quarters.map(q => q.lots * 100000), type: 'bar', backgroundColor: copper + '99', borderRadius: 4, maxBarThickness: 20 }]
+    };
+    const lo = baseOpts(); lo.plugins.tooltip.callbacks.label = c => c.datasetIndex === 1 ? `Lots closed: ${c.raw / 100000}` : `Loan balance: ${fmt$(c.raw)}`;
+    upsert('loan', 'chart-loan', 'line', loan, lo);
+
+    // Uses, sorted horizontal bars
+    const b = r.budget;
+    const uses = [['Land', b.land], ['Hard costs', b.hardSub + b.hardCont], ['Soft costs', b.softSub + b.softCont + r.escalationTotal], ['Selling costs', r.salesCosts], ['Financing', r.financeCost], ['Carry', r.carryTotal]].sort((x, y) => y[1] - x[1]);
+    const uo = baseOpts(); uo.indexAxis = 'y'; uo.plugins.legend = { display: false };
+    uo.scales = { x: { grid: { color: css('--chart-grid') }, border: { display: false }, ticks: { color: css('--ink-2'), callback: v => fmtM(v), font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 11 } } }, y: { grid: { display: false }, ticks: { color: css('--ink-2'), font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12 } } } };
+    uo.plugins.tooltip.callbacks.label = c => `${fmt$(c.raw)} (${fmtPct(c.raw / r.totalCost, 1)} of cost)`;
+    upsert('uses', 'chart-uses', 'bar', { labels: uses.map(u => u[0]), datasets: [{ label: 'Cost', data: uses.map(u => u[1]), backgroundColor: river, borderRadius: 4, maxBarThickness: 22 }] }, uo);
+
+    // Tornado
+    const t = E.tornado(S);
+    const to = baseOpts(); to.indexAxis = 'y';
+    to.scales = { x: { grid: { color: css('--chart-grid') }, border: { display: false }, ticks: { color: css('--ink-2'), callback: v => (v > 0 ? '+' : '') + fmtM(v), font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 11 } } }, y: { grid: { display: false }, ticks: { color: css('--ink-2'), font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12 } } } };
+    to.plugins.tooltip.callbacks.label = c => `${c.dataset.label}: ${(c.raw[1] > 0 || c.raw[0] > 0 ? '+' : '')}${fmt$(c.datasetIndex === 0 ? c.raw[0] : c.raw[1])} profit`;
+    upsert('tor', 'chart-tor', 'bar', {
+      labels: t.map(x => x.label),
+      datasets: [{ label: 'Downside', data: t.map(x => [x.low, 0]), backgroundColor: bad, borderRadius: 4, maxBarThickness: 18 },
+        { label: 'Upside', data: t.map(x => [0, x.high]), backgroundColor: river, borderRadius: 4, maxBarThickness: 18 }]
+    }, Object.assign(to, { plugins: Object.assign(to.plugins, { legend: to.plugins.legend }) }));
+    charts.tor.options.scales.y.stacked = true; charts.tor.options.scales.x.stacked = false; charts.tor.update('none');
+  }
+
+  function upsert(key, id, type, data, opts) {
+    const cv = document.getElementById(id);
+    if (!cv) return;
+    if (charts[key]) { charts[key].data = data; charts[key].options = opts; charts[key].update(); return; }
+    charts[key] = new Chart(cv, { type, data, options: opts });
+  }
+
+  // ---------- theme ----------
+  function themeToggle() {
+    const btn = $('#theme-btn'); if (!btn) return;
+    const label = () => { const t = document.documentElement.getAttribute('data-theme'); btn.textContent = t === 'dark' ? 'Dark' : t === 'light' ? 'Light' : 'Auto'; };
+    try { const t = localStorage.getItem('hb-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) { }
+    label();
+    btn.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === null ? 'light' : cur === 'light' ? 'dark' : null;
+      if (next) document.documentElement.setAttribute('data-theme', next); else document.documentElement.removeAttribute('data-theme');
+      try { next ? localStorage.setItem('hb-theme', next) : localStorage.removeItem('hb-theme'); } catch (e) { }
+      label(); Object.values(charts).forEach(c => c.destroy()); charts = {}; recompute();
+    });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { Object.values(charts).forEach(c => c.destroy()); charts = {}; recompute(); });
+  }
+
+  // ---------- boot ----------
+  function boot() {
+    scenarioBar(); liveBar(); buildInputs(); themeToggle(); recompute(); loadLive();
+    $('#reset-btn') && $('#reset-btn').addEventListener('click', () => setScenario(active));
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+
+</script>
+
+</body>
+</html>
