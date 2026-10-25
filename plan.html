@@ -90,6 +90,11 @@ section.band.alt { background: var(--paper); }
 .kpi em { font-style: normal; font-size: 13px; color: var(--ink-3); }
 .kpi.hero-k b { color: var(--copper); }
 
+.cases { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 18px; }
+.seg { border: 1px solid var(--line-2); background: var(--paper); color: var(--ink-2); border-radius: 999px; padding: 8px 16px; min-height: 40px; font: 600 14px var(--f-body); cursor: pointer; }
+.seg[aria-pressed="true"] { background: var(--river); border-color: var(--river); color: var(--paper); }
+.seg:hover { border-color: var(--river); }
+table.cmp td.on, table.cmp th.on { background: color-mix(in srgb, var(--copper) 10%, var(--paper)); }
 .points { display: grid; gap: 16px; }
 .point { border-left: 3px solid var(--copper); padding: 2px 0 2px 14px; }
 .point h3 { color: var(--river); margin-bottom: 3px; }
@@ -169,13 +174,20 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     <p class="eyebrow">Williams Bend&nbsp;&middot;&nbsp;Hardin Valley&nbsp;&middot;&nbsp;Knoxville, Tennessee</p>
     <h1>Clinch Bluff</h1>
     <p class="tag">Twenty home sites off one gated road, on the last lakefront land in Hardin Valley.</p>
-    <p class="lede">We buy 44.45 acres on a bluff above Melton Hill Lake, build one gated road with power, water and internet to every lot, and sell twenty lots over <span data-k="months-text">twelve</span> months. Septic and the electric run to each house are paid as each lot sells.</p>
+    <p class="lede">We buy 44.45 acres on a bluff above Melton Hill Lake, build one gated road with power, water and internet to every lot, and sell twenty lots over <span data-k="months-text">twelve</span> months. Septic, the electric run to each house and seller closing costs come out of each sale.</p>
     <div class="kpis">
       <div class="kpi"><span>Total sales</span><b data-k="revenue"></b><em data-k="lots-text"></em></div>
-      <div class="kpi"><span>Total cost</span><b data-k="cost"></b><em>land, up-front work, septic and electric</em></div>
+      <div class="kpi"><span>Total cost</span><b data-k="cost"></b><em>land, up-front work and costs at sale</em></div>
       <div class="kpi hero-k"><span>Profit</span><b data-k="profit"></b><em data-k="margin-text"></em></div>
       <div class="kpi"><span>Most cash out</span><b data-k="peak"></b><em>all of it before the first sale</em></div>
       <div class="kpi"><span>Cash back by</span><b data-k="payback"></b><em>every dollar out has come back</em></div>
+    </div>
+    <div class="cases" role="group" aria-label="Lot price case">
+      <span class="small muted">Lot prices</span>
+      <button type="button" class="seg" data-case="low"><span data-k="swing"></span>% lower</button>
+      <button type="button" class="seg" data-case="plan">As planned</button>
+      <button type="button" class="seg" data-case="high"><span data-k="swing"></span>% higher</button>
+      <label class="small muted" for="swing-in">Swing <input id="swing-in" class="money sm" type="number" min="1" max="90" step="1"> %</label>
     </div>
   </div>
 </section>
@@ -191,7 +203,7 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
         <p class="cap">Layout traced from the boundary survey. The civil engineer sets the final lot lines.</p>
       </div>
       <div class="points">
-        <div class="point"><h3>One gate, one road</h3><p>A gated entry on Williams Bend Rd and one private road, about 1,700 ft, from the gate down to the bluff, with a lane along the top of the bluff and an overlook where they meet.</p></div>
+        <div class="point"><h3>One gate, one road</h3><p>A gated entry on Williams Bend Rd at the existing gravel drive, and one private road, about 1,700 ft, from the gate down to the bluff, with a lane along the top of the bluff and an overlook where they meet.</p></div>
         <div class="point"><h3><span class="chip t-river">Riverfront</span> &nbsp;<span data-k="n-river"></span> lots on the bluff</h3><p>About 2.5 acres each, along roughly 1,200 ft of bluff above protected TVA shoreline.</p></div>
         <div class="point"><h3><span class="chip t-view">Lake View</span> &nbsp;<span data-k="n-view"></span> lots on the upper slopes</h3><p>About 2 acres each, on the slopes and ridge, sited for the lake and mountain views.</p></div>
         <div class="point"><h3><span class="chip t-regular">Regular</span> &nbsp;<span data-k="n-regular"></span> wooded lots near the gate</h3><p>About 2 acres each, private and wooded, the most accessible price.</p></div>
@@ -272,6 +284,7 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
       <div class="points">
         <div class="point"><h3>Tested in 2020 at three spots</h3><p>Two home sites and a clubhouse site. The soil perks at 45 to 75 minutes per inch, inside Tennessee&rsquo;s limit for a standard septic system, with more than 6 ft to rock on the bluff.</p></div>
         <div class="point"><h3>The contract waits on a full soil report</h3><p>Our offer is contingent on a broader soil report across every lot, confirming where each house and septic system can go.</p></div>
+        <div class="point"><h3>Above the flood line</h3><p>FEMA Zone X (minimal) across the upland. The high-risk zone sits at the water&rsquo;s edge, below 796 ft; the lots stop at the TVA line, about 810 ft.</p></div>
       </div>
     </div>
   </div>
@@ -300,12 +313,13 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
       <div>
         <h3>At each sale, per lot</h3>
         <div class="tbl-wrap"><table><thead><tr><th>What</th><th class="r">Per lot</th></tr></thead><tbody id="perlot"></tbody>
-          <tfoot><tr class="total"><td>Per lot sold</td><td class="r num" data-k="perlot"></td></tr>
+          <tbody><tr><td>Seller closing costs, share of each sale price</td><td class="r"><input id="seller-in" class="money sm" type="number" min="0" max="20" step="0.05" aria-label="Seller closing costs, percent of each sale price"> %</td></tr></tbody>
+          <tfoot><tr class="total"><td>Per lot sold, on average</td><td class="r num" data-k="perlot-avg"></td></tr>
           <tr><td class="muted">Across all <span data-k="lots"></span> lots</td><td class="r num muted" data-k="atsale"></td></tr></tfoot></table></div>
         <p class="note">Septic is covered up to a four-bedroom system; a buyer who builds bigger pays the difference. Water meters are in before the first sale.</p>
       </div>
     </div>
-    <p class="note">Not in these numbers: sales commissions, closing costs, financing, property taxes while we hold the land, and the front gate and entrance.</p>
+    <p class="note">Not in these numbers: sales commissions, financing, greenbelt rollback taxes when the lots are platted (about $11,700), and holding taxes (about $378 a year under greenbelt).</p>
   </div>
 </section>
 
@@ -316,7 +330,7 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     <p class="lede">Prices from the <a href="lot-pricing.html">lot pricing case</a>. Each tier sells in three releases, and the best bluff lots go last.</p>
     <div class="tbl-wrap"><table><thead><tr><th>Tier</th><th class="r">Lots</th><th class="r">Launch</th><th class="r">Second release</th><th class="r">Final release</th><th class="r">Tier sales</th></tr></thead><tbody id="tiers"></tbody>
       <tfoot><tr class="total"><td>All lots</td><td class="r" data-k="lots"></td><td></td><td></td><td></td><td class="r num" data-k="revenue-exact"></td></tr></tfoot></table></div>
-    <p class="cap">Lots in each tier split as evenly as possible across the three releases, extras in the launch.</p>
+    <p class="cap">Lots in each tier split as evenly as possible across the three releases, extras in the launch. Tier sales show the case picked at the top: <b data-k="case-name"></b>.</p>
   </div>
 </section>
 
@@ -328,8 +342,15 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
       <div class="step"><b>1</b><h3>Contract</h3><p>Under contract, contingent on the full soil report.</p><span>Soil report</span></div>
       <div class="step"><b>2</b><h3>Close and engineer</h3><p>Buy the land; the civil engineer designs the road and lots and takes them through the county.</p><span>Land, civil engineer</span></div>
       <div class="step"><b>3</b><h3>Build</h3><p>The grading firm builds the road, asphalt and drainage. LCUB brings out the transformers, water sets the meters, and internet comes in.</p><span>One fee each</span></div>
-      <div class="step"><b>4</b><h3>Sell</h3><p>Twenty lots over <span data-k="months"></span> months. Septic and the electric run go in as each lot sells.</p><span>Paid from each sale</span></div>
+      <div class="step"><b>4</b><h3>Sell</h3><p>Twenty lots over <span data-k="months"></span> months. Septic, the electric run and seller closing costs come out of each sale.</p><span>Paid from each sale</span></div>
     </div>
+    <h3>Three cases for lot prices</h3>
+    <div class="cases" role="group" aria-label="Lot price case" style="margin:0 0 12px">
+      <button type="button" class="seg" data-case="low"><span data-k="swing"></span>% lower</button>
+      <button type="button" class="seg" data-case="plan">As planned</button>
+      <button type="button" class="seg" data-case="high"><span data-k="swing"></span>% higher</button>
+    </div>
+    <div class="tbl-wrap" style="margin-bottom:28px"><table class="cmp"><thead><tr id="cmp-head"></tr></thead><tbody id="cmp-body"></tbody></table></div>
     <div class="card">
       <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:10px">
         <h3 style="margin:0">Cash out and in, by month</h3>
@@ -338,13 +359,13 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
       <div class="chart"><canvas id="chart-cash" aria-label="Money out and money in by month, with the running total"></canvas></div>
       <p class="cap">Grey: money out. Teal: money in from lot sales. Copper line: the running total, which turns positive once every dollar out has come back.</p>
     </div>
-    <div class="tbl-wrap" style="margin-top:22px"><table><thead><tr><th>Month</th><th>Lots sold</th><th class="r">Sales</th><th class="r">Septic and electric</th><th class="r">Up front</th><th class="r">Net</th><th class="r">Running total</th></tr></thead><tbody id="months"></tbody>
+    <div class="tbl-wrap" style="margin-top:22px"><table><thead><tr><th>Month</th><th>Lots sold</th><th class="r">Sales</th><th class="r">Costs at sale</th><th class="r">Up front</th><th class="r">Net</th><th class="r">Running total</th></tr></thead><tbody id="months"></tbody>
       <tfoot><tr class="total"><td>All months</td><td data-k="lots"></td><td class="r num" data-k="revenue-exact"></td><td class="r num" data-k="atsale-neg"></td><td class="r num" data-k="upfront-neg"></td><td class="r num" data-k="profit-exact"></td><td></td></tr></tfoot></table></div>
 
     <div class="grid2" style="margin-top:28px">
       <div>
         <h3>What each lot makes</h3>
-        <div class="tbl-wrap"><table><thead><tr><th>Tier</th><th class="r">Average price</th><th class="r">Septic and electric</th><th class="r">Share of up front</th><th class="r">Profit per lot</th></tr></thead><tbody id="unit"></tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Tier</th><th class="r">Average price</th><th class="r">Costs at sale</th><th class="r">Share of up front</th><th class="r">Profit per lot</th></tr></thead><tbody id="unit"></tbody></table></div>
         <p class="cap">Up-front costs spread evenly across every lot.</p>
       </div>
       <div class="card">
@@ -354,16 +375,17 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     </div>
 
     <details class="lots" style="margin-top:22px"><summary>Lot by lot</summary>
-      <div class="tbl-wrap" style="margin-top:10px"><table><thead><tr><th>Lot</th><th>Tier</th><th>Release</th><th>Sells in</th><th class="r">Price</th><th class="r">Septic and electric</th><th class="r">Net from the sale</th></tr></thead><tbody id="lot-rows"></tbody></table></div>
+      <div class="tbl-wrap" style="margin-top:10px"><table><thead><tr><th>Lot</th><th>Tier</th><th>Release</th><th>Sells in</th><th class="r">Price</th><th class="r">Costs at sale</th><th class="r">Net from the sale</th></tr></thead><tbody id="lot-rows"></tbody></table></div>
     </details>
 
     <h3 style="margin-top:34px">When every lot is sold</h3>
     <div class="tally">
       <div><span>Total sales</span><b data-k="revenue-exact"></b></div>
       <div><span>Up-front costs</span><b data-k="upfront"></b></div>
-      <div><span>Septic and electric</span><b data-k="atsale"></b></div>
+      <div><span>Costs at sale</span><b data-k="atsale"></b></div>
       <div class="big"><span>Profit</span><b data-k="profit-exact"></b></div>
       <div><span>Profit on cost</span><b data-k="margin"></b></div>
+      <div><span>Profit as a share of sales</span><b data-k="msales"></b></div>
       <div><span>Cash back for each dollar out</span><b data-k="multiple"></b></div>
     </div>
   </div>
@@ -491,9 +513,12 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
 
   const TIERS = [{ key: 'river', name: 'Riverfront' }, { key: 'view', name: 'Lake View' }, { key: 'regular', name: 'Regular' }];
   const RELEASES = ['Launch', 'Second release', 'Final release'];
-  const VERSION = 5;
+  const VERSION = 6;
+  const CASES = [{ key: 'low', sign: -1, name: 'lower' }, { key: 'plan', sign: 0, name: 'As planned' }, { key: 'high', sign: 1, name: 'higher' }];
   const DEFAULTS = {
     months: 12,
+    sellerPct: 1.25,
+    swingPct: 25,
     tiers: {
       river: { count: 6, prices: [1100000, 1200000, 1350000] },
       view: { count: 7, prices: [800000, 850000, 900000] },
@@ -501,9 +526,11 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     },
     upfront: [
       { key: 'land', label: 'Land purchase, 44.45 acres', amount: 2000000 },
+      { key: 'buyerclosing', label: 'Buyer closing costs on the land, capped', amount: 20000 },
       { key: 'soil', label: 'Full soil report (contract contingency)', amount: 20000 },
       { key: 'civil', label: 'Civil engineer', amount: 50000 },
       { key: 'grading', label: 'Grading firm: road, asphalt and drainage, one fee', amount: 305000 },
+      { key: 'gate', label: 'Front gate and entrance', amount: 75000 },
       { key: 'lcub', label: 'LCUB: bring out the transformers, one-time fee', amount: 90000 },
       { key: 'water', label: 'Water: bring out the meters', amount: 173000 },
       { key: 'internet', label: 'Internet', amount: 12000 }
@@ -516,7 +543,8 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
 
   // ---------- model ----------
   function splitReleases(n) { const base = Math.floor(n / 3), extra = n - base * 3; return [0, 1, 2].map(r => base + (r < extra ? 1 : 0)); }
-  function schedule(st) {
+  const caseFactor = (st, key) => 1 + CASES.find(c => c.key === key).sign * num(st.swingPct) / 100;
+  function schedule(st, f) {
     const M = Math.max(1, Math.round(num(st.months)) || 1);
     let next = 1; const byTier = {};
     TIERS.forEach(t => { const n = Math.max(0, Math.round(num(st.tiers[t.key].count))); byTier[t.key] = Array.from({ length: n }, () => next++); });
@@ -525,7 +553,7 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
       const m0 = Math.floor(r * M / 3), span = Math.max(1, Math.floor((r + 1) * M / 3) - m0);
       const queues = TIERS.map(t => {
         const counts = splitReleases(byTier[t.key].length), start = counts.slice(0, r).reduce((a, b) => a + b, 0);
-        return byTier[t.key].slice(start, start + counts[r]).map(no => ({ no, tier: t.key, release: r, price: num(st.tiers[t.key].prices[r]) }));
+        return byTier[t.key].slice(start, start + counts[r]).map(no => ({ no, tier: t.key, release: r, price: num(st.tiers[t.key].prices[r]) * f }));
       });
       const inRelease = [];
       for (let i = 0; queues.some(q => i < q.length); i++) queues.forEach(q => { if (i < q.length) inRelease.push(q[i]); });
@@ -533,22 +561,26 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     }
     return { M, lots: lots.sort((a, b) => a.month - b.month || a.no - b.no) };
   }
-  function compute(st) {
+  // Costs at each sale: the flat per-lot items plus seller closing costs as a share of that lot's price.
+  function compute(st, f) {
+    f = f === undefined ? 1 : f;
     const upfront = st.upfront.reduce((s, l) => s + num(l.amount), 0);
-    const perLot = st.perLot.reduce((s, l) => s + num(l.amount), 0);
-    const { M, lots } = schedule(st);
+    const perLot = st.perLot.reduce((s, l) => s + num(l.amount), 0), pct = num(st.sellerPct) / 100;
+    const saleCost = price => perLot + price * pct;
+    const { M, lots } = schedule(st, f);
+    lots.forEach(l => { l.cost = saleCost(l.price); });
     const months = Array.from({ length: M }, (_, i) => ({ m: i + 1, lots: [], revenue: 0, cost: 0 }));
-    lots.forEach(l => { const mo = months[l.month - 1]; mo.lots.push(l); mo.revenue += l.price; mo.cost += perLot; });
+    lots.forEach(l => { const mo = months[l.month - 1]; mo.lots.push(l); mo.revenue += l.price; mo.cost += l.cost; });
     let cum = -upfront, peak = upfront, payback = null;
     months.forEach(mo => { mo.net = mo.revenue - mo.cost; cum += mo.net; mo.cum = cum; peak = Math.max(peak, -cum); if (payback === null && cum >= 0) payback = mo.m; });
-    const revenue = lots.reduce((s, l) => s + l.price, 0), atSale = perLot * lots.length, cost = upfront + atSale;
-    const tiers = TIERS.map(t => { const ls = lots.filter(l => l.tier === t.key); const rev = ls.reduce((s, l) => s + l.price, 0); return { key: t.key, name: t.name, n: ls.length, revenue: rev, avg: ls.length ? rev / ls.length : 0 }; });
-    return { M, lots, months, upfront, perLot, atSale, revenue, cost, profit: revenue - cost, margin: cost ? (revenue - cost) / cost : null, multiple: upfront ? (revenue - atSale) / upfront : null, peak, payback, tiers };
+    const revenue = lots.reduce((s, l) => s + l.price, 0), sellerClosing = revenue * pct, atSale = perLot * lots.length + sellerClosing, cost = upfront + atSale;
+    const tiers = TIERS.map(t => { const ls = lots.filter(l => l.tier === t.key); const rev = ls.reduce((s, l) => s + l.price, 0); const avg = ls.length ? rev / ls.length : 0; return { key: t.key, name: t.name, n: ls.length, revenue: rev, avg, saleCost: saleCost(avg) }; });
+    return { M, lots, months, upfront, perLot, pct, sellerClosing, atSale, revenue, cost, profit: revenue - cost, margin: cost ? (revenue - cost) / cost : null, msales: revenue ? (revenue - cost) / revenue : null, multiple: upfront ? (revenue - atSale) / upfront : null, peak, payback, tiers, f };
   }
 
   // ---------- state ----------
-  const LS_KEY = 'cb-plan-v5', KEY_LS = 'cb-editor-key';
-  let S = clone(DEFAULTS);
+  const LS_KEY = 'cb-plan-v6', KEY_LS = 'cb-editor-key';
+  let S = clone(DEFAULTS), caseKey = 'plan';
   let live = null, liveLoaded = false, liveAt = null, localMine = false, knownLive = null, stash = null, liveNote = '', noteTimer = null;
   try {
     const saved = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
@@ -601,22 +633,28 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     tierRows();
     bindMonths();
   }
-  function bindMonths() { const mi = $('#months-in'); mi.value = S.months; }
+  function bindMonths() { $('#months-in').value = S.months; $('#seller-in').value = S.sellerPct; $('#swing-in').value = S.swingPct; }
 
   // ---------- results ----------
   let charts = {};
   function setK(k, v) { document.querySelectorAll(`[data-k="${k}"]`).forEach(e => { e.textContent = v; }); }
   function render() {
-    const r = compute(S);
+    const r = compute(S, caseFactor(S, caseKey));
     window.CB_LAST = r;
+    const pct = v => v === null ? 'n/a' : Math.round(v * 100) + '%';
     setK('revenue', fmtM(r.revenue)); setK('revenue-exact', fmt$(r.revenue));
     setK('cost', fmtM(r.cost)); setK('profit', fmtM(r.profit)); setK('profit-exact', fmt$(r.profit));
-    setK('margin', r.margin === null ? 'n/a' : Math.round(r.margin * 100) + '%');
-    setK('margin-text', r.margin === null ? '' : Math.round(r.margin * 100) + '% on cost');
+    setK('margin', pct(r.margin)); setK('msales', pct(r.msales));
+    setK('margin-text', r.margin === null ? '' : `${pct(r.margin)} on cost · ${pct(r.msales)} of sales`);
     setK('multiple', r.multiple === null ? 'n/a' : r.multiple.toFixed(1) + 'x');
     setK('peak', fmtM(r.peak)); setK('payback', r.payback ? 'Month ' + r.payback : 'not within the sales period');
     setK('upfront', fmt$(r.upfront)); setK('upfront-neg', fmt$(-r.upfront));
-    setK('perlot', fmt$(r.perLot)); setK('atsale', fmt$(r.atSale)); setK('atsale-neg', fmt$(-r.atSale));
+    setK('perlot-avg', fmt$(r.lots.length ? r.atSale / r.lots.length : 0)); setK('atsale', fmt$(r.atSale)); setK('atsale-neg', fmt$(-r.atSale));
+    const swing = num(S.swingPct);
+    setK('swing', String(swing));
+    setK('case-name', caseKey === 'plan' ? 'as planned' : `prices ${swing}% ${CASES.find(c => c.key === caseKey).name}`);
+    document.querySelectorAll('[data-case]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.case === caseKey)));
+    renderCases();
     setK('lots', String(r.lots.length)); setK('lots-text', r.lots.length + ' home sites');
     setK('months', String(r.M)); setK('months-text', WORDS[r.M] || String(r.M));
     r.tiers.forEach(t => { setK('n-' + t.key, String(t.n)); const c = document.querySelector(`[data-tier-rev="${t.key}"]`); if (c) c.textContent = fmt$(t.revenue); });
@@ -632,14 +670,35 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
 
     // Per lot by tier
     const share = r.lots.length ? r.upfront / r.lots.length : 0;
-    $('#unit').innerHTML = r.tiers.filter(t => t.n).map(t => `<tr><td><span class="chip t-${t.key}">${t.name}</span></td><td class="r num">${fmt$(t.avg)}</td><td class="r num">${fmt$(-r.perLot)}</td><td class="r num">${fmt$(-share)}</td><td class="r num"><b>${fmt$(t.avg - r.perLot - share)}</b></td></tr>`).join('') +
-      (r.lots.length ? `<tr class="total"><td>Every lot</td><td class="r num">${fmt$(r.revenue / r.lots.length)}</td><td class="r num">${fmt$(-r.perLot)}</td><td class="r num">${fmt$(-share)}</td><td class="r num">${fmt$(r.profit / r.lots.length)}</td></tr>` : '');
+    $('#unit').innerHTML = r.tiers.filter(t => t.n).map(t => `<tr><td><span class="chip t-${t.key}">${t.name}</span></td><td class="r num">${fmt$(t.avg)}</td><td class="r num">${fmt$(-t.saleCost)}</td><td class="r num">${fmt$(-share)}</td><td class="r num"><b>${fmt$(t.avg - t.saleCost - share)}</b></td></tr>`).join('') +
+      (r.lots.length ? `<tr class="total"><td>Every lot</td><td class="r num">${fmt$(r.revenue / r.lots.length)}</td><td class="r num">${fmt$(-r.atSale / r.lots.length)}</td><td class="r num">${fmt$(-share)}</td><td class="r num">${fmt$(r.profit / r.lots.length)}</td></tr>` : '');
 
     // Lot by lot
-    $('#lot-rows').innerHTML = r.lots.slice().sort((a, b) => a.no - b.no).map(l => `<tr><td>${l.no}</td><td><span class="chip t-${l.tier}">${tierName(l.tier)}</span></td><td>${RELEASES[l.release]}</td><td>Month ${l.month}</td><td class="r num">${fmt$(l.price)}</td><td class="r num">${fmt$(-r.perLot)}</td><td class="r num">${fmt$(l.price - r.perLot)}</td></tr>`).join('');
+    $('#lot-rows').innerHTML = r.lots.slice().sort((a, b) => a.no - b.no).map(l => `<tr><td>${l.no}</td><td><span class="chip t-${l.tier}">${tierName(l.tier)}</span></td><td>${RELEASES[l.release]}</td><td>Month ${l.month}</td><td class="r num">${fmt$(l.price)}</td><td class="r num">${fmt$(-l.cost)}</td><td class="r num">${fmt$(l.price - l.cost)}</td></tr>`).join('');
 
     drawCharts(r);
     drawPlan(r);
+  }
+
+  // The three price cases side by side; the column picked at the top is highlighted.
+  function renderCases() {
+    const swing = num(S.swingPct);
+    const cols = CASES.map(c => ({ c, r: compute(S, caseFactor(S, c.key)), title: c.key === 'plan' ? 'As planned' : `Prices ${swing}% ${c.name}` }));
+    const on = c => c.key === caseKey ? ' on' : '';
+    const pct = v => v === null ? 'n/a' : Math.round(v * 100) + '%';
+    $('#cmp-head').innerHTML = '<th></th>' + cols.map(x => `<th class="r${on(x.c)}">${x.title}</th>`).join('');
+    const row = (label, fn, cls) => `<tr${cls ? ` class="${cls}"` : ''}><td>${label}</td>` + cols.map(x => `<td class="r num${on(x.c)}">${fn(x.r)}</td>`).join('') + '</tr>';
+    $('#cmp-body').innerHTML = [
+      row('Average lot price', r => fmt$(r.lots.length ? r.revenue / r.lots.length : 0)),
+      row('Total sales', r => fmt$(r.revenue)),
+      row('Up-front costs', r => fmt$(-r.upfront)),
+      row('Costs at sale', r => fmt$(-r.atSale)),
+      row('Profit', r => `<b>${fmt$(r.profit)}</b>`, 'total'),
+      row('Profit on cost', r => pct(r.margin)),
+      row('Profit as a share of sales', r => pct(r.msales)),
+      row('Cash back by', r => r.payback ? 'Month ' + r.payback : 'not within the sales period'),
+      row('Cash back for each dollar out', r => r.multiple === null ? 'n/a' : r.multiple.toFixed(1) + 'x')
+    ].join('');
   }
 
   function baseOpts() {
@@ -672,11 +731,11 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
         { type: 'line', label: 'Running total', data: cum, borderColor: css('--copper'), backgroundColor: css('--copper'), borderWidth: 2.5, pointRadius: 3, tension: .2 }
       ]
     }, o);
-    const uses = [...S.upfront.map(l => ({ label: l.label, v: num(l.amount) })), ...S.perLot.map(l => ({ label: l.label + ' (all lots)', v: num(l.amount) * r.lots.length }))].filter(u => u.v).sort((a, b) => b.v - a.v);
+    const uses = [...S.upfront.map(l => ({ label: l.label, v: num(l.amount) })), ...S.perLot.map(l => ({ label: l.label + ' (all lots)', v: num(l.amount) * r.lots.length })), { label: 'Seller closing costs (all lots)', v: r.sellerClosing }].filter(u => u.v).sort((a, b) => b.v - a.v);
     const u = baseOpts(); u.indexAxis = 'y'; u.plugins.legend = { display: false };
     u.scales = { x: { grid: { color: css('--chart-grid') }, border: { display: false }, ticks: { color: css('--ink-2'), callback: v => fmtM(v) } }, y: { grid: { display: false }, ticks: { color: css('--ink-2'), font: { size: 11.5 }, callback: function (v) { const s = this.getLabelForValue(v); return s.length > 34 ? s.slice(0, 33) + '…' : s; } } } };
     u.plugins.tooltip = { callbacks: { label: c => fmt$(c.raw) } };
-    upsert('uses', 'chart-uses', 'bar', { labels: uses.map(x => x.label), datasets: [{ data: uses.map(x => x.v), backgroundColor: uses.map(x => /septic|electric/i.test(x.label) ? css('--copper-2') : css('--river-2')), borderRadius: 3, maxBarThickness: 18 }] }, u);
+    upsert('uses', 'chart-uses', 'bar', { labels: uses.map(x => x.label), datasets: [{ data: uses.map(x => x.v), backgroundColor: uses.map(x => /all lots/i.test(x.label) ? css('--copper-2') : css('--river-2')), borderRadius: 3, maxBarThickness: 18 }] }, u);
   }
   function drawPlan(r) {
     const counts = {}; r.tiers.forEach(t => { counts[t.key] = t.n; });
@@ -690,6 +749,8 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     { name: 'Melton Hill Park, public boat ramp', at: [35.9488624, -84.2346664], side: 'right' },
     { name: 'Hardin Valley Elementary', at: [35.9335399, -84.185751], side: 'left' }
   ];
+  // The existing gravel drive, directly across Williams Bend Rd from 2735 (per the MLS listing); where the gate goes.
+  const ENTRANCE = [35.94041, -84.21496];
   function areaMap() {
     if (!window.L || !$('#area-map')) return;
     const map = L.map('area-map', { scrollWheelZoom: false });
@@ -705,6 +766,8 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
         .bindTooltip(p.name, { permanent: true, direction: p.side, offset: [p.side === 'left' ? -8 : 8, 0], className: 'map-label' });
       area.extend(p.at);
     });
+    L.circleMarker(ENTRANCE, { radius: 7, color: '#ffffff', weight: 2, fillColor: '#9a5530', fillOpacity: 1 }).addTo(map)
+      .bindTooltip('Entrance: existing gravel drive', { permanent: true, direction: 'left', offset: [-8, 0], className: 'map-label' });
     const views = { area: () => map.fitBounds(area, { padding: [40, 40] }), tract: () => map.fitBounds(tract.getBounds(), { padding: [30, 30] }) };
     views.area();
     document.querySelectorAll('.map-btns [data-view]').forEach(b => b.addEventListener('click', () => {
@@ -799,6 +862,10 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     });
     $('#key-forget').addEventListener('click', () => { try { localStorage.removeItem(KEY_LS); } catch (e) { } $('#key-box').hidden = true; flash('Editor key removed from this browser.'); });
     $('#months-in').addEventListener('input', e => { const v = Math.round(num(e.target.value)); if (v >= 1 && v <= 60) { S.months = v; changed(); } });
+    $('#seller-in').addEventListener('input', e => { const v = num(e.target.value); if (v >= 0 && v <= 20) { S.sellerPct = v; changed(); } });
+    $('#swing-in').addEventListener('input', e => { const v = num(e.target.value); if (v >= 1 && v <= 90) { S.swingPct = v; changed(); } });
+    // The price case is a view: it changes what the page shows, not the saved plan.
+    document.querySelectorAll('[data-case]').forEach(b => b.addEventListener('click', () => { caseKey = b.dataset.case; render(); }));
   }
 
   function theme() {
