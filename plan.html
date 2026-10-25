@@ -212,6 +212,8 @@ table.costs td.lbl small { display: block; color: var(--ink-3); font-size: 12px;
 .livebar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: -6px 0 18px; }
 .live-msg { font-size: 13.5px; color: var(--ink-3); margin-right: auto; padding-left: 6px; }
 .ghost.save { border-color: var(--copper); color: var(--copper); font-weight: 600; }
+.sheet-src { font-size: 13.5px; color: var(--ink-2); border-left: 3px solid var(--copper); padding: 4px 0 4px 10px; margin: 0 0 10px; }
+.c-fx input.fx:disabled, .c-lbl select:disabled { background: transparent; border-color: transparent; color: var(--ink); opacity: 1; appearance: none; }
 .ghost:disabled { opacity: .55; cursor: default; }
 .load-box input { width: 100%; max-width: 32rem; font: 13px var(--f-data); border: 1px solid var(--line-2); border-radius: 8px; padding: 8px; background: var(--paper); color: var(--ink); }
 
@@ -1110,6 +1112,69 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
     updateLiveBar();
   };
 
+  // ---------- costs from the site cost sheet ----------
+  // Site work and engineering lines come from the separate cost sheet the subs see. Base and Upside use the
+  // sheet as entered; Conservative keeps its original premium over Base on every line.
+  const SHEET_REPO = 'rivers-code/cb-sitework', SHEET_LS = 'cb-sitework-v1', SHEET_PAGE = 'https://rivers-code.github.io/cb-sitework/';
+  const D0 = E.clone(D);
+  let sheet = null, sheetLive = null; // sheet: { lines: {lots, hard, soft}, at, local }
+  const costSum = st => {
+    const lots = st.tiers.reduce((s, t) => s + Math.max(0, Math.round(Number(t.count) || 0)), 0);
+    return st.hard.concat(st.soft).filter(l => !l.removed && l.mode !== 'pctHard').reduce((s, l) => s + E.lineCost(l, lots, 0), 0);
+  };
+  const FACTOR = {};
+  Object.keys(D0.scenarios).forEach(k => { FACTOR[k] = costSum(D0.scenarios[k]) / costSum(D0.scenarios.base); });
+
+  function sheetLines(kind, f) {
+    return sheet.lines[kind].map(l => {
+      const x = E.clone(l);
+      x.bench = x.note || ''; delete x.note;
+      if (f !== 1 && x.mode !== 'pctHard') ['total', 'perLot', 'unitCost'].forEach(k => { if (x[k] !== undefined && x[k] !== null) x[k] = Number(x[k]) * f; });
+      return x;
+    });
+  }
+  function withSheet(st, key) {
+    if (!sheet || !st) return st;
+    const f = FACTOR[key] || 1;
+    st.hard = sheetLines('hard', f); st.soft = sheetLines('soft', f);
+    return st;
+  }
+  function overlayAll() {
+    Object.keys(D.scenarios).forEach(k => withSheet(D.scenarios[k], k));
+    withSheet(S, active);
+    if (live) withSheet(live.state, live.active);
+    if (knownLive) withSheet(knownLive.state, knownLive.active);
+  }
+  // This browser's sheet wins when it is based on the newest saved copy; otherwise the saved copy.
+  function pickSheet() {
+    let loc = null;
+    try { loc = JSON.parse(localStorage.getItem(SHEET_LS) || 'null'); } catch (e) { }
+    if (loc && loc.state && loc.state.hard && (!sheetLive || (loc.liveAt && loc.liveAt >= sheetLive.savedAt)))
+      return { lines: loc.state, at: loc.mine ? loc.updatedAt : (loc.liveAt || loc.updatedAt), local: !!loc.mine };
+    if (sheetLive) return { lines: sheetLive.state, at: sheetLive.savedAt, local: false };
+    return null;
+  }
+  function useSheet() {
+    const next = pickSheet();
+    if (!next) return false;
+    const same = sheet && JSON.stringify(sheet.lines) === JSON.stringify(next.lines) && sheet.local === next.local && sheet.at === next.at;
+    sheet = next;
+    if (same) return false;
+    overlayAll(); return true;
+  }
+  async function fetchSheet() {
+    const key = editorKey();
+    const url = () => `https://api.github.com/repos/${SHEET_REPO}/contents/costs.json?ref=data&t=${Date.now()}`;
+    try {
+      let r = await fetch(url(), { headers: headers(key), cache: 'no-store' });
+      if (r.status === 401 && key) r = await fetch(url(), { headers: headers(''), cache: 'no-store' });
+      if (r.ok) { const j = await r.json(); return JSON.parse(unb64(j.content)); }
+      if (r.status === 404) return null;
+      const raw = await fetch(`https://raw.githubusercontent.com/${SHEET_REPO}/data/costs.json?t=${Date.now()}`, { cache: 'no-store' });
+      return raw.ok ? await raw.json() : null;
+    } catch (e) { return null; }
+  }
+
   const getPath = (o, p) => p.split('.').reduce((a, k) => (a == null ? a : a[k]), o);
   const setPath = (o, p, v) => { const ks = p.split('.'); const last = ks.pop(); const t = ks.reduce((a, k) => a[k], o); t[last] = v; };
 
@@ -1185,7 +1250,8 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
     const sub = kind === 'hard'
       ? 'Pick how each line is priced: a total, per lot, per foot or acre, or a shared main plus a per-lot hookup. The range under each line is the East Tennessee 2026 benchmark from the cost research.'
       : 'Civil engineering, surveys and soil maps only. Greenbelt rollback tax, about $11,700, is calculated automatically from the county appraisal.';
-    g.innerHTML = `<h3>${title}</h3><p class="muted small">${sub}</p><div class="crows" role="table" aria-label="${title}"></div><div class="crow total"><div class="c-lbl"><b>Subtotal before contingency</b></div><div></div><div class="c-total num" id="sub-${kind}"></div></div>`;
+    const src = sheet ? `<p class="sheet-src">Set on the <a href="${SHEET_PAGE}" target="_blank" rel="noopener">site cost sheet</a>${sheet.local ? ', with changes in this browser not yet saved for everyone' : ''}${sheet.at ? `, last changed ${when(sheet.at)}` : ''}. Change them there.</p>` : '';
+    g.innerHTML = `<h3>${title}</h3><p class="muted small">${sub}</p>${src}<div class="crows" role="table" aria-label="${title}"></div><div class="crow total"><div class="c-lbl"><b>Subtotal before contingency</b></div><div></div><div class="c-total num" id="sub-${kind}"></div></div>`;
     const host = g.querySelector('.crows');
     lines.forEach((l, i) => host.appendChild(costRow(kind, l, i)));
     return g;
@@ -1218,6 +1284,7 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
       bindNumber(inp, () => (f === 'lots' && (l.lots === undefined || l.lots === 'all')) ? null : l[f],
         v => { if (f === 'lots') l.lots = v; else l[f] = v === null ? 0 : v; }, MONEY_KEYS.has(f));
     });
+    if (sheet) row.querySelectorAll('input, select').forEach(x => { x.disabled = true; });
     return row;
   }
 
@@ -1286,7 +1353,7 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
       try {
         const st = JSON.parse(decodeURIComponent(escape(atob($('#scn-load').value.trim()))));
         if (!st.tiers || !st.hard) throw new Error('bad');
-        S = st; edited = true; buildInputs(); recompute(); persist();
+        S = st; edited = true; withSheet(S, active); buildInputs(); recompute(); persist();
         $('#scn-load-msg').textContent = 'Scenario loaded.';
       } catch (e) { $('#scn-load-msg').textContent = 'That code could not be read. Copy it again from the page that made it.'; }
     });
@@ -1335,6 +1402,7 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
     // A copy older than one this browser already saw is a stale cache; keep the newer one.
     live = knownLive && knownLive.state && (!fetched || knownLive.savedAt > fetched.savedAt) ? knownLive : fetched;
     if (!live) { updateLiveBar(); return; }
+    withSheet(live.state, live.active);
     const same = JSON.stringify(S) === JSON.stringify(live.state);
     if (!same && !(localMine && liveAt === live.savedAt)) {
       // Newer numbers were saved for everyone since this browser last looked: show them, keep this browser's edits one click away.
@@ -1397,10 +1465,10 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
       <button type="button" class="ghost save" id="live-save">Save for everyone</button>
       <div class="load-box" id="key-box" hidden><label for="key-in" class="small">Editor key</label><input id="key-in" type="password" autocomplete="off" spellcheck="false">
         <div class="row"><button type="button" class="ghost" id="key-go">Save key and publish</button><button type="button" class="ghost" id="key-forget">Forget key</button></div>
-        <p class="small muted">Only the editor can save for everyone. The key stays in this browser. <a href="${KEY_URL}" target="_blank" rel="noopener">Make a key on GitHub</a>, choose Only select repositories, pick clinch-bluff, and paste it here.</p></div>`;
+        <p class="small muted">Only the editor can save for everyone. The key stays in this browser. <a href="${KEY_URL}" target="_blank" rel="noopener">Make a key on GitHub</a>, choose Only select repositories, pick clinch-bluff and cb-sitework, and paste it here.</p></div>`;
     $('#live-save').addEventListener('click', saveLive);
     $('#live-discard').addEventListener('click', () => { stash = null; applyLive(); });
-    $('#live-restore').addEventListener('click', () => { S = stash.state; active = stash.active; edited = stash.edited; stash = null; buildInputs(); recompute(); persist(); });
+    $('#live-restore').addEventListener('click', () => { S = stash.state; active = stash.active; edited = stash.edited; stash = null; withSheet(S, active); buildInputs(); recompute(); persist(); });
     $('#key-go').addEventListener('click', () => {
       const k = $('#key-in').value.trim(); if (!k) return;
       try { localStorage.setItem(KEY_LS, k); } catch (e) { }
@@ -1688,7 +1756,15 @@ table.compare td.cur, table.compare th.cur { background: color-mix(in srgb, var(
 
   // ---------- boot ----------
   function boot() {
-    scenarioBar(); liveBar(); buildInputs(); themeToggle(); recompute(); loadLive();
+    useSheet(); // this browser's copy of the cost sheet, if any, before the first draw
+    scenarioBar(); liveBar(); buildInputs(); themeToggle(); recompute();
+    (async () => {
+      sheetLive = await fetchSheet();
+      if (useSheet()) { buildInputs(); recompute(); }
+      await loadLive();
+    })();
+    // The cost sheet open in another tab of this browser updates the plan as you type.
+    window.addEventListener('storage', e => { if (e.key === SHEET_LS && useSheet()) { buildInputs(); recompute(); persist(); } });
     $('#reset-btn') && $('#reset-btn').addEventListener('click', () => setScenario(active));
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
