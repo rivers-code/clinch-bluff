@@ -1,201 +1,82 @@
 {
- "v": "v4",
+ "v": 5,
  "state": {
-  "label": "Base",
-  "note": "Your contractor pricing; Riverfront $1.1M, Lake View $800K, Regular $625K",
-  "site": {
-   "acres": 44.45,
-   "frontageFt": 1200
-  },
-  "land": {
-   "price": 2000000,
-   "closingPct": 0,
-   "rollback": {
-    "mode": "auto",
-    "appraisal": 1105300,
-    "ratePer100": 1.554,
-    "greenbeltTax": 377.62,
-    "years": 3
-   }
-  },
-  "tiers": [
-   {
-    "key": "river",
-    "name": "Riverfront",
+  "months": 12,
+  "tiers": {
+   "river": {
     "count": 6,
-    "price": 1100000,
-    "acres": 2.5,
-    "delay": 0
+    "prices": [
+     1100000,
+     1200000,
+     1350000
+    ]
    },
-   {
-    "key": "view",
-    "name": "Lake View",
+   "view": {
     "count": 7,
-    "price": 800000,
-    "acres": 2,
-    "delay": 0
+    "prices": [
+     800000,
+     850000,
+     900000
+    ]
    },
-   {
-    "key": "regular",
-    "name": "Regular",
+   "regular": {
     "count": 7,
-    "price": 625000,
-    "acres": 2,
-    "delay": 0
+    "prices": [
+     625000,
+     650000,
+     675000
+    ]
    }
-  ],
-  "sales": {
-   "startOffset": 0,
-   "pace": {
-    "river": 0.75,
-    "view": 0.75,
-    "regular": 0.75
-   },
-   "presalePct": 20,
-   "escalationPct": 3,
-   "commissionPct": 6,
-   "closingPct": 1.25
   },
-  "timeline": {
-   "entitleMonths": 9,
-   "constructMonths": 9
-  },
-  "hard": [
+  "upfront": [
    {
-    "key": "road",
-    "label": "Private road and drainage",
-    "mode": "perUnit",
-    "qty": 1700,
-    "unit": "LF",
-    "unitCost": 150,
-    "bench": "Your contractor pricing: $150 per LF on a 1,700 LF spine road from the gate to the bluff, about $255K. Research range was $147 to $448 per LF."
+    "key": "land",
+    "label": "Land purchase, 44.45 acres",
+    "amount": 2000000
    },
    {
-    "key": "clearing",
-    "label": "Clearing",
-    "mode": "perUnit",
-    "qty": 8.5,
-    "unit": "ac",
-    "unitCost": 2000,
-    "bench": "Done by your grader along with the rough grading. Research range was $4,000 to $9,000 per acre."
+    "key": "soil",
+    "label": "Full soil report (contract contingency)",
+    "amount": 20000
+   },
+   {
+    "key": "civil",
+    "label": "Civil engineer",
+    "amount": 50000
    },
    {
     "key": "grading",
-    "label": "Rough grading",
-    "mode": "perUnit",
-    "qty": 44.45,
-    "unit": "ac",
-    "unitCost": 500,
-    "bench": "Your grader’s price: $500 per acre across the whole site."
+    "label": "Grading firm: road, asphalt and drainage, one fee",
+    "amount": 305000
    },
    {
-    "key": "erosion",
-    "label": "Erosion control and stormwater",
-    "mode": "total",
-    "total": 10000,
-    "bench": "Your grader installs and maintains it; this covers silt fence and materials."
+    "key": "lcub",
+    "label": "LCUB: bring out the transformers, one-time fee",
+    "amount": 90000
    },
    {
     "key": "water",
-    "label": "Water main and services (plumbing)",
-    "mode": "unitCombo",
-    "qty": 1700,
-    "unit": "LF",
-    "unitCost": 70,
-    "perLot": 1200,
-    "lots": null,
-    "bench": "West Knox Utility District. Low end of the $70 to $150 per LF range with your subs, plus $1,200 per service."
+    "label": "Water: bring out the meters",
+    "amount": 173000
    },
    {
-    "key": "hydrants",
-    "label": "Fire hydrants",
-    "mode": "perUnit",
-    "qty": 4,
-    "unit": "each",
-    "unitCost": 7500,
-    "bench": "Four hydrants along the 1,700 LF road."
+    "key": "internet",
+    "label": "Internet",
+    "amount": 12000
+   }
+  ],
+  "perLot": [
+   {
+    "key": "septic",
+    "label": "Septic, up to a four-bedroom system",
+    "amount": 20000
    },
    {
     "key": "electric",
-    "label": "Underground electric",
-    "mode": "combo",
-    "total": 8000,
-    "perLot": 7000,
-    "lots": null,
-    "bench": "Lenoir City Utilities Board, most likely. Low end of the $7K to $17K per lot range, with your crews trenching and setting conduit."
-   },
-   {
-    "key": "telecom",
-    "label": "Fiber and telecom conduit",
-    "mode": "perUnit",
-    "qty": 1700,
-    "unit": "LF",
-    "unitCost": 7,
-    "bench": "Your price: $7 per LF."
-   },
-   {
-    "key": "septic",
-    "label": "Septic systems, installed per lot",
-    "mode": "perLot",
-    "perLot": 20000,
-    "lots": null,
-    "timing": "sale",
-    "bench": "Your price: about $20,000 per lot. Installed as each lot sells, so it is paid from sale proceeds."
-   },
-   {
-    "key": "sewer",
-    "label": "Community sewer (alternative)",
-    "mode": "perLot",
-    "perLot": 42000,
-    "lots": 0,
-    "bench": "Not used. A TPUC-regulated drip system runs $30K to $60K per lot. Set lots served above 0 to use it."
-   },
-   {
-    "key": "gate",
-    "label": "Front entrance and gate",
-    "mode": "total",
-    "total": 75000,
-    "bench": "Your price for the whole front entrance through your contacts. No landscaping."
+    "label": "Electric, transformer to the house",
+    "amount": 10000
    }
-  ],
-  "soft": [
-   {
-    "key": "civil",
-    "label": "Civil engineering",
-    "mode": "total",
-    "total": 50000,
-    "timing": "entitle",
-    "bench": "Your budget: about $50,000."
-   },
-   {
-    "key": "survey",
-    "label": "Surveys and soil maps",
-    "mode": "total",
-    "total": 20000,
-    "timing": "entitle",
-    "bench": "Your budget: about $20,000 for surveys, site plans and the soil maps."
-   }
-  ],
-  "contingency": {
-   "hardPct": 10,
-   "softPct": 5,
-   "costEscalationPct": 3.5
-  },
-  "carry": {
-   "propertyTaxYr": 4300,
-   "lotTaxYr": 2700,
-   "insuranceYr": 8000,
-   "hoaBudgetYr": 42000
-  },
-  "finance": {
-   "useLoan": true,
-   "ltcPct": 65,
-   "ratePct": 8,
-   "originationPct": 1,
-   "releasePct": 120
-  }
+  ]
  },
- "active": "base",
- "edited": false,
- "savedAt": "2026-10-24T20:31:52.731Z"
+ "savedAt": "2026-10-25T19:28:44.311Z"
 }
