@@ -100,6 +100,8 @@ section.band.alt { background: var(--paper); }
 
 #area-map { height: 480px; border-radius: 8px; z-index: 0; }
 .leaflet-container { font-family: var(--f-body); }
+.map-btns { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.map-btns .ghost[aria-pressed="true"] { border-color: var(--copper); color: var(--copper); font-weight: 600; }
 .map-label { background: var(--paper); color: var(--ink); border: 1px solid var(--line-2); border-radius: 6px; padding: 3px 8px; font-size: 12.5px; font-weight: 600; box-shadow: var(--shadow); white-space: nowrap; }
 
 .tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--paper); }
@@ -204,7 +206,7 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     <p class="eyebrow">Where it is</p>
     <h2>On the Clinch River arm of Melton Hill Lake</h2>
     <p class="lede">The tract runs along the river side of Williams Bend Rd, in Hardin Valley, about twenty minutes from West Knoxville.</p>
-    <div class="fig"><div id="area-map" role="img" aria-label="Map of the Clinch Bluff tract on Williams Bend Rd, with Melton Hill Park and Hardin Valley Elementary"></div>
+    <div class="fig"><div class="map-btns"><button type="button" class="ghost" data-view="area" aria-pressed="true">The area</button><button type="button" class="ghost" data-view="tract" aria-pressed="false">Close up on the tract</button></div><div id="area-map" role="img" aria-label="Map of the Clinch Bluff tract on Williams Bend Rd, with Melton Hill Park and Hardin Valley Elementary"></div>
       <p class="cap">Tract outline from Knox County GIS (KGIS), tax map 102, parcel 011.03. Switch between map and satellite at top right.</p></div>
     <div class="grid2" style="margin-top:22px">
       <div class="points">
@@ -685,8 +687,8 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
   // Tract outline from Knox County GIS (KGIS), parcel 102 011.03; landmarks from OpenStreetMap.
   const TRACT = [[35.944866,-84.214866],[35.944148,-84.214363],[35.943549,-84.213819],[35.94242,-84.212935],[35.941214,-84.212046],[35.940432,-84.213539],[35.94039,-84.213648],[35.940095,-84.214428],[35.939988,-84.214342],[35.93981,-84.214508],[35.93968,-84.214716],[35.939734,-84.214728],[35.940056,-84.214825],[35.940177,-84.214865],[35.940297,-84.214909],[35.940415,-84.214956],[35.940511,-84.215011],[35.940604,-84.215073],[35.940693,-84.21514],[35.940777,-84.215213],[35.940856,-84.21529],[35.941275,-84.215754],[35.941329,-84.215831],[35.94138,-84.215911],[35.941426,-84.215994],[35.941468,-84.216078],[35.941516,-84.216024],[35.942137,-84.216701],[35.942364,-84.216935],[35.943546,-84.218151],[35.944543,-84.219177],[35.944541,-84.219116],[35.944817,-84.217007],[35.945562,-84.215357],[35.94513,-84.215043],[35.944866,-84.214866]];
   const PLACES = [
-    { name: 'Melton Hill Park, public boat ramp', at: [35.9488624, -84.2346664] },
-    { name: 'Hardin Valley Elementary', at: [35.9335399, -84.185751] }
+    { name: 'Melton Hill Park, public boat ramp', at: [35.9488624, -84.2346664], side: 'right' },
+    { name: 'Hardin Valley Elementary', at: [35.9335399, -84.185751], side: 'left' }
   ];
   function areaMap() {
     if (!window.L || !$('#area-map')) return;
@@ -696,10 +698,19 @@ footer { padding-block: 28px 40px; font-size: 13px; color: var(--ink-3); border-
     sat.addTo(map);
     L.control.layers({ 'Satellite': sat, 'Map': street }, null, { position: 'topright' }).addTo(map);
     const tract = L.polygon(TRACT, { color: '#e09a68', weight: 3, fillColor: '#e09a68', fillOpacity: .18 }).addTo(map);
-    tract.bindTooltip('Clinch Bluff · 44.45 acres', { permanent: true, direction: 'center', className: 'map-label' });
-    const pts = [tract.getBounds()];
-    PLACES.forEach(p => { L.circleMarker(p.at, { radius: 7, color: '#ffffff', weight: 2, fillColor: '#1d5c58', fillOpacity: 1 }).addTo(map).bindTooltip(p.name, { permanent: true, direction: 'right', offset: [8, 0], className: 'map-label' }); pts.push(L.latLngBounds([p.at, p.at])); });
-    map.fitBounds(pts.reduce((b, x) => b.extend(x), L.latLngBounds(TRACT)), { padding: [40, 40] });
+    tract.bindTooltip('Clinch Bluff · 44.45 acres', { permanent: true, direction: 'bottom', offset: [0, 18], className: 'map-label' });
+    const area = L.latLngBounds(TRACT);
+    PLACES.forEach(p => {
+      L.circleMarker(p.at, { radius: 7, color: '#ffffff', weight: 2, fillColor: '#1d5c58', fillOpacity: 1 }).addTo(map)
+        .bindTooltip(p.name, { permanent: true, direction: p.side, offset: [p.side === 'left' ? -8 : 8, 0], className: 'map-label' });
+      area.extend(p.at);
+    });
+    const views = { area: () => map.fitBounds(area, { padding: [40, 40] }), tract: () => map.fitBounds(tract.getBounds(), { padding: [30, 30] }) };
+    views.area();
+    document.querySelectorAll('.map-btns [data-view]').forEach(b => b.addEventListener('click', () => {
+      views[b.dataset.view]();
+      document.querySelectorAll('.map-btns [data-view]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    }));
   }
 
   // ---------- saved for everyone ----------
