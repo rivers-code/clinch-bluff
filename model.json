@@ -1,7 +1,9 @@
 {
- "v": 5,
+ "v": 6,
  "state": {
   "months": 12,
+  "sellerPct": 1.25,
+  "swingPct": 25,
   "tiers": {
    "river": {
     "count": 6,
@@ -35,6 +37,11 @@
     "amount": 2000000
    },
    {
+    "key": "buyerclosing",
+    "label": "Buyer closing costs on the land, capped",
+    "amount": 20000
+   },
+   {
     "key": "soil",
     "label": "Full soil report (contract contingency)",
     "amount": 20000
@@ -48,6 +55,11 @@
     "key": "grading",
     "label": "Grading firm: road, asphalt and drainage, one fee",
     "amount": 305000
+   },
+   {
+    "key": "gate",
+    "label": "Front gate and entrance",
+    "amount": 75000
    },
    {
     "key": "lcub",
@@ -78,5 +90,5 @@
    }
   ]
  },
- "savedAt": "2026-10-25T19:28:44.311Z"
+ "savedAt": "2026-10-25T20:04:29.581Z"
 }
